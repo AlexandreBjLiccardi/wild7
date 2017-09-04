@@ -1,0 +1,85 @@
+<WildObject ident = "real.WildAdesService" author = "alexandre.liccardi@onema.fr" inherits = "WildSoapService">
+Webservice spécifique aux Agences de l&apos;Eau
+<Dependency value = "java.util.Date" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Dependency value = "java.util.Map" description = "" />
+<Dependency value = "org.w3c.dom.Node" description = "" />
+<Field ident = "testMode" type = "String" description = "Type de test soit complete soit partial" />
+<Field ident = "allAtOnce" type = "Boolean" description = "Toutes les stations sont requêtées dans une même requête" />
+<Field ident = "scenarioVersion" type = "String" description = "Version SANDRE du scenario" />
+<Field ident = "scenarioInfos" type = "Map&lt;String,Map&lt;String,Object&gt;&gt;" description = "Répertoire des versions des codes et des URL SANDRE pour détermination automatique" />
+<Field ident = "xsd_control" type = "String" description = "Chemain vers éventuel XSD de contrôle" />
+<Field ident = "list_CdSite" type = "List&lt;String&gt;" description = "Liste des sites à requêter établie dynamiquement" />
+<Field ident = "DateDebutDonnees" type = "Date" description = "Date de début des données pour récupération des analyses" />
+<Field ident = "DateFinDonnees" type = "Date" description = "Date de fin des données pour récupération des analyses" />
+<Field ident = "n_codesSite" type = "Integer" description = "Taille de l&apos;échantillon de sites" />
+<Field ident = "outputFiles" type = "Map&lt;String,String&gt;" description = "Chemin des fichiers de sortie de l&apos;ensemble des dernières opérations opGet*" />
+<Invokation>
+<Parameter ident = "parametersNode" type = "Node" description = "Paramètres sous forme de nœud XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<WildMethod ident = "selectScenario" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Sélection automatique du scénario SANDRE">
+<Step ident = "1" weight = "10" description = "Construction de l&apos;ordre SOAP"/>
+<Step ident = "2" weight = "10" description = "Test des différentes valeurs de version"/>
+<Step ident = "3" weight = "10" description = "Interprétation du résultat"/>
+<Return><Parameter ident = "selectScenario_ret" type = "String[]" description = "Code de scénario et version (String[])"/></Return>
+</WildMethod>
+<WildMethod ident = "opGetSitesSubset" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération d&apos;un échantillon de n_codesSite sites">
+<Step ident = "1" weight = "10" description = "Construction de l&apos;ordre SOAP"/>
+<Step ident = "2" weight = "10" description = "Appel et capture du flux"/>
+<Step ident = "3" weight = "10" description = "Vérification du résultat"/>
+<Step ident = "4" weight = "10" description = "Sélection dans le résultat"/>
+<Step ident = "5" weight = "10" description = "Construction du fichier final"/>
+<Return><Parameter ident = "opGetSitesSubset_ret" type = "String" description = "Adresse du fichier d&apos;export (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "opGetSiteDescription" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Appel au service de description des sites">
+<Step ident = "1" weight = "10" description = "Construction de l&apos;ordre SOAP"/>
+<Step ident = "2" weight = "10" description = "Appel et capture du flux"/>
+<Step ident = "3" weight = "10" description = "Vérification du résultat"/>
+<Step ident = "4" weight = "10" description = "Sélection dans le résultat"/>
+<Step ident = "5" weight = "10" description = "Construction du fichier final"/>
+<Return><Parameter ident = "opGetSiteDescription_ret" type = "String" description = "Adresse du fichier d&apos;export (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "opGetDataAvailabilty" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Appel au service de disponibilité des données">
+<Step ident = "1" weight = "10" description = "Construction de l&apos;ordre SOAP"/>
+<Step ident = "2" weight = "10" description = "Appel et capture du flux"/>
+<Step ident = "3" weight = "10" description = "Vérification du résultat"/>
+<Step ident = "4" weight = "10" description = "Sélection dans le résultat"/>
+<Step ident = "5" weight = "10" description = "Construction du fichier final"/>
+<Return><Parameter ident = "opGetDataAvailabilty_ret" type = "String" description = "Adresse du fichier d&apos;export (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "opGetData" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Appel au service de récupération des données">
+<Step ident = "1" weight = "10" description = "Construction de l&apos;ordre SOAP"/>
+<Step ident = "2" weight = "10" description = "Appel et capture du flux"/>
+<Step ident = "3" weight = "10" description = "Vérification du résultat"/>
+<Step ident = "4" weight = "10" description = "Sélection dans le résultat"/>
+<Step ident = "5" weight = "10" description = "Construction du fichier final"/>
+<Return><Parameter ident = "opGetData_ret" type = "String" description = "Adresse du fichier d&apos;export (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "jAdesChainsaw" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Orchestration des méthodes opGet*">
+<Step ident = "1" weight = "10" description = "Lecture et préparation des paramètres"/>
+<Step ident = "2" weight = "10" description = "getSites()"/>
+<Step ident = "3" weight = "10" description = "getSiteDescription()"/>
+<Step ident = "4" weight = "10" description = "getDataAvailability()"/>
+<Step ident = "5" weight = "10" description = "getData()"/>
+<Step ident = "6" weight = "10" description = "Interprétation des résultats et construction des statistiques"/>
+</WildMethod>
+<WildMethod ident = "jAdesParserSandre" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Exécution du parseur SANDRE">
+<Exception ident = "" criticity = "ERROR"></Exception>
+<Step ident = "1" weight = "10" description = "Construction de l&apos;ordre REST"/>
+<Step ident = "2" weight = "10" description = "Récupération du token"/>
+<Step ident = "3" weight = "10" description = "Boucle pour récupération du résultat de validation"/>
+<Step ident = "4" weight = "10" description = "Récupération du résultat de validation"/>
+<Step ident = "5" weight = "10" description = "Interprétation des résultats et construction des statistiques"/>
+<Return><Parameter ident = "jAdesParserSandre_ret" type = "Boolean" description = "Succès de validation(Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "jAdesGetStats" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération des statistiques d&apos;exécution de l&apos;ensemble des services">
+<Step ident = "1" weight = "10" description = "Transmission des variables"/>
+<Return><Parameter ident = "jAdesGetStats_ret" type = "Map&lt;String, Object&gt;" description = "Tabelau des statistiques combinées (Map&lt;String, Object&gt;)"/></Return>
+</WildMethod>
+</WildObject>

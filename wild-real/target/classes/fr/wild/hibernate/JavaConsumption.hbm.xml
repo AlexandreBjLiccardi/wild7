@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.JavaConsumption" table="java_consumption">
+        <composite-id name="id" class="fr.wild.hibernate.JavaConsumptionId">
+            <key-property name="dateInfo" type="timestamp">
+                <column name="date_info" length="35" />
+            </key-property>
+            <key-property name="idJavaservice" type="string">
+                <column name="id_javaservice" length="125" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="javaService" class="fr.wild.hibernate.JavaService" update="false" insert="false" fetch="select">
+            <column name="id_javaservice" length="125" not-null="true" />
+        </many-to-one>
+        <property name="maxAllocatedRom" type="java.lang.Integer">
+            <column name="max_allocated_rom" />
+        </property>
+        <property name="maxAllocatedRam" type="java.lang.Integer">
+            <column name="max_allocated_ram" />
+        </property>
+        <property name="maxAllocatedCpu" type="java.lang.Integer">
+            <column name="max_allocated_cpu" />
+        </property>
+        <property name="estimatedRom" type="java.lang.Integer">
+            <column name="estimated_rom" />
+        </property>
+        <property name="estimatedRam" type="java.lang.Integer">
+            <column name="estimated_ram" />
+        </property>
+        <property name="estimatedCpu" type="java.lang.Integer">
+            <column name="estimated_cpu" />
+        </property>
+        <property name="executionCt" type="java.lang.Integer">
+            <column name="execution_ct" />
+        </property>
+    </class>
+</hibernate-mapping>

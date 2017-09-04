@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.UsersPreference" table="users_preference">
+        <composite-id name="id" class="fr.wild.hibernate.UsersPreferenceId">
+            <key-property name="idUser" type="string">
+                <column name="id_user" length="125" />
+            </key-property>
+            <key-property name="idPreference" type="int">
+                <column name="id_preference" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="preference" class="fr.wild.hibernate.Preference" update="false" insert="false" fetch="select">
+            <column name="id_preference" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="fr.wild.hibernate.User" update="false" insert="false" fetch="select">
+            <column name="id_user" length="125" not-null="true" />
+        </many-to-one>
+        <property name="value" type="string">
+            <column name="value" />
+        </property>
+    </class>
+</hibernate-mapping>

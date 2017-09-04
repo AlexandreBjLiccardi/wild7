@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+
+    <parameter id="maxJobDuration" type="behavior">
+        <name>Durée maximale d'exécution, en seconde</name>
+        <value>3600</value>
+    </parameter>
+
+    <parameter id="url" type="request">
+        <name>Adresse WSDL du service</name>
+        <value>http://xml.sandre.eaufrance.fr/wsdl/Monitoring/2/Monitoring.wsdl</value>
+    </parameter>
+
+    <parameter id="elements" type="behavior">
+        <name>Element de test</name>
+        <value>element 1</value>
+        <value>element 2</value>
+        <value>element 3</value>
+    </parameter>
+
+    <operation order = "1" id = "getSites">
+        <name>Nom de l'opération demandée au service distant</name>
+        <parameter id="domain" type="parameter" position="domain">
+            <name>Nom de domaine SANDRE</name>
+            <value>3.1</value>
+        </parameter>
+        <parameter id="key" type="result">
+            <name>xPath de la "clé" de décompte des éléments produits</name>
+            <value>//CdSite/text()[1]</value>
+        </parameter>
+    </operation>
+
+</service>

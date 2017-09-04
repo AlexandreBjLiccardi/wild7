@@ -1,0 +1,656 @@
+<WildObject ident = "real.WildFlatFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFile" MinCPU = "50" MinRAM = "2" MinROM = "128" type = "abstract">
+Fichier &quot;plat&quot; générique. Fichier contenant des données séparées par un caractère séparateur de lignes, un caractère séparateur de colonne, un &quot;protecteur de texte&quot;, un caractère d&apos;échappement. Toutes les lignes appartiennent à un même &quot;onglet&quot; (une seule définition de ligne d&apos;en-tête, de caractères etc... par fichier).
+<Dependency value = "org.apache.commons.csv.*" description = "" />
+<Dependency value = "java.io.BufferedReader" description = "" />
+<Dependency value = "java.io.File" description = "" />
+<Dependency value = "java.io.FileOutputStream" description = "" />
+<Dependency value = "java.io.InputStreamReader" description = "" />
+<Dependency value = "java.io.OutputStream" description = "" />
+<Dependency value = "java.util.ArrayList" description = "" />
+<Dependency value = "java.util.Arrays" description = "" />
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Field ident = "fileLineHeader" type = "Integer" description = "Numéro de ligne des en-têtes" />
+<Field ident = "fileHeaders" type = "HashMap&lt;Integer,String&gt;" description = "En-têtes ordonnées" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "delimiter" type = "String" description = "séparateur de colonnes" />
+<Parameter ident = "quoter" type = "String" description = "Caractère de protection de texte" />
+<Parameter ident = "escapeChar" type = "String" description = "caractère d&apos;échappement" />
+<Parameter ident = "lineDelimiter" type = "String" description = "Caractère de retour à la ligne" />
+</Invokation>
+<WildMethod ident = "addColumn" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Ajoute une colonne, contenant une valeur précise">
+<Invokation>
+<Parameter ident = "columnName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colContents" type = "HashMap&lt;Integer,Object&gt;" description = "Contenu de la colonne" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "addColumn_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "addColumnJoinBy" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Ajoute une colonne, à partir d&apos;une matrice, avec jointure sur un nom de colonne donné">
+<Invokation>
+<Parameter ident = "columnName" type = "String" description = "Nom de la colonne à ajouter" />
+<Parameter ident = "columnCompare_dataset" type = "String" description = "Nom de la colonne comparée, dataset" />
+<Parameter ident = "inputJoin" type = "HashMap&lt;Integer,Object&gt;" description = "Valeurs de comparaison" />
+<Parameter ident = "colContents" type = "HashMap&lt;Integer,Object&gt;" description = "Contenu de la colonne" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "addColumnJoinBy_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Méthode de conversion standard du contenu vers un jeu de données.">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec cast vers WildDataSet (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "concatenate" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Concatène deux colonnes">
+<Invokation>
+<Parameter ident = "col_1" type = "String" description = "Nom de colonne devant" />
+<Parameter ident = "col_2" type = "String" description = "Nom de colonne derrière" />
+<Parameter ident = "link" type = "String" description = "Opérateur de liaison" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "concatenate_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "concatenateFilterBy" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Concatène deux colonnes, si les valeurs correspondent au filtre">
+<Invokation>
+<Parameter ident = "col_1" type = "String" description = "Nom de colonne devant" />
+<Parameter ident = "col_2" type = "String" description = "Nom de colonne derrière" />
+<Parameter ident = "link" type = "String" description = "Opérateur de liaison" />
+<Parameter ident = "colContents" type = "HashMap&lt;String,Object&gt;" description = "Motif à reconnaître pour affectation (filtre)" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec sélection et réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "concatenateFilterBy_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "dropColumn" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Supprime une colonne">
+<Invokation>
+<Parameter ident = "columnName" type = "String" description = "Nom de la colonne" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "dropColumn_output1" type = "Integer" description = "Position de la colonne supprimée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "dropHeaders" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Supprime la ligne des en-têtes de colonnes et les lignes la précédant">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "fillWith" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Remplace le contenu du fichier ou de la collection par le cast d&apos;un nouveau jeu de données.">
+<Invokation>
+<Parameter ident = "dataSet" type = "WildDataSet" description = "Nouveau jeu de données à commit" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "3" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "fillWith_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "getHeader" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Renvoie la liste des en-têtes">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Output ident = "getHeader_output1" type = "Integer" description = "Nombre de colonnes trouvées (Integer)"/>
+<Return><Parameter ident = "getHeader_ret" type = "HashMap&lt;Integer,String&gt;" description = "Map des noms de colonnes (HashMap&lt;Integer,String&gt;), indexés par leur position"/></Return>
+</WildMethod>
+<WildMethod ident = "replaceValue" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Remplace une valeur dans la totalité du fichier">
+<Invokation>
+<Parameter ident = "formerValue" type = "Object" description = "Valeur à remplacer" />
+<Parameter ident = "newValue" type = "Object" description = "Valeur de remplacement" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec sélection et réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "replaceValue_output1" type = "Integer" description = "Nombre de remplacements (Integer)"/>
+</WildMethod>
+<WildMethod ident = "replaceValueFilterBy" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Remplace une valeur dans l&apos;emprise indiquée">
+<Invokation>
+<Parameter ident = "formerValue" type = "Object" description = "Valeur à remplacer" />
+<Parameter ident = "newValue" type = "Object" description = "Valeur de remplacement" />
+<Parameter ident = "enrContents" type = "HashMap&lt;String,Object&gt;" description = "Nouvel enregistrement, sous forme de Map" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec sélection et réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "replaceValueFilterBy_output1" type = "Integer" description = "Nombre de remplacements (Integer)"/>
+</WildMethod>
+<WildMethod ident = "setEscaper" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Définit le caractère d&apos;échappement">
+<Invokation>
+<Parameter ident = "new_char" type = "String" description = "Nouveau caractère" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setLineDelimiter" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Définit le délimiteur de lignes">
+<Invokation>
+<Parameter ident = "delimiter" type = "String" description = "Nouveau délimiteur de ligne" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setQuoter" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Définit le caractère de protection des chaînes de texte">
+<Invokation>
+<Parameter ident = "new_char" type = "String" description = "Nouveau caractère" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setSeparator" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Définit le séparateur de colonnes">
+<Invokation>
+<Parameter ident = "separator" type = "String" description = "Nouveau séparateur de colonne" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "commit" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Enregistrement du fichier sur le disque, avec applatissement du WildDataSet">
+<Step ident = "1" weight = "10" description = "Ecriture du fichier"/>
+</WildMethod>
+<WildMethod ident = "castBigFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Parcours du fichier si gros volume, identification des noms de colonnes">
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "100" description = "Parse du fichier (+++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "castBigFile_output1" type = "HashMap&lt;Integer, String&gt;" description = "Map des noms de colonnes (HashMap&lt;Integer, String&gt;)"/>
+</WildMethod>
+<WildMethod ident = "readBigFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Ecriture du fichier si gros volume">
+<Invokation>
+<Parameter ident = "nRow" type = "Integer" description = "Numéro de ligne unique à extraire" />
+</Invokation>
+<Invokation>
+<Parameter ident = "nRow_from" type = "Integer" description = "Numéro de ligne à laquelle commence l&apos;extraction, incluse" />
+<Parameter ident = "nRow_to" type = "Integer" description = "Numéro de ligne à laquelle s&apos;arrête l&apos;extraction, incluse" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "10" description = "Identification de la portion à récupérer"/>
+<Step ident = "3" weight = "10" description = "Récupération des enregistrements sélectionnés"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "readBigFile_ret" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des valeurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;), indexés par leur position"/></Return>
+</WildMethod>
+<WildMethod ident = "writeBigFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Ecriture du fichier si gros volume">
+<Invokation>
+<Parameter ident = "mapToWrite" type = "Map&lt;Integer,Map&lt;String, Object&gt;&gt;" description = "La source est une Map" />
+<Parameter ident = "appender" type = "Boolean" description = "A true, écrit à la suite du fichier, sinon le remplace" />
+</Invokation>
+<Invokation>
+<Parameter ident = "iteratorToWrite" type = "Iterator" description = "La source est un itérateur JAVA" />
+<Parameter ident = "appender" type = "Boolean" description = "A true, écrit à la suite du fichier, sinon le remplace" />
+</Invokation>
+<Invokation>
+<Parameter ident = "inputToWrite" type = "InputStream" description = "La source est un flux entrant" />
+<Parameter ident = "appender" type = "Boolean" description = "A true, écrit à la suite du fichier, sinon le remplace" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "100" description = "Remplissage du fichier (+++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "writeBigFile_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Output ident = "writeBigFile_output2" type = "Integer" description = "Nombre de lignes écrites (Integer)"/>
+<Output ident = "writeBigFile_output3" type = "Integer" description = "Nombre de valeur écrites (Integer)"/>
+</WildMethod>
+<WildMethod ident = "deleteBigFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Suppression du fichier si gros volume">
+<Step ident = "1" weight = "10" description = "Suppression"/>
+</WildMethod>
+<WildMethod ident = "copyToBigFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Copie du fichier si gros volume">
+<Invokation>
+<Parameter ident = "pathToFile_OUT" type = "String" description = "Chemin vers le fichier de sortie" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Copie"/>
+<Output ident = "copyToBigFile_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Return><Parameter ident = "copyToBigFile_ret" type = "String" description = "Chemin du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "moveToBigFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "déplacement du fichier si gros volume">
+<Invokation>
+<Parameter ident = "pathToFile_OUT" type = "String" description = "Chemin vers le fichier de sortie" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Copie"/>
+<Step ident = "2" weight = "10" description = "Suppression"/>
+<Output ident = "moveToBigFile_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Return><Parameter ident = "moveToBigFile_ret" type = "String" description = "Chemin du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "readFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Ecriture du fichier">
+<Invokation>
+<Parameter ident = "nRow" type = "Integer" description = "Numéro de ligne unique à extraire" />
+</Invokation>
+<Invokation>
+<Parameter ident = "nRow_from" type = "Integer" description = "Numéro de ligne à laquelle commence l&apos;extraction, incluse" />
+<Parameter ident = "nRow_to" type = "Integer" description = "Numéro de ligne à laquelle s&apos;arrête l&apos;extraction, incluse" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "10" description = "Identification de la portion à récupérer"/>
+<Step ident = "3" weight = "10" description = "Récupération des enregistrements sélectionnés"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "readFile_ret" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des valeurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;), indexés par leur position"/></Return>
+</WildMethod>
+<WildMethod ident = "writeFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 09 00:00:00 CEST 2016" description = "Ecriture du fichier">
+<Invokation>
+<Parameter ident = "mapToWrite" type = "Map&lt;Integer,Map&lt;String, Object&gt;&gt;" description = "La source est une Map" />
+<Parameter ident = "appender" type = "Boolean" description = "A true, écrit à la suite du fichier, sinon le remplace" />
+</Invokation>
+<Invokation>
+<Parameter ident = "iteratorToWrite" type = "Iterator" description = "La source est un itérateur JAVA" />
+<Parameter ident = "appender" type = "Boolean" description = "A true, écrit à la suite du fichier, sinon le remplace" />
+</Invokation>
+<Invokation>
+<Parameter ident = "inputToWrite" type = "InputStream" description = "La source est un flux entrant" />
+<Parameter ident = "appender" type = "Boolean" description = "A true, écrit à la suite du fichier, sinon le remplace" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "100" description = "Remplissage du fichier (+++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "writeFile_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Output ident = "writeFile_output2" type = "Integer" description = "Nombre de lignes écrites (Integer)"/>
+<Output ident = "writeFile_output3" type = "Integer" description = "Nombre de valeur écrites (Integer)"/>
+</WildMethod>
+<WildMethod ident = "findEqualBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une égalité stricte, selon options de suppression des caractères non signifiants en début, en fin ou en milieux de caractères, sensible à la casse ou non, sensible au caractère spéciaux dont accents ou non.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colValue" type = "Object" description = "Valeur d&apos;objet de comparaison" />
+<Parameter ident = "nullSens" type = "Boolean" default = "false" description = "Sensible aux valeurs vides" />
+<Parameter ident = "caseSens" type = "Boolean" default = "false" description = "Sensible à la casse" />
+<Parameter ident = "specSens" type = "Boolean" default = "false" description = "Sensible aux caractères spéciaux" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findEqualBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findContainBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition de contenu (la cible contient le terme recherché), selon options de suppression des caractères non signifiants en début, en fin ou en milieux de caractères, sensible à la casse ou non, sensible au caractère spéciaux dont accents ou non. Ne porte que sur les chaînes de caractère.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colValue" type = "Object" description = "Valeur d&apos;objet de comparaison" />
+<Parameter ident = "nullSens" type = "Boolean" default = "false" description = "Sensible aux valeurs vides" />
+<Parameter ident = "caseSens" type = "Boolean" default = "false" description = "Sensible à la casse" />
+<Parameter ident = "specSens" type = "Boolean" default = "false" description = "Sensible aux caractères spéciaux" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findContainBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findRegexBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à un terme recherché (la cible répond à une expression régulière comportant le terme recherché).">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colRegexp" type = "String" description = "Expression régulière testée" />
+<Parameter ident = "nullSens" type = "Boolean" default = "false" description = "Sensible aux valeurs vides" />
+<Parameter ident = "caseSens" type = "Boolean" default = "false" description = "Sensible à la casse" />
+<Parameter ident = "specSens" type = "Boolean" default = "false" description = "Sensible aux caractères spéciaux" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findRegexBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findWithinBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, dont une valeur précise est contenue entre deux bornes (incluses). Pour les champs de type chaîne de caractères, l’ordre alphabétique est retenu (sensible à la casse, pas de suppression des caractères non signifiants). Une valeur « vide » signifie une absence de borne.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "minValue" type = "Object" description = "Valeur inférieure" />
+<Parameter ident = "minExclude" type = "Boolean" default = "false" description = "Est exclu par le bas ?" />
+<Parameter ident = "maxValue" type = "Object" description = "Valeur supérieure" />
+<Parameter ident = "maxExclude" type = "Boolean" default = "false" description = "Est exclu par le haut ?" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findWithinBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findCompareBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une comparaison mathématique (opérateur de comparaison mathématique : supériorité / infériorité, égalité -  numérique ou date). Choix de l’exclusion ou de l’inclusion des bornes.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "minValue" type = "Object" description = "Valeur inférieure" />
+<Parameter ident = "minExclude" type = "Boolean" default = "false" description = "Est exclu par le bas ?" />
+<Parameter ident = "maxValue" type = "Object" description = "Valeur supérieure" />
+<Parameter ident = "maxExclude" type = "Boolean" default = "false" description = "Est exclu par le haut ?" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findCompareBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findLinesBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, combinant l’ensemble des conditions précédemment listées. Une liste des indexations des conditions est fournie  en Tableau 1, et permet le stockage des conditions dans une table de paramètres.
+Chacune des conditions répond soit à une condition OU, soit à une condition ET (opérateur de combinaison de condition), à l’exception de la première condition listée.
+Chacune des conditions répond soit à une condition positive (on sélection les numéros de lignes répondant à la condition) soit négative (on exclut sélection les numéros de lignes répondant à la condition). Une condition négative est préfixée du caractère « ! ».">
+<Invokation>
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "liste des conditions" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findLinesBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "calculateBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Calcul de statistiques sur les valeurs des enregistrements, combinant l’ensemble des conditions précédemment listées. La liste des statistiques retenues est présentée en Tableau 1. Le Tableau 2 plus loin renvoie à un index des conditions pour implémentation.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "5" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "calculateBigFile_ret" type = "Map&lt;String, Object&gt;" description = "Tableau de valeurs des résultats (Map&lt;String, Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "findTopBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition d’ordre sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : TOP.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbTop" type = "Integer" description = "Nombre de valeurs du « top »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findTopBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findBottomBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition d’ordre sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : BOTTOM">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbBottom" type = "Integer" description = "Nombre de valeurs du « bottom »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findBottomBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findTopPercentBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant au percentile sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : TOP.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbTop" type = "Integer" description = "Percentile du « top »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findTopPercentBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findBottomPercentBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant au percentile sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : BOTTOM.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbBottom" type = "Integer" description = "Percentile du « bottom »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findBottomPercentBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findStatCompareBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition mathématique sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « comparables » (C). Les opérateurs utilisée sont supériorité / infériorité (option inclusion / exclusion) et égalité.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Conditions de recherche sur la colonne avant calcul de la statistique" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre de la statistique" />
+<Parameter ident = "minValue" type = "Object" description = "Valeur inférieure" />
+<Parameter ident = "minExclude" type = "Boolean" default = "false" description = "Est exclu par le bas ?" />
+<Parameter ident = "maxValue" type = "Object" description = "Valeur supérieure" />
+<Parameter ident = "maxExclude" type = "Boolean" default = "false" description = "Est exclu par le haut ?" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findStatCompareBigFile_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findRecordsBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des enregistrements sous forme de WildDataSet (Map JAVA), pour l’ensemble des conditions opérables sur le fichier.">
+<Invokation>
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Conditions de recherche" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findRecordsBigFile_ret" type = "Map&lt;Integer,Map&lt;String,Object&gt;&gt;" description = "Liste des enregistrements(Map&lt;Integer,Map&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "saveRecordsBigFile" author ="Geomatys" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des enregistrements sous forme de fichier CSV, pour l’ensemble des conditions opérables sur le fichier.">
+<Invokation>
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Conditions de recherche" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "saveRecordsBigFile_ret" type = "String" description = "Adresse du fichier écrit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "findEqual" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une égalité stricte, selon options de suppression des caractères non signifiants en début, en fin ou en milieux de caractères, sensible à la casse ou non, sensible au caractère spéciaux dont accents ou non.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colValue" type = "Object" description = "Valeur d&apos;objet de comparaison" />
+<Parameter ident = "nullSens" type = "Boolean" default = "false" description = "Sensible aux valeurs vides" />
+<Parameter ident = "caseSens" type = "Boolean" default = "false" description = "Sensible à la casse" />
+<Parameter ident = "specSens" type = "Boolean" default = "false" description = "Sensible aux caractères spéciaux" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findEqual_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findContain" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition de contenu (la cible contient le terme recherché), selon options de suppression des caractères non signifiants en début, en fin ou en milieux de caractères, sensible à la casse ou non, sensible au caractère spéciaux dont accents ou non. Ne porte que sur les chaînes de caractère.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colValue" type = "Object" description = "Valeur d&apos;objet de comparaison" />
+<Parameter ident = "nullSens" type = "Boolean" default = "false" description = "Sensible aux valeurs vides" />
+<Parameter ident = "caseSens" type = "Boolean" default = "false" description = "Sensible à la casse" />
+<Parameter ident = "specSens" type = "Boolean" default = "false" description = "Sensible aux caractères spéciaux" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findContain_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findRegex" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à un terme recherché (la cible répond à une expression régulière comportant le terme recherché).">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colRegexp" type = "String" description = "Expression régulière testée" />
+<Parameter ident = "nullSens" type = "Boolean" default = "false" description = "Sensible aux valeurs vides" />
+<Parameter ident = "caseSens" type = "Boolean" default = "false" description = "Sensible à la casse" />
+<Parameter ident = "specSens" type = "Boolean" default = "false" description = "Sensible aux caractères spéciaux" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findRegex_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findWithin" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, dont une valeur précise est contenue entre deux bornes (incluses). Pour les champs de type chaîne de caractères, l’ordre alphabétique est retenu (sensible à la casse, pas de suppression des caractères non signifiants). Une valeur « vide » signifie une absence de borne.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "minValue" type = "Object" description = "Valeur inférieure" />
+<Parameter ident = "minExclude" type = "Boolean" default = "false" description = "Est exclu par le bas ?" />
+<Parameter ident = "maxValue" type = "Object" description = "Valeur supérieure" />
+<Parameter ident = "maxExclude" type = "Boolean" default = "false" description = "Est exclu par le haut ?" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findWithin_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findCompare" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une comparaison mathématique (opérateur de comparaison mathématique : supériorité / infériorité, égalité -  numérique ou date). Choix de l’exclusion ou de l’inclusion des bornes.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "minValue" type = "Object" description = "Valeur inférieure" />
+<Parameter ident = "minExclude" type = "Boolean" default = "false" description = "Est exclu par le bas ?" />
+<Parameter ident = "maxValue" type = "Object" description = "Valeur supérieure" />
+<Parameter ident = "maxExclude" type = "Boolean" default = "false" description = "Est exclu par le haut ?" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findCompare_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findLines" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, combinant l’ensemble des conditions précédemment listées. Une liste des indexations des conditions est fournie  en Tableau 1, et permet le stockage des conditions dans une table de paramètres.
+Chacune des conditions répond soit à une condition OU, soit à une condition ET (opérateur de combinaison de condition), à l’exception de la première condition listée.
+Chacune des conditions répond soit à une condition positive (on sélection les numéros de lignes répondant à la condition) soit négative (on exclut sélection les numéros de lignes répondant à la condition). Une condition négative est préfixée du caractère « ! ».">
+<Invokation>
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "liste des conditions" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findLines_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "calculate" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Calcul de statistiques sur les valeurs des enregistrements, combinant l’ensemble des conditions précédemment listées. La liste des statistiques retenues est présentée en Tableau 1. Le Tableau 2 plus loin renvoie à un index des conditions pour implémentation.">
+<Invokation>
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "5" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "calculate_ret" type = "Map&lt;String, Object&gt;" description = "Tableau de valeurs des résultats (Map&lt;String, Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "findTop" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition d’ordre sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : TOP.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbTop" type = "Integer" description = "Nombre de valeurs du « top »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findTop_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findBottom" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition d’ordre sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : BOTTOM">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbBottom" type = "Integer" description = "Nombre de valeurs du « bottom »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findBottom_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findTopPercent" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant au percentile sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : TOP.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbTop" type = "Integer" description = "Percentile du « top »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findTopPercent_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findBottomPercent" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant au percentile sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « ordonnées » (O). Ordre : BOTTOM.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Liste des conditions" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre associé à la statistique" />
+<Parameter ident = "nbBottom" type = "Integer" description = "Percentile du « bottom »" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findBottomPercent_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findStatCompare" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des numéros de lignes des enregistrements, correspondant à une condition mathématique sur une statistique, réutilisant la liste des statistiques à implémenter définies en Tableau 2, citées comme « comparables » (C). Les opérateurs utilisée sont supériorité / infériorité (option inclusion / exclusion) et égalité.">
+<Invokation>
+<Parameter ident = "colGroup" type = "String" description = "Nom de la colonne de groupement" />
+<Parameter ident = "colName" type = "String" description = "Nom de la colonne de calcul" />
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Conditions de recherche sur la colonne avant calcul de la statistique" />
+<Parameter ident = "statKey" type = "String" description = "Nom de la statistique" />
+<Parameter ident = "statParam" type = "Integer" default = "null" description = "Paramètre de la statistique" />
+<Parameter ident = "minValue" type = "Object" description = "Valeur inférieure" />
+<Parameter ident = "minExclude" type = "Boolean" default = "false" description = "Est exclu par le bas ?" />
+<Parameter ident = "maxValue" type = "Object" description = "Valeur supérieure" />
+<Parameter ident = "maxExclude" type = "Boolean" default = "false" description = "Est exclu par le haut ?" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "100" description = "Calcul de la statistique (+++)"/>
+<Step ident = "4" weight = "100" description = "Conditionsur statistique (+++)"/>
+<Step ident = "5" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findStatCompare_ret" type = "Integer[]" description = "Liste des lignes repérées (Integer[])"/></Return>
+</WildMethod>
+<WildMethod ident = "findRecords" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des enregistrements sous forme de WildDataSet (Map JAVA), pour l’ensemble des conditions opérables sur le fichier.">
+<Invokation>
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Conditions de recherche" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "findRecords_ret" type = "Map&lt;Integer,Map&lt;String,Object&gt;&gt;" description = "Liste des enregistrements(Map&lt;Integer,Map&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "saveRecords" author ="alexandre.liccardi@onema.fr" update ="Mon Jul 25 00:00:00 CEST 2016" description = "Récupération des enregistrements sous forme de fichier CSV, pour l’ensemble des conditions opérables sur le fichier.">
+<Invokation>
+<Parameter ident = "conditionList" type = "Map&lt;Integer, Map&lt;String,Object&gt;&gt;" description = "Conditions de recherche" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Parse du fichier (+)"/>
+<Step ident = "2" weight = "100" description = "Vérification de la condition (+++)"/>
+<Step ident = "3" weight = "20" description = "Construction du retour (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Return><Parameter ident = "saveRecords_ret" type = "String" description = "Adresse du fichier écrit (String)"/></Return>
+</WildMethod>
+</WildObject>

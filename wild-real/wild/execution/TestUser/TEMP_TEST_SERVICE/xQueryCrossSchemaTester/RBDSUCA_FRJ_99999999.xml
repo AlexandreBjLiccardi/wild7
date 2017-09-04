@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBDSUCA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wfd="http://dd.eionet.europa.eu/schemas/WFD2016/wfdcommon" xmlns="http://dd.eionet.europa.eu/schemas/WFD2016" xsi:schemaLocation="http://dd.eionet.europa.eu/schemas/WFD2016 http://dd.eionet.europa.eu/schemas/WFD2016/RBDSUCA_2016.xsd" fileName="RBDSUCA_FR_20151215.xml" language="fre" creationDate="2015-12-15" creator="Onema" email="rapportage.dce@onema.fr" description="River Basin Districts, Sub-units and Competent Authorities" generatedBy="Onema, Direction de la connaissance et de l'information sur l'eau">
+	<countryCode>FR</countryCode>
+	<CompetentAuthority>
+		<euCACode>FR00009</euCACode>
+		<competentAuthorityName>Le préfet coordonnateur de bassin de la Martinique</competentAuthorityName>
+		<competentAuthorityNameNL>Le préfet coordonnateur de bassin de la Martinique</competentAuthorityNameNL>
+		<competentAuthorityNameNLLanguage>fre</competentAuthorityNameNLLanguage>
+		<linkToCompetentAuthority>www.martinique.pref.gouv.fr</linkToCompetentAuthority>
+		<street>rue Victor Sévère</street>
+		<city>Fort de France</city>
+		<cityNL>Fort de France</cityNL>
+		<country>France</country>
+		<postcode>972000</postcode>
+		<mainRole>Pressure and impact analysis</mainRole>
+		<mainRole>Economic analysis</mainRole>
+		<mainRole>Monitoring of surface water</mainRole>
+		<mainRole>Monitoring of groundwater</mainRole>
+		<mainRole>Assessment of status of surface water</mainRole>
+		<mainRole>Assessment of status of groundwater</mainRole>
+		<mainRole>Preparation of PoM</mainRole>
+		<mainRole>Implementation of measures</mainRole>
+		<mainRole>Public participation</mainRole>
+		<mainRole>Enforcement of regulations</mainRole>
+		<mainRole>Co-ordination of implementation</mainRole>
+		<mainRole>Reporting to the European Commission</mainRole>
+	</CompetentAuthority>
+	<CompetentAuthority>
+		<euCACode>FR00021</euCACode>
+		<competentAuthorityName>Comité de bassin Martinique</competentAuthorityName>
+		<competentAuthorityNameNL>Comité de bassin Martinique</competentAuthorityNameNL>
+		<competentAuthorityNameNLLanguage>fre</competentAuthorityNameNLLanguage>
+		<linkToCompetentAuthority>http://www.observatoire-eau-martinique.fr/les-outils/annuaire-des-acteurs/gouvernance-de-leau/le-comite-de-bassin-de-la-martinique</linkToCompetentAuthority>
+		<street>Pointe de Jaham</street>
+		<city>Schœlcher</city>
+		<cityNL>Schœlcher</cityNL>
+		<country>France</country>
+		<postcode>97274</postcode>
+		<mainRole>Preparation of RBMP</mainRole>
+	</CompetentAuthority>
+	<RBD>
+		<euRBDCode>FRJ</euRBDCode>
+		<rbdName>Les cours d'eau de la Martinique</rbdName>
+		<rbdArea>2065</rbdArea>
+		<rbdAreaExclCW>1088</rbdAreaExclCW>
+		<internationalRBD>No</internationalRBD>
+		<primeCompetentAuthority>FR00009</primeCompetentAuthority>
+		<otherCompetentAuthority>FR00021</otherCompetentAuthority>
+		<subUnitsDefined>No</subUnitsDefined>
+	</RBD>
+</RBDSUCA>

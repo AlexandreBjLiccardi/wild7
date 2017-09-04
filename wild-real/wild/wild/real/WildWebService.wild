@@ -1,0 +1,64 @@
+<WildObject ident = "real.WildWebService" author = "alexandre.liccardi@onema.fr" inherits = "WildService" type = "abstract">
+Client d&apos;un service fournisseur d&apos;un flux web
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Field ident = "results" type = "Map&lt;String,Object&gt;" description = "Résultats élémentaires" />
+<Field ident = "stats" type = "Map&lt;String,Object&gt;" description = "Statistiques d&apos;exécution" />
+<Field ident = "errors" type = "Map&lt;Integer,Map&lt;String,Object&gt;&gt;" description = "Erreurs rencontrées" />
+<Field ident = "success" type = "Boolean" description = "Succès de l&apos;opération" />
+<Field ident = "isValid" type = "Boolean" description = "Validité du document de sortie" />
+<Field ident = "outputFilePath" type = "String" description = "Chemin d&apos;accès au fichier de récupération du flux" />
+<Invokation>
+<Parameter ident = "clientId" type = "String" default = "null" description = "Identifiant de l&apos;utilisateur" />
+<Parameter ident = "clientPwd" type = "String" default = "null" description = "Mot de passe de l&apos;utilisateur" />
+<Parameter ident = "hostName" type = "String" default = "null" description = "Nom de l&apos;hôte" />
+<Parameter ident = "hostIp" type = "String" default = "null" description = "IP de l&apos;hôte" />
+</Invokation>
+<WildMethod ident = "checkDatas" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Contrôle des données obtenues par capture du flux">
+<Invokation>
+<Parameter ident = "serviceResponseFile" type = "String" description = "Chemin d&apos;accès au fichier contenant la réponse du flux" />
+<Parameter ident = "xsdTesterFile" type = "String" description = "Chemin d&apos;accès au fichier XSD auquel on vérifie la conformité, cas d&apos;une réponse XML" />
+<Parameter ident = "jsonObjectsLists" type = "List&lt;String&gt;" description = "Liste des adresses de parse natif json pour cas JSON" />
+<Parameter ident = "typeJson" type = "Integer" description = "Type de test JSON - 1,2 ou 3." />
+</Invokation>
+<Invokation>
+<Parameter ident = "serviceResponseFile" type = "String" description = "Chemin d&apos;accès au fichier contenant la réponse du flux" />
+<Parameter ident = "xsdTesterFile" type = "String" description = "Chemin d&apos;accès au fichier XSD auquel on vérifie la conformité, cas d&apos;une réponse XML" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification du cas de test (XML ou JSON)"/>
+<Step ident = "2" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "3" weight = "50" description = "Exécution du test (++)"/>
+<Step ident = "4" weight = "20" description = "Compilation des résultats (+)"/>
+<Output ident = "checkDatas_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "checkDatas_ret" type = "Boolean" description = "Succès de la validation (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "parseDatas" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Opération de reconnaissance et de lecture des données obtenues par capture du flux, construction d&apos;une Map.">
+<Invokation>
+<Parameter ident = "serviceResponseFile" type = "String" description = "Chemin d&apos;accès au fichier contenant la réponse du flux" />
+<Parameter ident = "nodeKeyName" type = "String" description = "nom de l&apos;élément de boucle initial - parse natif si JSON, xpath si XML" />
+<Parameter ident = "attributeNames" type = "List&lt;String&gt;" description = "chemins relatifs depuis l&apos;élément de boucle initial, pour chacune des valeurs récupérées (parse natif si JSON, xpath si XML)" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "2" weight = "50" description = "Parse du fichier (++)"/>
+<Step ident = "3" weight = "20" description = "Compilation des résultats (+)"/>
+</WildMethod>
+<WildMethod ident = "getStats" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération des statistiques d&apos;exécution de la capture du flux">
+<Step ident = "1" weight = "10" description = "Fourniture du résultat"/>
+<Return><Parameter ident = "getStats_ret" type = "Map&lt;String, Object&gt;" description = "Liste des résultats élémentaires(Map&lt;String, Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "getResult" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération d&apos;un résultat élémentaire concernant la capture du flux">
+<Invokation>
+<Parameter ident = "resultName" type = "String" description = "nom du résultat élémentaire" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Fourniture du résultat"/>
+<Return><Parameter ident = "getResult_ret" type = "Object" description = "Valeur du résultat (Object)"/></Return>
+</WildMethod>
+<WildMethod ident = "getResultMap" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération des résultats élémentaires concernant la capture du flux">
+<Step ident = "1" weight = "10" description = "Fourniture du résultat"/>
+<Return><Parameter ident = "getResultMap_ret" type = "Map&lt;String, Object&gt;" description = "Liste des résultats élémentaires(Map&lt;String, Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "pgSaveTest" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Sauvegarde des résultats élémentaires et des statistiques de test, dans une base distante PG">
+<Step ident = "1" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "2" weight = "50" description = "Passage de l&apos;ordre SQL (++)"/>
+</WildMethod>
+</WildObject>

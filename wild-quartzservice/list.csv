@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<list>
+   <job id="TestGetData_20160909">
+      <configuration>
+         <parameter id="killIfTwice" type="jobConfiguration">
+            <value>true</value>
+         </parameter>
+         <parameter id="frequency" type="jobConfiguration">
+            <value>5</value>
+         </parameter>
+         <parameter id="javaClass" type="jobConfiguration">
+            <name>Nom du type de service JAVA utilisé</name>
+            <value>FakeScenario</value>
+         </parameter>
+         <parameter id="maxDuration" type="jobConfiguration">
+            <value>30</value>
+         </parameter>
+      </configuration>
+      <service>
+         <parameter id="sleep" type="fake">
+            <value>2</value>
+         </parameter>
+      </service>
+      <execution isDone="true">
+         <status>1</status>
+      </execution>
+   </job>
+</list>

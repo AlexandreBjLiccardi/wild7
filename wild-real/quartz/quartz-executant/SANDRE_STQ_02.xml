@@ -1,0 +1,10 @@
+<test>
+<service>
+<parameter id="url" type="request"><name>Adresse HTTP du service (submit du formulaire)</name><value>http://www.aaasandre.eaufrance.fr/?urn=urn%3Asandre%3Adonnees%3ASTQ%3A%3A%3A%3A%3A%3Areferentiel%3A3.1%3Azip</value></parameter>
+<parameter id="query" type="request"><name>Nom de l'opération demandée au service distant</name><value>GET</value></parameter>
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildRestService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>600</value></parameter>
+</configuration>
+</test>

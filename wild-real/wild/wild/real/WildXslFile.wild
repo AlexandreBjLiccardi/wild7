@@ -1,0 +1,63 @@
+<WildObject ident = "real.WildXslFile" author = "alexandre.liccardi@onema.fr" inherits = "WildMarkUpFile">
+Fichier de transformation XSLT
+<Dependency value = "java.io.File" description = "" />
+<Dependency value = "java.io.FileInputStream" description = "" />
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+</Invokation>
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "nameSpaces" type = "HashMap&lt;String,String&gt;" description = "Liste d&apos;URL d&apos;espaces de nommage" />
+<Parameter ident = "versionXml" type = "String" description = "Code de version Xml" />
+</Invokation>
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "defaultNameSpace" type = "String" description = "URL d&apos;un espace de nommage" />
+<Parameter ident = "versionXml" type = "String" description = "Code de version Xml" />
+</Invokation>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Méthode de conversion standard du contenu vers un jeu de données (ou une collection).">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "100" description = "Parcours du jeu de données avec résolution des cas spéciaux (+++)"/>
+<Step ident = "3" weight = "10" description = "Conversion en WildDataSet"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "commit" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Enregistrement des modifications du WildDataSet vers le WildFile.">
+<Step ident = "1" weight = "50" description = "Cast du WildDataSet et des métadonnées (++)"/>
+<Step ident = "2" weight = "20" description = "Génération des propriétés et contextes (+)"/>
+<Step ident = "3" weight = "10" description = "Création des flux"/>
+<Step ident = "4" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "5" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "fillWith" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Remplace le contenu du fichier ou de la collection par le cast d&apos;un nouveau jeu de données.">
+<Invokation>
+<Parameter ident = "dataSet" type = "WildDataSet" description = "Nouveau jeu de données à commit" />
+</Invokation>
+<Step ident = "1" weight = "50" description = "Cast du WildDataSet (++)"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "4" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "5" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "fillWith_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "transform" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Transforme un fichier markUp">
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "forProcess" type = "WildMarkUpFile" description = "Fichier à processer" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "forProcessFilePath" type = "String" description = "Chemin du fichier à processer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "100" description = "Application de la transformation (+++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "transform_output1" type = "String" description = "Nom du fichier de sortie (String)"/>
+<Return><Parameter ident = "transform_ret" type = "String" description = "Nom du fichier de sortie (String)"/></Return>
+</WildMethod>
+</WildObject>

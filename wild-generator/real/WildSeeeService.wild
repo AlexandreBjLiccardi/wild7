@@ -1,0 +1,25 @@
+<WildObject ident = "real.WildSeeeService" author = "alexandre.liccardi@onema.fr" inherits = "WildWebService">
+Webservice spécifique à SEEE
+<Dependency value = "java.util.Date" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Dependency value = "java.util.Map" description = "" />
+<Dependency value = "org.w3c.dom.Node" description = "" />
+<Invokation>
+<Parameter ident = "parametersNode" type = "Node" description = "Paramètres sous forme de nœud XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<WildMethod ident = "getTest" author ="alexandre.liccardi@onema.fr" update ="Mon Jun 26 00:00:00 CEST 2017" description = "C9F1 : Test générique d&apos;un service de calcul d&apos;indicateur SEEE, configurations en ligne">
+<Step ident = "1" weight = "10" description = "Etape générique"/>
+</WildMethod>
+<WildMethod ident = "getTestAsynch" author ="alexandre.liccardi@onema.fr" update ="Mon Jun 26 00:00:00 CEST 2017" description = "C9F2 : Test spécifique d&apos;un service de calcul d&apos;indicateur SEEE, calcul asynchrone">
+<Step ident = "1" weight = "10" description = "Etape générique"/>
+</WildMethod>
+<WildMethod ident = "getTestRandomFile" author ="alexandre.liccardi@onema.fr" update ="Mon Jun 26 00:00:00 CEST 2017" description = "C9F3 : Test spécifique d&apos;un service de calcul d&apos;indicateur SEEE, envoi d&apos;un fichier lourd à traiter">
+<Step ident = "1" weight = "10" description = "Etape générique"/>
+</WildMethod>
+</WildObject>

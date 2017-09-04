@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.ExecutionArchive" table="execution_archive">
+        <id name="idExecution" type="string">
+            <column name="id_execution" length="125" />
+            <generator class="foreign">
+                <param name="property">executionList</param>
+            </generator>
+        </id>
+        <many-to-one name="javaService" class="fr.wild.hibernate.JavaService" fetch="select">
+            <column name="id_javaservice" length="125" />
+        </many-to-one>
+        <many-to-one name="user" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user" length="125" not-null="true" />
+        </many-to-one>
+        <one-to-one name="executionList" class="fr.wild.hibernate.ExecutionList" constrained="true"></one-to-one>
+        <many-to-one name="status" class="fr.wild.hibernate.Status" fetch="select">
+            <column name="id_status" />
+        </many-to-one>
+        <property name="products" type="fr.wild.hibernate.SQLArrayType">
+            <column name="products" />
+        </property>
+        <property name="scenarioName" type="string">
+            <column name="scenario_name" length="125" not-null="true" />
+        </property>
+        <property name="infoOut" type="string">
+            <column name="info_out" />
+        </property>
+        <property name="summary" type="string">
+            <column name="summary" />
+        </property>
+        <property name="datePost" type="timestamp">
+            <column name="date_post" length="35" not-null="true" />
+        </property>
+        <property name="dateBegin" type="timestamp">
+            <column name="date_begin" length="35" />
+        </property>
+        <property name="dateEnd" type="timestamp">
+            <column name="date_end" length="35" />
+        </property>
+        <property name="dateArchive" type="timestamp">
+            <column name="date_archive" length="35" />
+        </property>
+        <property name="dateConsult" type="timestamp">
+            <column name="date_consult" length="35" />
+        </property>
+        <property name="dateMail" type="timestamp">
+            <column name="date_mail" length="35" />
+        </property>
+    </class>
+</hibernate-mapping>

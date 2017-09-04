@@ -1,0 +1,135 @@
+<WildObject ident = "real.WildMarkUpFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFile" MinCPU = "100" MinRAM = "16" MinROM = "256" type = "abstract">
+Fichier structuré dit à balises ou en arborescence
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Dependency value = "java.util.Map" description = "" />
+<Dependency value = "org.w3c.dom.NamedNodeMap" description = "" />
+<Dependency value = "org.w3c.dom.Node" description = "" />
+<Dependency value = "org.w3c.dom.NodeList" description = "" />
+<Field ident = "version" type = "String" description = "code de version de schéma XML" />
+<Field ident = "fileNodeList" type = "NodeList" description = "Contenu du fichier, sous forme de liste de nœuds" />
+<Field ident = "typeMarkUp" type = "String" description = "Nom du MarkUp racine" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+</Invokation>
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "nameSpaces" type = "HashMap&lt;String,String&gt;" description = "Liste d&apos;URL d&apos;espaces de nommage" />
+<Parameter ident = "versionXml" type = "String" description = "Code de version Xml" />
+</Invokation>
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "defaultNameSpace" type = "String" description = "URL d&apos;un espace de nommage par défaut" />
+<Parameter ident = "versionXml" type = "String" description = "Code de version Xml" />
+</Invokation>
+<WildMethod ident = "fileContentAsString" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Récupération du contenu comme une chaîne de caractère. Pour l&apos;instant, ne retourne que le contenu du fichier. A terme, recomposera le fichier à partir des opérations exécutées avant le commit.">
+<Step ident = "1" weight = "10" description = "Parcours du fichier"/>
+<Step ident = "2" weight = "10" description = "Compilation des résultats"/>
+<Return><Parameter ident = "fileContentAsString_ret" type = "String" description = "Chaîne de caractère (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "getSchemaDefinition" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Renvoie le lien de définition du schéma (xsiSchemaLocation)">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getSchemaDefinition_ret" type = "List&lt;String&gt;" description = "Lien de définition du schéma (List&lt;String&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "getNamespace" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Renvoie le lien de définition du schéma (xmlns), et éventuellement des espaces de nommage préfixés">
+<Invokation>
+<Parameter ident = "newXmlns" type = "String" default = "default" description = "préfixe de l&apos;espace de nommage" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getNamespace_ret" type = "String" description = "Lien de définition de l&apos;espace de nommage (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "getSchemaVersion" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Renvoie l&apos;identifiant de version du schéma">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getSchemaVersion_ret" type = "String" description = "Identifiant de version (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "queryWith" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Interrogation par un fichier xQuery">
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "forProcess" type = "WildXqueryFile" description = "Fichier à processer" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "forProcessPath" type = "String" description = "Fichier à processer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Sélection du WildFile"/>
+<Step ident = "2" weight = "10" description = "Exécution de l&apos;opération"/>
+<Step ident = "3" weight = "10" description = "Récupération des résultats"/>
+<Output ident = "queryWith_output1" type = "HashMap&lt;String, Object&gt;" description = "Liste des erreurs rencontrées (HashMap&lt;String, Object&gt;)"/>
+<Return><Parameter ident = "queryWith_ret" type = "String" description = "Nom du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "setSchemaDefinition" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Modifie le lien de définition du schéma (xsiSchemaLocation)">
+<Invokation>
+<Parameter ident = "newUrl" type = "String" description = "Nouveau chemin vers un schema XSD" />
+</Invokation>
+<Invokation>
+<Parameter ident = "newUrls" type = "List&lt;String&gt;" description = "Nouvelle liste de chemins vers des schemas XSD" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "setNamespace" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Modifie le lien de définition de l&apos;espace de nommage, éventuellement préfixé">
+<Invokation>
+<Parameter ident = "newUrl" type = "String" description = "Nouveau chemin vers un espace de nommage par défaut" />
+</Invokation>
+<Invokation>
+<Parameter ident = "newXmlns" type = "String" description = "préfixe de l&apos;espace de nommage" />
+<Parameter ident = "newUrl" type = "String" description = "Nouveau chemin vers un espace de nommage" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "setSchemaVersion" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Modifie l&apos;identifiant de version du schéma">
+<Invokation>
+<Parameter ident = "newVersion" type = "String" description = "Nouvel identifiant de version XML" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "transformBy" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Transformation par un fichier XSLT">
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "forProcess" type = "WildXslFile" description = "Fichier à processer" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "forProcessPath" type = "String" description = "Fichier à processer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Sélection du WildFile"/>
+<Step ident = "2" weight = "10" description = "Exécution de l&apos;opération"/>
+<Step ident = "3" weight = "10" description = "Récupération des résultats"/>
+<Output ident = "transformBy_output1" type = "String" description = "Nom du fichier de sortie (String)"/>
+<Return><Parameter ident = "transformBy_ret" type = "String" description = "Nom du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "uncomment" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Suppression des commentaires dans le fichier">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "3" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "uncomment_output1" type = "Integer" description = "Nombre de lignes affectées (Integer)"/>
+</WildMethod>
+<WildMethod ident = "validateBy" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Validation par un fichier XSD">
+<Invokation>
+<Parameter ident = "forProcess" type = "WildXsdFile" description = "Fichier à processer" />
+</Invokation>
+<Invokation>
+<Parameter ident = "forProcessPath" type = "String" description = "Fichier à processer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Sélection du WildFile"/>
+<Step ident = "2" weight = "10" description = "Exécution de l&apos;opération"/>
+<Step ident = "3" weight = "10" description = "Récupération des résultats"/>
+<Output ident = "validateBy_output1" type = "List&lt;String&gt;" description = "Liste des erreurs rencontrées (List&lt;String&gt;)"/>
+<Output ident = "validateBy_output2" type = "Boolean" description = "Il existe des éléments à retenir (Boolean)"/>
+<Return><Parameter ident = "validateBy_ret" type = "Boolean" description = "TRUE si aucune erreur (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "dropAllNamespaces" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 25 00:00:00 CEST 2016" description = "Suppression de tous les espaces de nommage, y compris dans le fichier lui-même (suppression des attributs dans l&apos;en-tête de fichier).">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+</WildObject>

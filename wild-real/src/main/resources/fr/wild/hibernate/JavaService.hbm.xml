@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.JavaService" table="java_service">
+        <id name="idJavaservice" type="string">
+            <column name="id_javaservice" length="125" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="status" class="fr.wild.hibernate.Status" fetch="select">
+            <column name="id_status" />
+        </many-to-one>
+        <property name="dateBegin" type="timestamp">
+            <column name="date_begin" length="35" not-null="true" />
+        </property>
+        <property name="dateEnd" type="timestamp">
+            <column name="date_end" length="35" />
+        </property>
+        <property name="infoOut" type="string">
+            <column name="info_out" />
+        </property>
+        <set name="executionLists" table="execution_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_javaservice" length="125" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionList" />
+        </set>
+        <set name="javaConsumptions" table="java_consumption" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_javaservice" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.JavaConsumption" />
+        </set>
+        <set name="executionChainsaws" table="execution_chainsaw" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_javaservice" length="125" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionChainsaw" />
+        </set>
+        <set name="javaServiceInfos" table="java_service_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_javaservice" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.JavaServiceInfo" />
+        </set>
+        <set name="executionArchives" table="execution_archive" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_javaservice" length="125" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionArchive" />
+        </set>
+    </class>
+</hibernate-mapping>

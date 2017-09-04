@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 nov. 2015 18:21:27 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.ModelsExecution" table="models_execution">
+        <composite-id name="id" class="fr.wild.hibernate.ModelsExecutionId">
+            <key-property name="idModel" type="java.lang.Long">
+                <column name="id_model" />
+            </key-property>
+            <key-property name="idExecution" type="string">
+                <column name="id_execution" length="125" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="executionList" class="fr.wild.hibernate.ExecutionList" update="false" insert="false" fetch="select">
+            <column name="id_execution" length="125" />
+        </many-to-one>
+        <many-to-one name="model" class="fr.wild.hibernate.Model" update="false" insert="false" fetch="select">
+            <column name="id_model" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

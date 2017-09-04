@@ -1,0 +1,27 @@
+<WildObject ident = "real.WildJavaQuartzJob" author = "alexandre.liccardi@onema.fr" inherits = "WildQuartzJob">
+Classe d&apos;exécution d&apos;un job Quartz, exécution d&apos;un cas JAVA
+<Dependency value = "java.util.Map" description = "" />
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<WildMethod ident = "launch" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Lancement du job">
+<Step ident = "1" weight = "10" description = "Lecture et préparation des paramètres"/>
+<Step ident = "2" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "3" weight = "10" description = "Instanciation de l&apos;objet WILD"/>
+<Step ident = "4" weight = "10" description = "Lancement de l&apos;objet WILD"/>
+<Return><Parameter ident = "launch_ret" type = "Boolean" description = "Succès de l&apos;opération (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "stop" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Arrêt du job">
+<Step ident = "1" weight = "10" description = "Interruption du processus"/>
+<Step ident = "2" weight = "10" description = "Vérification des variables"/>
+<Return><Parameter ident = "stop_ret" type = "Boolean" description = "Succès de l&apos;opération (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "infos" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Récupération des infos sur le job en cours">
+<Step ident = "1" weight = "10" description = "Transmission des variables"/>
+<Return><Parameter ident = "infos_ret" type = "Map&lt;String,Object&gt;" description = "Informations sur le job (Map&lt;String,Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "isDone" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "A true, la dernière exécution du job s&apos;est réalisée avec succès, à false, la dernière exécution est un échec, vide, aucune exécution a eu lieu pour le job.">
+<Step ident = "1" weight = "10" description = "Transmission des variables"/>
+<Return><Parameter ident = "isDone_ret" type = "Boolean" description = "Succès de l&apos;exécution du job (Boolean)"/></Return>
+</WildMethod>
+</WildObject>

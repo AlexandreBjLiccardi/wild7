@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.UserFile" table="user_file">
+        <id name="idUserFile" type="string">
+            <column name="id_user_file" length="125" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="publicationLevel" class="fr.wild.hibernate.PublicationLevel" fetch="select">
+            <column name="id_publication_level" not-null="true" />
+        </many-to-one>
+        <many-to-one name="validateLevel" class="fr.wild.hibernate.ValidateLevel" fetch="select">
+            <column name="id_validate_level" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user" length="125" not-null="true" />
+        </many-to-one>
+        <property name="nameMetadataFile" type="string">
+            <column name="name_metadata_file" />
+        </property>
+        <property name="nameUserFile" type="string">
+            <column name="name_user_file" />
+        </property>
+        <property name="lastKnownClass" type="string">
+            <column name="last_known_class" />
+        </property>
+        <property name="ownMetadata" type="string">
+            <column name="own_metadata" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="35" not-null="true" />
+        </property>
+        <property name="dateLastModif" type="timestamp">
+            <column name="date_last_modif" length="35" />
+        </property>
+        <set name="commentFiles" table="comment_file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_file" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.CommentFile" />
+        </set>
+    </class>
+</hibernate-mapping>

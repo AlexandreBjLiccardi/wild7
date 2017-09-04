@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.Approval" table="approval">
+        <id name="idApproval" type="short">
+            <column name="id_approval" />
+            <generator class="assigned" />
+        </id>
+        <property name="fullName" type="string">
+            <column name="full_name" length="55" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <set name="drops" table="drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_approval" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Drop" />
+        </set>
+        <set name="rivers" table="river" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_approval" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.River" />
+        </set>
+        <set name="commentFiles" table="comment_file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_approval" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.CommentFile" />
+        </set>
+        <set name="commentDrops" table="comment_drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_approval" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.CommentDrop" />
+        </set>
+        <set name="projects" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_approval" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Project" />
+        </set>
+    </class>
+</hibernate-mapping>

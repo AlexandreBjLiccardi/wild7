@@ -1,0 +1,100 @@
+<WildObject ident = "real.WildWfdSigFile" author = "alexandre.liccardi@onema.fr" inherits = "WildShpFile">
+Fichier SIG du rapportage DCE (fichier SHP embarquant des fonctionnalités complémentaires)
+<Field ident = "wfdSchema" type = "String" description = "Nom du schéma DCE pour le fichier" />
+<Field ident = "wfdRBDistrict" type = "String" description = "Code du bassin versant pour le fichier" />
+<Field ident = "wfdCreateDate" type = "String" description = "Date de production du fichier" />
+<Field ident = "wfdReferenceBook" type = "WildXlsFile" description = "Fichier XLS de description des formats de fichier" />
+<Field ident = "wfdPgConnexion" type = "WildPgService" description = "Base de données PostgreSQL PostGIS de log et d&apos;export éventuel" />
+<Field ident = "wfdErrorList" type = "HashMap&lt;String,HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;&gt;" description = "Map des erreurs récupérées selon tous les différents tests" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "pathToDescriptionFile" type = "String" description = "Chemin vers le fichier Excel de description WFD" />
+<Parameter ident = "clientId" type = "String" description = "Identifiant de l&apos;utilisateur" />
+<Parameter ident = "clientPwd" type = "String" description = "Mot de passe de l&apos;utilisateur" />
+<Parameter ident = "hostName" type = "String" description = "Nom de l&apos;hôte" />
+<Parameter ident = "hostIp" type = "String" description = "IP de l&apos;hôte" />
+</Invokation>
+<WildMethod ident = "checkWfdGeometryTypes" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Vérification des types de géométries">
+<Output ident = "checkWfdGeometryTypes_output1" type = "Integer" description = "Nombre d&apos;erreurs identifiées (Integer)"/>
+<Output ident = "checkWfdGeometryTypes_output2" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+<Output ident = "checkWfdGeometryTypes_output3" type = "HashMap&lt;String,Integer&gt;" description = "Tableau de score par type d&apos;erreurs (HashMap&lt;String,Integer&gt;)"/>
+<Return><Parameter ident = "checkWfdGeometryTypes_ret" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "checkWfdAttributes" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Vérification des attributs (type, nom, ordre)">
+<Output ident = "checkWfdAttributes_output1" type = "Integer" description = "Nombre d&apos;erreurs identifiées (Integer)"/>
+<Output ident = "checkWfdAttributes_output2" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+<Output ident = "checkWfdAttributes_output3" type = "HashMap&lt;String,Integer&gt;" description = "Tableau de score par type d&apos;erreurs (HashMap&lt;String,Integer&gt;)"/>
+<Return><Parameter ident = "checkWfdAttributes_ret" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "checkWfdCrs" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Vérification du système de projection">
+<Output ident = "checkWfdCrs_output1" type = "Integer" description = "Nombre d&apos;erreurs identifiées (Integer)"/>
+<Output ident = "checkWfdCrs_output2" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+<Output ident = "checkWfdCrs_output3" type = "HashMap&lt;String,Integer&gt;" description = "Tableau de score par type d&apos;erreurs (HashMap&lt;String,Integer&gt;)"/>
+<Return><Parameter ident = "checkWfdCrs_ret" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "pgWfdLog" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Ecriture des logs de traitement vers une base PostgreSQL">
+<Output ident = "pgWfdLog_output1" type = "Integer" description = "Nombre de lignes écrites (Integer)"/>
+<Output ident = "pgWfdLog_output2" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Contenu des lignes écrites (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+</WildMethod>
+<WildMethod ident = "pgWfdExport" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Export vers une base PostgreSQL / PostGIS">
+<Invokation>
+<Parameter ident = "outputSchema" type = "String" description = "Schéma d&apos;export des données" />
+</Invokation>
+<Output ident = "pgWfdExport_output1" type = "Integer" description = "Nombre de lignes écrites (Integer)"/>
+<Output ident = "pgWfdExport_output2" type = "Integer" description = "Nombre d&apos;erreurs éventuelles (Integer)"/>
+<Output ident = "pgWfdExport_output3" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+</WildMethod>
+<WildMethod ident = "merge" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Fusion de plusieurs couches en une seule">
+<Invokation>
+<Parameter ident = "shpToMerge" type = "List&lt;WildWfdSigFile&gt;" description = "Liste des fichiers SHP à fusionner dans l&apos;objet actuel" />
+</Invokation>
+<Output ident = "merge_output1" type = "Integer" description = "Nombre de couches fusionnées (Integer)"/>
+<Output ident = "merge_output2" type = "Integer" description = "Nombre d&apos;objets fusionnés (Integer)"/>
+<Output ident = "merge_output3" type = "Integer" description = "Nombre d&apos;erreurs éventuelles (Integer)"/>
+<Output ident = "merge_output4" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+</WildMethod>
+<WildMethod ident = "mergeDiff" author ="alexandre.liccardi@onema.fr" update ="Tue Jun 14 00:00:00 CEST 2016" description = "Fusion de plusieurs couches en une seule, stocke la liste de bassins rencontrés, pour une alimentation différentielle">
+<Invokation>
+<Parameter ident = "shpToMerge" type = "List&lt;WildWfdSigFile&gt;" description = "Liste des fichiers SHP à fusionner dans l&apos;objet actuel" />
+</Invokation>
+<Output ident = "mergeDiff_output1" type = "Integer" description = "Nombre de couches fusionnées (Integer)"/>
+<Output ident = "mergeDiff_output2" type = "Integer" description = "Nombre d&apos;objets fusionnés (Integer)"/>
+<Output ident = "mergeDiff_output3" type = "Integer" description = "Nombre d&apos;erreurs éventuelles (Integer)"/>
+<Output ident = "mergeDiff_output4" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+<Output ident = "mergeDiff_output5" type = "Integer" description = "Nombre de bassins rencontrés (Integer)"/>
+<Output ident = "mergeDiff_output6" type = "List&lt;String&gt;" description = "Liste des bassins rencontrés (List&lt;String&gt;)"/>
+</WildMethod>
+<WildMethod ident = "checkWfdEncoding" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Vérification de l&apos;encodage du fichier">
+<Output ident = "checkWfdEncoding_output1" type = "Integer" description = "Nombre d&apos;erreurs identifiées (Integer)"/>
+<Output ident = "checkWfdEncoding_output2" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+<Output ident = "checkWfdEncoding_output3" type = "HashMap&lt;String,Integer&gt;" description = "Tableau de score par type d&apos;erreurs (HashMap&lt;String,Integer&gt;)"/>
+<Return><Parameter ident = "checkWfdEncoding_ret" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "writeWfdErrorList" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Ecriture vers un fichier externe des erreurs rencontrées">
+<Invokation>
+<Parameter ident = "pathToFile_OUT" type = "String" default = "WFD_errorList.csv" description = "Chemin vers le fichier de sortie" />
+</Invokation>
+<Output ident = "writeWfdErrorList_output1" type = "Integer" description = "Nombre de lignes écrites (Integer)"/>
+<Output ident = "writeWfdErrorList_output2" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Return><Parameter ident = "writeWfdErrorList_ret" type = "String" description = "Chemin du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "getWfdSchema" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Récupération du nom de schéma WFD">
+<Step ident = "1" weight = "10" description = "Renvoi de la valeur"/>
+<Return><Parameter ident = "getWfdSchema_ret" type = "String" description = "Nom du schéma WFD(String)"/></Return>
+</WildMethod>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Méthode de conversion standard du contenu vers un jeu de données (ou une collection).">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "100" description = "Parcours du jeu de données avec résolution des cas spéciaux (+++)"/>
+<Step ident = "3" weight = "10" description = "Conversion en WildDataSet"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "isInstantiable" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Récupération de l&apos;information d&apos;instanciation (si oui : le SHP est lisible)">
+<Step ident = "1" weight = "10" description = "Renvoi de la valeur"/>
+<Return><Parameter ident = "isInstantiable_ret" type = "Boolean" description = "Est Instantiable (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "freeFromTesters" author ="alexandre.liccardi@onema.fr" update ="Thu Jun 09 00:00:00 CEST 2016" description = "Vide la mémoire du fichier, des informations de tests et des informations nécessaires à la réalisation des tests. Ne garde que le wildDataSet, les résultats de tests, les géométries initiales, le fichier de configuration.">
+<Step ident = "1" weight = "10" description = "Suppression des maps d&apos;attributs"/>
+<Step ident = "2" weight = "10" description = "Suppression des géométries inutilisées"/>
+<Step ident = "3" weight = "10" description = "Libération de la connexion PostGreSQL"/>
+</WildMethod>
+</WildObject>

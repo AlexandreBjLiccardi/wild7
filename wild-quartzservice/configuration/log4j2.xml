@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+  <RollingFile name="FILE" fileName="logs/DiceLogs.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%d [%level] %K{User}:%K{Execution} - %K{Class} :%K{Message}%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="1 MB"/>
+      </Policies>
+    </RollingFile>
+	
+    <Console name="STDOUT" target="SYSTEM_OUT">
+       <PatternLayout>
+        <Pattern>%d [%level] %K{User}:%K{Execution} - %K{Message}%n</Pattern>
+      </PatternLayout>
+    </Console>
+  </Appenders>
+<Loggers>
+    <Root level="ALL">
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+</Loggers>
+</Configuration>

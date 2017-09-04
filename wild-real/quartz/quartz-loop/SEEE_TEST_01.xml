@@ -1,0 +1,11 @@
+<test>
+<service>
+<parameter id="url" type="request"><value>http://seee.eaufrance.fr</value></parameter>
+<parameter id="testSeee" type="behavior"><name>Nom du test SEEE, parmi C9F1, C9F2, C9F3</name><value>C9F2</value></parameter>
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildSeeeService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>600</value></parameter>
+<parameter id="frequency" type="jobConfiguration"><value>3600</value></parameter>
+</configuration>
+</test>

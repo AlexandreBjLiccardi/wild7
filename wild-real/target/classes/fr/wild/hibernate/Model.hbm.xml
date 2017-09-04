@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 nov. 2015 18:21:27 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.Model" table="model">
+        <id name="idModel" type="int">
+            <column name="id_model" />
+            <generator class="identity" />
+        </id>
+        <property name="version" type="string">
+            <column name="version" length="25" not-null="true" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="35" />
+        </property>
+        <property name="codeVersion" type="string">
+            <column name="code_version" length="25" not-null="true" />
+        </property>
+        <property name="shortName" type="string">
+            <column name="short_name" not-null="true" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="full_name" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="jarName" type="string">
+            <column name="jar_name" />
+        </property>
+        <property name="favorite" type="boolean">
+            <column name="favorite" />
+        </property>
+        <set name="modelsExecutions" table="models_execution" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_model" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ModelsExecution" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GWB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wfd="http://dd.eionet.europa.eu/schemas/WFD2016/wfdcommon" xmlns="http://dd.eionet.europa.eu/schemas/WFD2016" xsi:schemaLocation="http://dd.eionet.europa.eu/schemas/WFD2016 http://dd.eionet.europa.eu/schemas/WFD2016/GWB_2016.xsd" fileName="GWB_FR_20151215.xml" language="fre" creationDate="2015-12-15" creator="DEAL 972" email="p-speb.deal-martinique@developpement-durable.gouv.fr" description="Information regarding the delineation and characterisation of groundwater bodies" generatedBy="Service landscapes, water and biodiversity
+Water and Aquatic Pole">
+	<countryCode>FR</countryCode>
+	<euRBDCode>FRJ</euRBDCode>
+	<GroundWaterBody>
+		<euGroundWaterBodyCode>FRJG201</euGroundWaterBodyCode>
+		<groundwaterBodyName>Nord</groundwaterBodyName>
+		<layered>No</layered>
+		<linkSurfaceWaterBody>Yes</linkSurfaceWaterBody>
+		<linkSurfaceWaterBodyCode>FRJR101</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR102</linkSurfaceWaterBodyCode>
+		<linkTerrestrialEcosystem>No</linkTerrestrialEcosystem>
+		<geologicalFormation>Porous - highly productive</geologicalFormation>
+		<groundwaterBodyTransboundary>No</groundwaterBodyTransboundary>
+		<gwAssociatedProtectedArea>Yes</gwAssociatedProtectedArea>
+		<gwSignificantPressureType>2.2 - Diffuse - Agricultural</gwSignificantPressureType>
+		<gwSignificantPressureType>9 - Anthropogenic pressure - Historical pollution</gwSignificantPressureType>
+		<gwSignificantImpactType>CHEM - Chemical pollution</gwSignificantImpactType>
+		<gwAtRiskQuantitative>No</gwAtRiskQuantitative>
+		<gwQuantitativeStatusValue>2</gwQuantitativeStatusValue>
+		<gwQuantitativeAssessmentYear>2008--2012</gwQuantitativeAssessmentYear>
+		<gwQuantitativeAssessmentConfidence>3</gwQuantitativeAssessmentConfidence>
+		<gwQuantitativeStatusExpectedGoodIn2015>Yes</gwQuantitativeStatusExpectedGoodIn2015>
+		<gwQuantitativeExemptionType>No exemption</gwQuantitativeExemptionType>
+		<gwAtRiskChemical>Yes</gwAtRiskChemical>
+		<gwEORiskChemical>Uses of functions</gwEORiskChemical>
+		<gwChemicalStatusValue>3</gwChemicalStatusValue>
+		<gwChemicalReasonsForFailure>General water quality assessment</gwChemicalReasonsForFailure>
+		<gwChemicalAssessmentYear>2009--2012</gwChemicalAssessmentYear>
+		<gwChemicalAssessmentConfidence>3</gwChemicalAssessmentConfidence>
+		<gwChemicalStatusExpectedGoodIn2015>No</gwChemicalStatusExpectedGoodIn2015>
+		<gwChemicalStatusExpectedAchievementDate>Less stringent objectives already achieved</gwChemicalStatusExpectedAchievementDate>
+		<GWPollutant>
+			<gwPollutantCode>CAS_314-40-9 - Bromacil</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWPollutant>
+			<gwPollutantCode>CAS_60-57-1 - Dieldrin</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWPollutant>
+			<gwPollutantCode>CAS_60207-90-1 - Propiconazole</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWPollutant>
+			<gwPollutantCode>CAS_319-85-7 - Beta-HCH</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWPollutant>
+			<gwPollutantCode>CAS_57837-19-1 - Metalaxyl</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWPollutant>
+			<gwPollutantCode>CAS_143-50-0 - Chlordecone (Kepone)</gwPollutantCode>
+			<gwPollutantCausingRisk>Yes</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>Yes</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>No</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>Article4(4) - Technical feasibility</gwChemicalExemptionType>
+				<gwChemicalExemptionPressure>9 - Anthropogenic pressure - Historical pollution</gwChemicalExemptionPressure>
+			</GWChemicalExemptionType>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>Article4(5) - Technical feasibility</gwChemicalExemptionType>
+				<gwChemicalExemptionPressure>9 - Anthropogenic pressure - Historical pollution</gwChemicalExemptionPressure>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000004</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>No</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaComment>perimetre de protection du captage en cours de mise en place. Annexe 0.</protectedAreaComment>
+			<protectedAreaExemption>Article4(4) - Technical feasibility</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000005</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>No</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaComment>perimetre de protection du captage en cours de mise en place. Annexe 0.</protectedAreaComment>
+			<protectedAreaExemption>Article4(4) - Technical feasibility</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000052</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000092</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000093</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>No</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaComment>perimetre de protection du captage en cours de mise en place. Annexe 0.</protectedAreaComment>
+			<protectedAreaExemption>Article4(4) - Technical feasibility</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000100</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>No</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaComment>perimetre de protection du captage en cours de mise en place. Annexe 0.</protectedAreaComment>
+			<protectedAreaExemption>Article4(4) - Technical feasibility</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000105</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000522</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+	</GroundWaterBody>
+	<GroundWaterBody>
+		<euGroundWaterBodyCode>FRJG202</euGroundWaterBodyCode>
+		<groundwaterBodyName>Nord Atlantique</groundwaterBodyName>
+		<layered>No</layered>
+		<linkSurfaceWaterBody>Yes</linkSurfaceWaterBody>
+		<linkSurfaceWaterBodyCode>FRJR103</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR104</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR105</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR106</linkSurfaceWaterBodyCode>
+		<linkTerrestrialEcosystem>No</linkTerrestrialEcosystem>
+		<geologicalFormation>Fissured aquifers including karst - highly productive</geologicalFormation>
+		<groundwaterBodyTransboundary>No</groundwaterBodyTransboundary>
+		<gwAssociatedProtectedArea>No</gwAssociatedProtectedArea>
+		<gwSignificantPressureType>2.2 - Diffuse - Agricultural</gwSignificantPressureType>
+		<gwSignificantPressureType>9 - Anthropogenic pressure - Historical pollution</gwSignificantPressureType>
+		<gwSignificantImpactType>CHEM - Chemical pollution</gwSignificantImpactType>
+		<gwAtRiskQuantitative>No</gwAtRiskQuantitative>
+		<gwQuantitativeStatusValue>2</gwQuantitativeStatusValue>
+		<gwQuantitativeAssessmentYear>2008--2012</gwQuantitativeAssessmentYear>
+		<gwQuantitativeAssessmentConfidence>3</gwQuantitativeAssessmentConfidence>
+		<gwQuantitativeStatusExpectedGoodIn2015>Yes</gwQuantitativeStatusExpectedGoodIn2015>
+		<gwQuantitativeExemptionType>No exemption</gwQuantitativeExemptionType>
+		<gwAtRiskChemical>Yes</gwAtRiskChemical>
+		<gwEORiskChemical>Uses of functions</gwEORiskChemical>
+		<gwChemicalStatusValue>3</gwChemicalStatusValue>
+		<gwChemicalReasonsForFailure>General water quality assessment</gwChemicalReasonsForFailure>
+		<gwChemicalAssessmentYear>2009--2012</gwChemicalAssessmentYear>
+		<gwChemicalAssessmentConfidence>3</gwChemicalAssessmentConfidence>
+		<gwChemicalStatusExpectedGoodIn2015>No</gwChemicalStatusExpectedGoodIn2015>
+		<gwChemicalStatusExpectedAchievementDate>Less stringent objectives already achieved</gwChemicalStatusExpectedAchievementDate>
+		<GWPollutant>
+			<gwPollutantCode>CAS_319-85-7 - Beta-HCH</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWPollutant>
+			<gwPollutantCode>CAS_143-50-0 - Chlordecone (Kepone)</gwPollutantCode>
+			<gwPollutantCausingRisk>Yes</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>Yes</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>No</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>Article4(4) - Technical feasibility</gwChemicalExemptionType>
+				<gwChemicalExemptionPressure>9 - Anthropogenic pressure - Historical pollution</gwChemicalExemptionPressure>
+			</GWChemicalExemptionType>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>Article4(5) - Technical feasibility</gwChemicalExemptionType>
+				<gwChemicalExemptionPressure>9 - Anthropogenic pressure - Historical pollution</gwChemicalExemptionPressure>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+	</GroundWaterBody>
+	<GroundWaterBody>
+		<euGroundWaterBodyCode>FRJG203</euGroundWaterBodyCode>
+		<groundwaterBodyName>Nord Caraïbes</groundwaterBodyName>
+		<layered>No</layered>
+		<linkSurfaceWaterBody>Yes</linkSurfaceWaterBody>
+		<linkSurfaceWaterBodyCode>FRJR102</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR117</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR118</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR119</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR120</linkSurfaceWaterBodyCode>
+		<linkTerrestrialEcosystem>No</linkTerrestrialEcosystem>
+		<geologicalFormation>Porous - moderately productive</geologicalFormation>
+		<groundwaterBodyTransboundary>No</groundwaterBodyTransboundary>
+		<gwAssociatedProtectedArea>Yes</gwAssociatedProtectedArea>
+		<gwSignificantPressureType>No significant pressure</gwSignificantPressureType>
+		<gwSignificantImpactType>UNKN - Unknown impact type</gwSignificantImpactType>
+		<gwAtRiskQuantitative>No</gwAtRiskQuantitative>
+		<gwQuantitativeStatusValue>2</gwQuantitativeStatusValue>
+		<gwQuantitativeAssessmentYear>2008--2012</gwQuantitativeAssessmentYear>
+		<gwQuantitativeAssessmentConfidence>3</gwQuantitativeAssessmentConfidence>
+		<gwQuantitativeStatusExpectedGoodIn2015>Yes</gwQuantitativeStatusExpectedGoodIn2015>
+		<gwQuantitativeExemptionType>No exemption</gwQuantitativeExemptionType>
+		<gwAtRiskChemical>No</gwAtRiskChemical>
+		<gwChemicalStatusValue>2</gwChemicalStatusValue>
+		<gwChemicalAssessmentYear>2009--2012</gwChemicalAssessmentYear>
+		<gwChemicalAssessmentConfidence>3</gwChemicalAssessmentConfidence>
+		<gwChemicalStatusExpectedGoodIn2015>Yes</gwChemicalStatusExpectedGoodIn2015>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000303</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000039</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>No</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaComment>perimetre de protection du captage en cours de mise en place. Annexe 0.</protectedAreaComment>
+			<protectedAreaExemption>Article4(4) - Technical feasibility</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000041</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000090</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000102</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+	</GroundWaterBody>
+	<GroundWaterBody>
+		<euGroundWaterBodyCode>FRJG204</euGroundWaterBodyCode>
+		<groundwaterBodyName>Centre</groundwaterBodyName>
+		<layered>No</layered>
+		<linkSurfaceWaterBody>Yes</linkSurfaceWaterBody>
+		<linkSurfaceWaterBodyCode>FRJR103</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR110</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR111</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR112</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR113</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR114</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR115</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR116</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR117</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR119</linkSurfaceWaterBodyCode>
+		<linkTerrestrialEcosystem>No</linkTerrestrialEcosystem>
+		<geologicalFormation>Fissured aquifers including karst - highly productive</geologicalFormation>
+		<groundwaterBodyTransboundary>No</groundwaterBodyTransboundary>
+		<gwAssociatedProtectedArea>Yes</gwAssociatedProtectedArea>
+		<gwSignificantPressureType>2.2 - Diffuse - Agricultural</gwSignificantPressureType>
+		<gwSignificantPressureType>9 - Anthropogenic pressure - Historical pollution</gwSignificantPressureType>
+		<gwSignificantImpactType>CHEM - Chemical pollution</gwSignificantImpactType>
+		<gwAtRiskQuantitative>No</gwAtRiskQuantitative>
+		<gwQuantitativeStatusValue>2</gwQuantitativeStatusValue>
+		<gwQuantitativeAssessmentYear>2008--2012</gwQuantitativeAssessmentYear>
+		<gwQuantitativeAssessmentConfidence>3</gwQuantitativeAssessmentConfidence>
+		<gwQuantitativeStatusExpectedGoodIn2015>Yes</gwQuantitativeStatusExpectedGoodIn2015>
+		<gwQuantitativeExemptionType>No exemption</gwQuantitativeExemptionType>
+		<gwAtRiskChemical>Yes</gwAtRiskChemical>
+		<gwEORiskChemical>Uses of functions</gwEORiskChemical>
+		<gwChemicalStatusValue>3</gwChemicalStatusValue>
+		<gwChemicalReasonsForFailure>General water quality assessment</gwChemicalReasonsForFailure>
+		<gwChemicalAssessmentYear>2009--2012</gwChemicalAssessmentYear>
+		<gwChemicalAssessmentConfidence>3</gwChemicalAssessmentConfidence>
+		<gwChemicalStatusExpectedGoodIn2015>No</gwChemicalStatusExpectedGoodIn2015>
+		<gwChemicalStatusExpectedAchievementDate>Less stringent objectives already achieved</gwChemicalStatusExpectedAchievementDate>
+		<GWPollutant>
+			<gwPollutantCode>CAS_143-50-0 - Chlordecone (Kepone)</gwPollutantCode>
+			<gwPollutantCausingRisk>Yes</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>Yes</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>No</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>Article4(4) - Technical feasibility</gwChemicalExemptionType>
+				<gwChemicalExemptionPressure>9 - Anthropogenic pressure - Historical pollution</gwChemicalExemptionPressure>
+			</GWChemicalExemptionType>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>Article4(5) - Technical feasibility</gwChemicalExemptionType>
+				<gwChemicalExemptionPressure>9 - Anthropogenic pressure - Historical pollution</gwChemicalExemptionPressure>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+		<GWAssociatedProtectedArea>
+			<euProtectedAreaCode>FR972000795</euProtectedAreaCode>
+			<protectedAreaType>Article 7 Abstraction for drinking water</protectedAreaType>
+			<protectedAreaAssociationType>Overlapping / partly within Protected Area</protectedAreaAssociationType>
+			<protectedAreaDrinkingWaterObjectivesSet>Yes</protectedAreaDrinkingWaterObjectivesSet>
+			<protectedAreaDrinkingWaterObjectivesMet>Yes</protectedAreaDrinkingWaterObjectivesMet>
+			<protectedAreaExemption>No exemption</protectedAreaExemption>
+		</GWAssociatedProtectedArea>
+	</GroundWaterBody>
+	<GroundWaterBody>
+		<euGroundWaterBodyCode>FRJG205</euGroundWaterBodyCode>
+		<groundwaterBodyName>Sud Atlantique</groundwaterBodyName>
+		<layered>No</layered>
+		<linkSurfaceWaterBody>Yes</linkSurfaceWaterBody>
+		<linkSurfaceWaterBodyCode>FRJR107</linkSurfaceWaterBodyCode>
+		<linkTerrestrialEcosystem>No</linkTerrestrialEcosystem>
+		<geologicalFormation>Fissured aquifers including karst - highly productive</geologicalFormation>
+		<groundwaterBodyTransboundary>No</groundwaterBodyTransboundary>
+		<gwAssociatedProtectedArea>No</gwAssociatedProtectedArea>
+		<gwSignificantPressureType>No significant pressure</gwSignificantPressureType>
+		<gwSignificantImpactType>UNKN - Unknown impact type</gwSignificantImpactType>
+		<gwAtRiskQuantitative>No</gwAtRiskQuantitative>
+		<gwQuantitativeStatusValue>2</gwQuantitativeStatusValue>
+		<gwQuantitativeAssessmentYear>2008--2012</gwQuantitativeAssessmentYear>
+		<gwQuantitativeAssessmentConfidence>3</gwQuantitativeAssessmentConfidence>
+		<gwQuantitativeStatusExpectedGoodIn2015>Yes</gwQuantitativeStatusExpectedGoodIn2015>
+		<gwQuantitativeExemptionType>No exemption</gwQuantitativeExemptionType>
+		<gwAtRiskChemical>No</gwAtRiskChemical>
+		<gwChemicalStatusValue>2</gwChemicalStatusValue>
+		<gwChemicalAssessmentYear>2009--2012</gwChemicalAssessmentYear>
+		<gwChemicalAssessmentConfidence>3</gwChemicalAssessmentConfidence>
+		<gwChemicalStatusExpectedGoodIn2015>Yes</gwChemicalStatusExpectedGoodIn2015>
+		<GWPollutant>
+			<gwPollutantCode>CAS_143-50-0 - Chlordecone (Kepone)</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+	</GroundWaterBody>
+	<GroundWaterBody>
+		<euGroundWaterBodyCode>FRJG206</euGroundWaterBodyCode>
+		<groundwaterBodyName>Sud Caraïbe</groundwaterBodyName>
+		<layered>No</layered>
+		<linkSurfaceWaterBody>Yes</linkSurfaceWaterBody>
+		<linkSurfaceWaterBodyCode>FRJR108</linkSurfaceWaterBodyCode>
+		<linkSurfaceWaterBodyCode>FRJR109</linkSurfaceWaterBodyCode>
+		<linkTerrestrialEcosystem>No</linkTerrestrialEcosystem>
+		<geologicalFormation>Fissured aquifers including karst - highly productive</geologicalFormation>
+		<groundwaterBodyTransboundary>No</groundwaterBodyTransboundary>
+		<gwAssociatedProtectedArea>No</gwAssociatedProtectedArea>
+		<gwSignificantPressureType>No significant pressure</gwSignificantPressureType>
+		<gwSignificantImpactType>UNKN - Unknown impact type</gwSignificantImpactType>
+		<gwAtRiskQuantitative>No</gwAtRiskQuantitative>
+		<gwQuantitativeStatusValue>2</gwQuantitativeStatusValue>
+		<gwQuantitativeAssessmentYear>2008--2012</gwQuantitativeAssessmentYear>
+		<gwQuantitativeAssessmentConfidence>3</gwQuantitativeAssessmentConfidence>
+		<gwQuantitativeStatusExpectedGoodIn2015>Yes</gwQuantitativeStatusExpectedGoodIn2015>
+		<gwQuantitativeExemptionType>No exemption</gwQuantitativeExemptionType>
+		<gwAtRiskChemical>No</gwAtRiskChemical>
+		<gwChemicalStatusValue>2</gwChemicalStatusValue>
+		<gwChemicalAssessmentYear>2009--2012</gwChemicalAssessmentYear>
+		<gwChemicalAssessmentConfidence>3</gwChemicalAssessmentConfidence>
+		<gwChemicalStatusExpectedGoodIn2015>Yes</gwChemicalStatusExpectedGoodIn2015>
+		<GWPollutant>
+			<gwPollutantCode>CAS_143-50-0 - Chlordecone (Kepone)</gwPollutantCode>
+			<gwPollutantCausingRisk>No</gwPollutantCausingRisk>
+			<gwPollutantCausingFailure>No</gwPollutantCausingFailure>
+			<gwPollutantUpwardTrend>No</gwPollutantUpwardTrend>
+			<gwPollutantTrendReversal>Unknown</gwPollutantTrendReversal>
+			<gwPollutantsExceedancesNotCounted>Yes</gwPollutantsExceedancesNotCounted>
+			<gwPollutantBackgroundLevelSet>No</gwPollutantBackgroundLevelSet>
+			<GWChemicalExemptionType>
+				<gwChemicalExemptionType>No exemption</gwChemicalExemptionType>
+			</GWChemicalExemptionType>
+		</GWPollutant>
+	</GroundWaterBody>
+</GWB>

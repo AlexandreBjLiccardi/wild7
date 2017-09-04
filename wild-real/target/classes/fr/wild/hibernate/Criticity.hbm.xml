@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.Criticity" table="criticity">
+        <id name="idCriticity" type="short">
+            <column name="id_criticity" />
+            <generator class="assigned" />
+        </id>
+        <property name="fullName" type="string">
+            <column name="full_name" length="55" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <set name="executionInfos" table="execution_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_criticity" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionInfo" />
+        </set>
+        <set name="javaServiceInfos" table="java_service_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_criticity" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.JavaServiceInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

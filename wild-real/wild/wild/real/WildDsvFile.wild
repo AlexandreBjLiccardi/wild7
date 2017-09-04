@@ -1,0 +1,13 @@
+<WildObject ident = "real.WildDsvFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFlatFile">
+Fichier texte délimité, délimiteurs non précisés
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "delimiter" type = "String" description = "séparateur de colonnes" />
+<Parameter ident = "quoter" type = "String" description = "Caractère de protection de texte" />
+<Parameter ident = "escapeChar" type = "String" description = "caractère d&apos;échappement" />
+<Parameter ident = "lineDelimiter" type = "String" description = "Caractère de retour à la ligne" />
+</Invokation>
+</WildObject>

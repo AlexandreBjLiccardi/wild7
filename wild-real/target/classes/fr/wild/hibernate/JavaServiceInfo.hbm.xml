@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.JavaServiceInfo" table="java_service_info">
+        <id name="idJavaServiceInfo" type="long">
+            <column name="id_java_service_info" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="javaService" class="fr.wild.hibernate.JavaService" fetch="select">
+            <column name="id_javaservice" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adminLevel" class="fr.wild.hibernate.AdminLevel" fetch="select">
+            <column name="id_admin_level" not-null="true" />
+        </many-to-one>
+        <many-to-one name="criticity" class="fr.wild.hibernate.Criticity" fetch="select">
+            <column name="id_criticity" not-null="true" />
+        </many-to-one>
+        <property name="dateInfo" type="timestamp">
+            <column name="date_info" length="35" />
+        </property>
+        <property name="contents" type="string">
+            <column name="contents" />
+        </property>
+    </class>
+</hibernate-mapping>

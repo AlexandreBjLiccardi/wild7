@@ -1,0 +1,21 @@
+<test>
+<service>
+<parameter id="outputFormat" position="outputFormat" type="parameter"><value>text/xml</value></parameter>
+<parameter id="domain" position="domain" type="parameter"><value>4</value></parameter>
+
+<parameter id="url" type="request"><value>http://xml.sandre.eaufrance.fr/wsdl/Monitoring/2.1/Monitoring.wsdl</value></parameter>
+<parameter id="endPoint" type="request"><value>http://services.ades.eaufrance.fr/ServicesPublic/ServicesAdesMonitoring/2/Monitoring_2.asmx</value></parameter>
+<parameter id="typeTest" type="behavior"><value>complet</value></parameter>
+<parameter id="allAtOnce" type="behavior"><value>true</value></parameter>
+<parameter id="saveAsXml" type="behavior"><value>true</value></parameter>
+<parameter id="numberOfSites" type="behavior"><value>1</value></parameter>
+<parameter id="pickAYear" type="behavior"><value>true</value></parameter>
+<parameter id="nMaxSandreAttempts" type="behavior"><value>1</value></parameter>
+
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildAdesService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>600</value></parameter>
+<parameter id="frequency" type="jobConfiguration"><value>3600</value></parameter>
+</configuration>
+</test>

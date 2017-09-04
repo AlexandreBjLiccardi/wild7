@@ -1,0 +1,11 @@
+<configuration>
+<parameter id="nJobs" type="jobsConfiguration">
+<value>50</value>
+</parameter>
+<parameter id="nSchedules" type="jobsConfiguration">
+<value>1000</value>
+</parameter>
+<parameter id="maxDuration" type="jobsConfiguration">
+<value>60</value>
+</parameter>
+</configuration>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.River" table="river">
+        <id name="idRiver" type="string">
+            <column name="id_river" length="125" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="userByIdUserAdmin" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user_admin" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userByIdUserCreator" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user_creator" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="river" class="fr.wild.hibernate.River" fetch="select">
+            <column name="id_parent" length="125" />
+        </many-to-one>
+        <many-to-one name="approval" class="fr.wild.hibernate.Approval" fetch="select">
+            <column name="id_approval" not-null="true" />
+        </many-to-one>
+        <property name="shortName" type="string">
+            <column name="short_name" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="full_name" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="tags" type="fr.wild.hibernate.SQLArrayType">
+            <column name="tags" />
+        </property>
+        <set name="rivers" table="river" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_parent" length="125" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.River" />
+        </set>
+        <set name="drops" table="drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_river" length="125" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Drop" />
+        </set>
+    </class>
+</hibernate-mapping>

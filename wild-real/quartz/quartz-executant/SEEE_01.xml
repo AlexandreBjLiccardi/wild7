@@ -1,0 +1,18 @@
+<test>
+<service>
+<parameter id="url" type="request"><name>Adresse HTTP du service (submit du formulaire)</name><value>http://seee.eaufrance.fr</value></parameter>
+<parameter id="path" type="request"><name>URI ressource</name><value>?api=calcul</value></parameter>
+<parameter id="timeOut" type="request"><name>URI ressource</name><value>1</value></parameter>
+<parameter id="query" type="request"><name>Nom de l'opération demandée au service distant</name><value>POST</value></parameter>
+<parameter id="multipart" type="request"><name>Fichier de données</name><value>entree_I2M2_op100.txt</value></parameter>
+<parameter id="indicateur" type="parameter"><name>Type d'indicateur à calculer</name><value>I2M2</value></parameter>
+<parameter id="version" type="parameter"><name>Version de l'indicateur 'xx.xx.xx'</name><value>1.0.1</value></parameter>
+<parameter id="errorTester" type="behavior"><name>Eventuellement, si erreur, condition de recherche d'une erreur</name><value>"status":"ko"</value></parameter>
+<parameter id="errorReason" type="behavior"><name>Eventuellement, si erreur, position d'explicitation de l'erreur</name><value>message</value></parameter>
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildRestService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>600</value></parameter>
+<parameter id="frequency" type="jobConfiguration"><value>3600</value></parameter>
+</configuration>
+</test>

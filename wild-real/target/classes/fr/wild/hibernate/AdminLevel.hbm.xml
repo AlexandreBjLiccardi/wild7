@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.AdminLevel" table="admin_level">
+        <id name="idAdminLevel" type="short">
+            <column name="id_admin_level" />
+            <generator class="assigned" />
+        </id>
+        <property name="shortName" type="string">
+            <column name="short_name" length="55" not-null="true" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="full_name" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <set name="dropRightsManagements" table="drop_rights_management" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.DropRightsManagement" />
+        </set>
+        <set name="users" table="project_rights_management" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.wild.hibernate.User">
+                <column name="id_user" length="125" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="javaServiceInfos" table="java_service_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.JavaServiceInfo" />
+        </set>
+        <set name="executionInfos" table="execution_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionInfo" />
+        </set>
+        <set name="users_1" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.User" />
+        </set>
+        <set name="preferences" table="preference" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Preference" />
+        </set>
+        <set name="users_2" table="river_rights_management" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin_level" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.wild.hibernate.User">
+                <column name="id_user" length="125" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

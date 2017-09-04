@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.DropRightsManagement" table="drop_rights_management">
+        <composite-id name="id" class="fr.wild.hibernate.DropRightsManagementId">
+            <key-property name="idAdminLevel" type="short">
+                <column name="id_admin_level" />
+            </key-property>
+            <key-property name="idCgiItem" type="string">
+                <column name="id_cgi_item" length="55" />
+            </key-property>
+            <key-property name="idCgiAbility" type="string">
+                <column name="id_cgi_ability" length="5" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="cgiAbility" class="fr.wild.hibernate.CgiAbility" update="false" insert="false" fetch="select">
+            <column name="id_cgi_ability" length="5" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cgiItem" class="fr.wild.hibernate.CgiItem" update="false" insert="false" fetch="select">
+            <column name="id_cgi_item" length="55" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adminLevel" class="fr.wild.hibernate.AdminLevel" update="false" insert="false" fetch="select">
+            <column name="id_admin_level" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

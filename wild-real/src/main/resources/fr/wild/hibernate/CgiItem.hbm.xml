@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.CgiItem" table="cgi_item">
+        <id name="idCgiItem" type="string">
+            <column name="id_cgi_item" length="55" />
+            <generator class="assigned" />
+        </id>
+        <property name="fullName" type="string">
+            <column name="full_name" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <set name="drops" table="drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cgi_item" length="55" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Drop" />
+        </set>
+        <set name="dropRightsManagements" table="drop_rights_management" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cgi_item" length="55" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.DropRightsManagement" />
+        </set>
+    </class>
+</hibernate-mapping>

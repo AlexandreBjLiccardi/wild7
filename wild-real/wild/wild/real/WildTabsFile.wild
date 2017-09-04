@@ -1,0 +1,22 @@
+<WildObject ident = "real.WildTabsFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFile" MinCPU = "100" MinRAM = "16" MinROM = "256" type = "abstract">
+Fichier &quot;tabulaire&quot; générique. Fichier contenant plusieurs jeux de données, soit &quot;plusieurs onglets&quot; soit &quot;plusieurs tables&quot;.
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Field ident = "listOfTabs" type = "HashMap&lt;Integer, String&gt;" description = "Nom des jeux de données contenus par le fichier, ordonnés" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+</Invokation>
+<WildMethod ident = "commit" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Enregistrement des modifications du WildDataSet vers le WildFile.
+Systématiquement surchargée.">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec cast vers WildDataSet (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "commit_output1" type = "Integer" description = "Nombre d&apos;enregistrements trouvés (Integer)"/>
+</WildMethod>
+<WildMethod ident = "getTabNames" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Récupère le nom des jeux de données contenus (tables ou onglets) dans le fichier.">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Output ident = "getTabNames_output1" type = "Integer" description = "Nombre de jeux de données trouvés (Integer)"/>
+<Return><Parameter ident = "getTabNames_ret" type = "HashMap&lt;Integer,String&gt;" description = "Map de des noms de jeux de données (HashMap&lt;Integer,String&gt;), indexés par leur position"/></Return>
+</WildMethod>
+</WildObject>

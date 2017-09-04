@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.ExecutionChainsaw" table="execution_chainsaw">
+        <id name="idExecution" type="string">
+            <column name="id_execution" length="125" />
+            <generator class="foreign">
+                <param name="property">executionList</param>
+            </generator>
+        </id>
+        <many-to-one name="javaService" class="fr.wild.hibernate.JavaService" fetch="select">
+            <column name="id_javaservice" length="125" />
+        </many-to-one>
+        <many-to-one name="user" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user" length="125" not-null="true" />
+        </many-to-one>
+        <one-to-one name="executionList" class="fr.wild.hibernate.ExecutionList" constrained="true"></one-to-one>
+        <many-to-one name="status" class="fr.wild.hibernate.Status" fetch="select">
+            <column name="id_status" />
+        </many-to-one>
+        <property name="datePost" type="timestamp">
+            <column name="date_post" length="35" />
+        </property>
+        <property name="withMail" type="java.lang.Boolean">
+            <column name="with_mail" />
+        </property>
+        <property name="dateBegin" type="timestamp">
+            <column name="date_begin" length="35" />
+        </property>
+        <property name="dateEnd" type="timestamp">
+            <column name="date_end" length="35" />
+        </property>
+        <property name="infoIn" type="string">
+            <column name="info_in" />
+        </property>
+        <property name="infoOut" type="string">
+            <column name="info_out" />
+        </property>
+        <property name="maxAllocatedRom" type="java.lang.Integer">
+            <column name="max_allocated_rom" />
+        </property>
+        <property name="maxAllocatedRam" type="java.lang.Integer">
+            <column name="max_allocated_ram" />
+        </property>
+        <property name="maxAllocatedCpu" type="java.lang.Integer">
+            <column name="max_allocated_cpu" />
+        </property>
+        <property name="estimatedRom" type="java.lang.Integer">
+            <column name="estimated_rom" />
+        </property>
+        <property name="estimatedRam" type="java.lang.Integer">
+            <column name="estimated_ram" />
+        </property>
+        <property name="estimatedCpu" type="java.lang.Integer">
+            <column name="estimated_cpu" />
+        </property>
+        <property name="stepVisible" type="java.lang.Boolean">
+            <column name="step_visible" />
+        </property>
+    </class>
+</hibernate-mapping>

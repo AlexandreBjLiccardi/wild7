@@ -1,0 +1,28 @@
+<WildObject ident = "real.WildDbmsService" author = "alexandre.liccardi@onema.fr" inherits = "WildService" type = "abstract">
+Client d&apos;un service fournisseur d&apos;un accès base de données
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Field ident = "amoJdbc" type = "String" description = "Amorce JDBC à compléter" />
+<Invokation>
+<Parameter ident = "clientId" type = "String" default = "null" description = "Identifiant de l&apos;utilisateur" />
+<Parameter ident = "clientPwd" type = "String" default = "null" description = "Mot de passe de l&apos;utilisateur" />
+<Parameter ident = "hostName" type = "String" description = "Nom de l&apos;hôte" />
+<Parameter ident = "hostIp" type = "String" description = "IP de l&apos;hôte" />
+</Invokation>
+<WildMethod ident = "loadTo" author ="alexandre.liccardi@onema.fr" update ="Mon May 30 00:00:00 CEST 2016" description = "Charge un jeu de données (sous forme de Map) vers une table. Crée la table si elle n&apos;existe pas.">
+<Invokation>
+<Parameter ident = "mapToWrite" type = "Map&lt;Integer,Map&lt;String, Object&gt;&gt;" description = "La source est une Map" />
+<Parameter ident = "outputSchema" type = "String" description = "Schéma d&apos;export des données" />
+<Parameter ident = "tabSchema" type = "String" description = "Table d&apos;export des données" />
+<Parameter ident = "appender" type = "Boolean" default = "true" description = "A true, écrit à la suite de la table si elle existe, à false écrase la liste" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Initialisation des connexions"/>
+<Step ident = "2" weight = "20" description = "Vérification de l&apos;existence des éléments en base de données et création éventuelle (+)"/>
+<Step ident = "3" weight = "100" description = "Ecriture des données (+++)"/>
+<Step ident = "4" weight = "20" description = "Ecriture des logs (+)"/>
+<Step ident = "5" weight = "10" description = "Configuration des connexions"/>
+<Output ident = "loadTo_output1" type = "Integer" description = "Nombre de lignes écrites (Integer)"/>
+<Output ident = "loadTo_output2" type = "Integer" description = "Nombre d&apos;erreurs éventuelles (Integer)"/>
+<Output ident = "loadTo_output3" type = "HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;" description = "Map des erreurs récupérées (HashMap&lt;Integer,HashMap&lt;String,Object&gt;&gt;)"/>
+</WildMethod>
+</WildObject>

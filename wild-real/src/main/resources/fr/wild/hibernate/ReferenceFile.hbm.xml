@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 nov. 2015 11:38:06 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.ReferenceFile" table="reference_file">
+        <composite-id name="id" class="fr.wild.hibernate.ReferenceFileId">
+            <key-property name="idReferenceTheme" type="string">
+                <column name="id_reference_theme" />
+            </key-property>
+            <key-property name="idUserFile" type="string">
+                <column name="id_user_file" length="125" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="userFile" class="fr.wild.hibernate.UserFile" update="false" insert="false" fetch="select">
+            <column name="id_user_file" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="referenceConcept" class="fr.wild.hibernate.ReferenceConcept" update="false" insert="false" fetch="select">
+            <column name="id_reference_theme" not-null="true" />
+        </many-to-one>
+        <property name="searchModality" type="string">
+            <column name="search_modality" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

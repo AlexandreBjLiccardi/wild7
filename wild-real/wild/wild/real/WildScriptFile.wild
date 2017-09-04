@@ -1,0 +1,108 @@
+<WildObject ident = "real.WildScriptFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFile" MinCPU = "50" MinRAM = "2" MinROM = "128" type = "abstract">
+Fichier de script, contenant plusieurs ordres interprétés comme des lignes ou des enregistrements, une seule colonne (&quot;command&apos;).
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Field ident = "canBeProcessed" type = "List&lt;Class&gt;" description = "Classes pouvant être traitées" />
+<Field ident = "results" type = "HashMap&lt;String, Object&gt;" description = "Résultats de traitement" />
+<Field ident = "currentResult" type = "String" description = "Résultats du traitement en cours" />
+<Field ident = "currentProcessed" type = "String" description = "Identifiant du fichier en cours de traitement (à défaut" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "commenter" type = "String" description = "Caractère(s) de commentaire" />
+<Parameter ident = "commenterBegin" type = "String" description = "Caractère(s) de commentaire multi-ligne, début" />
+<Parameter ident = "commenterEnd" type = "String" description = "Caractère(s) de commentaire multi-ligne, fin" />
+<Parameter ident = "commandEnd" type = "String" description = "Caractère(s) de fin de commande" />
+</Invokation>
+<WildMethod ident = "setCommandEnd" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Détermination du (des) caractères de fin d&apos;ordre à exécuter">
+<Invokation>
+<Parameter ident = "new_char" type = "String" description = "Nouveau caractère" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setCommenter" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Détermination du (des) caractères de commentaire pour une ligne">
+<Invokation>
+<Parameter ident = "new_char" type = "String" description = "Nouveau caractère" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setCommenterBegin" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Détermination du (des) caractères de commentaire multi-ligne, début">
+<Invokation>
+<Parameter ident = "new_char" type = "String" description = "Nouveau caractère" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setCommenterEnd" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Détermination du (des) caractères de commentaire multi-ligne, fin">
+<Invokation>
+<Parameter ident = "new_char" type = "String" description = "Nouveau caractère" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setLanguageName" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Détermination du nom du langage">
+<Invokation>
+<Parameter ident = "new_var" type = "String" description = "Nouveau nom de langage" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "setProcessed" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Détermination de la liste des WILDObjects susceptibles d&apos;être traités par le script">
+<Invokation>
+<Parameter ident = "new_var" type = "String" description = "Nouveau nom de classe" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+</WildMethod>
+<WildMethod ident = "uncomment" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Suppression des commentaires dans le fichier">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "uncomment_output1" type = "Integer" description = "Nombre de lignes affectées (Integer)"/>
+</WildMethod>
+<WildMethod ident = "uncommentDataset" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Suppression des commentaires dans la liste d&apos;ordre à exécuter (WildDataSet)">
+<Step ident = "1" weight = "10" description = "Parcours du jeu de données"/>
+<Output ident = "uncommentDataset_output1" type = "Integer" description = "Nombre de lignes affectées (Integer)"/>
+</WildMethod>
+<WildMethod ident = "unnerve" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Désactivation d&apos;une portion de code">
+<Invokation>
+<Parameter ident = "fromToken_str" type = "String" description = "Motif où le commentaire commence" />
+<Parameter ident = "toToken_str" type = "String" description = "Motif où le commentaire finit" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fromToken_int" type = "Integer" description = "Ligne où le commentaire commence" />
+<Parameter ident = "toToken_int" type = "Integer" description = "Ligne où le commentaire finit" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Parcours du jeu de données"/>
+<Output ident = "unnerve_output1" type = "Integer" description = "Nombre de lignes affectées (Integer)"/>
+</WildMethod>
+<WildMethod ident = "nerve" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Activation d&apos;une portion de code">
+<Invokation>
+<Parameter ident = "fromToken_str" type = "String" description = "Motif où le commentaire commence" />
+<Parameter ident = "toToken_str" type = "String" description = "Motif où le commentaire finit" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fromToken_int" type = "Integer" description = "Ligne où le commentaire commence" />
+<Parameter ident = "toToken_int" type = "Integer" description = "Ligne où le commentaire finit" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Parcours du jeu de données"/>
+<Output ident = "nerve_output1" type = "Integer" description = "Nombre de lignes affectées (Integer)"/>
+</WildMethod>
+<WildMethod ident = "alterCode" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Modification d&apos;une partie de code">
+<Invokation>
+<Parameter ident = "toReplace" type = "String" description = "Ce qu&apos;il faut remplacer" />
+<Parameter ident = "replaceBy" type = "String" description = "Ce par quoi on remplace" />
+</Invokation>
+<Invokation>
+<Parameter ident = "toReplace" type = "String" description = "Ce qu&apos;il faut remplacer (###VAR### est remplacé par la liste de variables)" />
+<Parameter ident = "replaceBy" type = "String" description = "Ce par quoi on remplace (###VAR### est remplacé par la liste de variables)" />
+<Parameter ident = "varFilter" type = "List&lt;String&gt;" description = "Structure de sélection de variables en amont (###VAR### est remplacé par la liste de variables)" />
+<Parameter ident = "okVars" type = "List&lt;String&gt;" description = "Variables permettant un changement" />
+<Parameter ident = "koVars" type = "List&lt;String&gt;" description = "Variables ne permettant pas de changements" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Parcours du jeu de données"/>
+<Output ident = "alterCode_output1" type = "Integer" description = "Nombre de lignes affectées (Integer)"/>
+</WildMethod>
+</WildObject>

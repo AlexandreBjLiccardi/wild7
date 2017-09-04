@@ -1,0 +1,9 @@
+<WildObject ident = "real.WildGeoJsonFile" author = "alexandre.liccardi@onema.fr" inherits = "WildSigFile">
+Fichier d&apos;échange de données géographqiues au format GéoJSON
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "srid" type = "Integer" default = "4326" description = "Système de référence géographique" />
+</Invokation>
+</WildObject>

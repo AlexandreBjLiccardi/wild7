@@ -1,0 +1,13 @@
+<WildObject ident = "real.WildFrCsvFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFlatFile">
+Fichier texte délimité, norme française
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "delimiter" type = "String" default = ";" description = "séparateur de colonnes" />
+<Parameter ident = "quoter" type = "String" default = "&quot;" description = "Caractère de protection de texte" />
+<Parameter ident = "escapeChar" type = "String" default = "ESC8" description = "caractère d&apos;échappement" />
+<Parameter ident = "lineDelimiter" type = "String" default = "ESC8n" description = "Caractère de retour à la ligne" />
+</Invokation>
+</WildObject>

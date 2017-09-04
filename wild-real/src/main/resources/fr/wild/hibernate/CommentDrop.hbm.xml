@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.CommentDrop" table="comment_drop">
+        <id name="idCommentDrop" type="long">
+            <column name="id_comment_drop" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="drop" class="fr.wild.hibernate.Drop" fetch="select">
+            <column name="id_drop" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="fr.wild.hibernate.User" fetch="select">
+            <column name="id_user" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="commentDrop" class="fr.wild.hibernate.CommentDrop" fetch="select">
+            <column name="id_parent" not-null="true" />
+        </many-to-one>
+        <many-to-one name="approval" class="fr.wild.hibernate.Approval" fetch="select">
+            <column name="id_approval" not-null="true" />
+        </many-to-one>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="35" not-null="true" />
+        </property>
+        <property name="dateLastModif" type="timestamp">
+            <column name="date_last_modif" length="35" />
+        </property>
+        <property name="contents" type="string">
+            <column name="contents" />
+        </property>
+        <set name="commentDrops" table="comment_drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_parent" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.CommentDrop" />
+        </set>
+    </class>
+</hibernate-mapping>

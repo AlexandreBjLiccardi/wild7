@@ -1,0 +1,106 @@
+<WildObject ident = "real.WildRestService" author = "alexandre.liccardi@onema.fr" inherits = "WildWebService">
+Client d&apos;un service protocole REST
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Dependency value = "java.util.Map" description = "" />
+<Dependency value = "org.w3c.dom.Node" description = "" />
+<Field ident = "cookies" type = "Map&lt;String,Object&gt;" description = "cookies nécessaires au appels" />
+<Field ident = "cookiesStr" type = "String" description = "chaîne concaténée pour appel des cookies" />
+<Field ident = "urlService" type = "String" description = "URL du service" />
+<Field ident = "urlCookie" type = "String" description = "URL pour appel de cookie" />
+<Invokation>
+<Parameter ident = "parametersNode" type = "Node" description = "Paramètres sous forme de nœud XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<WildMethod ident = "urlConnect" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Connexion à une URL distante (instanciation de l&apos;objet)">
+<Step ident = "1" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "2" weight = "10" description = "Instanciation de la connexion"/>
+</WildMethod>
+<WildMethod ident = "getCookie" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération d&apos;un cookie correspondant à une adresse distante">
+<Invokation>
+<Parameter ident = "urlCookie" type = "String" description = "URL spécifique de connexion pour obtention du cookie" />
+<Parameter ident = "varCookies" type = "List&lt;String&gt;" default = "null" description = "nom éventuel des variables à retenir, si null les retient tous" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "2" weight = "10" description = "Connexion à l&apos;adresse spécifique pour récupération de cookie"/>
+<Step ident = "3" weight = "10" description = "Envoi de la requête"/>
+<Step ident = "4" weight = "10" description = "Récupération des variables passées en cookie"/>
+<Step ident = "5" weight = "10" description = "Compilation des résultats"/>
+<Return><Parameter ident = "getCookie_ret" type = "String" description = "Valeur du cookie(String)"/></Return>
+</WildMethod>
+<WildMethod ident = "setCookie" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Affectation d&apos;un cookie à une instance de connexion URL">
+<Invokation>
+<Parameter ident = "valuesCookiesMap" type = "Map&lt;String,Object&gt;" description = "Map de description des variables de cookies" />
+</Invokation>
+<Invokation>
+<Parameter ident = "valuesCookiesStr" type = "String" description = "Chaîne de caractères contenant les valeurs de cookies" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Construction de la chaîne de caractères de concaténation des variables"/>
+<Step ident = "2" weight = "10" description = "Passage des variables à l&apos;URL"/>
+</WildMethod>
+<WildMethod ident = "setHeader" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Construction de l&apos;amorce de requête (chaînage des variables) - appel des cas POST ou GET">
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParameters" type = "Node" description = "Paramètres sous forme XML" />
+<Parameter ident = "restMode" type = "String" description = "Protocole GET ou POST" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParametersFile" type = "String" description = "Adresse du fichier contenant les valeurs de paramètres" />
+<Parameter ident = "restMode" type = "String" description = "Protocole GET ou POST" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+<Parameter ident = "restMode" type = "String" description = "Protocole GET ou POST" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification de la structure de passage de variables (Map ou XML)"/>
+<Step ident = "2" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "3" weight = "10" description = "Appel de la méthode POST ou GET"/>
+</WildMethod>
+<WildMethod ident = "setGetHeader" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Construction de l&apos;amorce de requête (chaînage des variables) - GET">
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParameters" type = "Node" description = "Paramètres sous forme XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParametersFile" type = "String" description = "Adresse du fichier contenant les valeurs de paramètres" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification de la structure de passage de variables (Map ou XML)"/>
+<Step ident = "2" weight = "10" description = "Parse de la structure"/>
+<Step ident = "3" weight = "10" description = "Composition de la chaîne"/>
+</WildMethod>
+<WildMethod ident = "setPostHeader" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Construction de l&apos;amorce de requête (chaînage des variables) - POST">
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParameters" type = "Node" description = "Paramètres sous forme XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParametersFile" type = "String" description = "Adresse du fichier contenant les valeurs de paramètres" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL de connexion" />
+<Parameter ident = "xmlParametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification de la structure de passage de variables (Map ou XML)"/>
+<Step ident = "2" weight = "10" description = "Parse de la structure"/>
+<Step ident = "3" weight = "10" description = "Composition de la chaîne"/>
+</WildMethod>
+<WildMethod ident = "getDatas" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération des données pour enregistrement dans un fichier (capture de flux)">
+<Step ident = "1" weight = "10" description = "Création des flux entrants et sortants"/>
+<Step ident = "2" weight = "10" description = "Capture du flux"/>
+<Step ident = "3" weight = "10" description = "Vérification des flux et clôture"/>
+<Return><Parameter ident = "getDatas_ret" type = "String" description = "Adresse du fichier d&apos;export (String)"/></Return>
+</WildMethod>
+</WildObject>

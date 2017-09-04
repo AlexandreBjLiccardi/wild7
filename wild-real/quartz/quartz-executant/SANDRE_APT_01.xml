@@ -1,0 +1,18 @@
+<test>
+<service>
+<parameter id="url" type="request"><name>Adresse HTTP du service (submit du formulaire)</name><value>http://services.sandre.eaufrance.fr/References/1.3.0/References.php</value></parameter>
+<parameter id="query" type="request"><name>Nom de l'opération demandée au service distant</name><value>GET</value></parameter>
+<parameter id="service" type="parameter"><name>S'adresse aux dictionnaires</name><value>References</value></parameter>
+<parameter id="request" type="parameter"><name>Opération demandée</name><value>getReferenceElements</value></parameter>
+<parameter id="CdReferentiel" type="parameter"><name>Code SANDRE du référentiel</name><value>APT</value></parameter>
+<parameter id="outputFormat" type="parameter"><name>Format informatique de récupération</name><value>text/xml</value></parameter>
+<parameter id="outputSchema" type="parameter"><name>Scénario d'échange</name><value>http://xml.sandre.eaufrance.fr/scenario/referentiel/3.1/sandre_sc_referentiel.xsd</value></parameter>
+<parameter id="Filter" type="parameter"><name>Filtre</name><value>&lt;Filter&gt;&lt;:Filter&gt;</value></parameter>
+<parameter id="version" type="parameter"><name>version</name><value>1.3.0</value></parameter>
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildRestService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>600</value></parameter>
+<parameter id="frequency" type="jobConfiguration"><value>3600</value></parameter>
+</configuration>
+</test>

@@ -1,0 +1,26 @@
+<WildObject ident = "real.WildQuartzJob" author = "alexandre.liccardi@onema.fr" inherits = "WildClass" type = "abstract">
+Classe d&apos;exécution d&apos;un job Quartz
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<WildMethod ident = "setMaxDuration" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Définition d&apos;une durée maximale d&apos;exécution, pour un job">
+<Invokation>
+<Parameter ident = "newMaxDuration" type = "Integer" description = "Nouvelle durée maximale en secondes" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Affectation de la variable"/>
+<Step ident = "2" weight = "10" description = "Retour de la variable"/>
+<Return><Parameter ident = "setMaxDuration_ret" type = "Integer" description = "Précédente durée maximale en secondes (Integer)"/></Return>
+</WildMethod>
+<WildMethod ident = "setFrequency" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Définition de la fréquence d&apos;exécution du job, si null exécution immédiate et one shot.">
+<Invokation>
+<Parameter ident = "newLength" type = "Integer" description = "Nouvelle période en secondes" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Transmission des variables"/>
+<Return><Parameter ident = "setFrequency_ret" type = "Integer" description = "Précédente période en secondes (Integer)"/></Return>
+</WildMethod>
+<WildMethod ident = "getId" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Récupération de l&apos;identifiant unique du job">
+<Step ident = "1" weight = "10" description = "Affectation de la variable"/>
+<Step ident = "2" weight = "10" description = "Retour de la variable"/>
+<Return><Parameter ident = "getId_ret" type = "String" description = "Identifiant unique (String)"/></Return>
+</WildMethod>
+</WildObject>

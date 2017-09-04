@@ -1,0 +1,49 @@
+<WildObject ident = "real.WildSoapService" author = "alexandre.liccardi@onema.fr" inherits = "WildWebService">
+Client d&apos;un service protocole SOAP
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Dependency value = "java.util.Map" description = "" />
+<Dependency value = "org.w3c.dom.Node" description = "" />
+<Field ident = "soapHeader" type = "String" description = "Entête SOAP" />
+<Invokation>
+<Parameter ident = "parametersNode" type = "Node" description = "Paramètres sous forme de nœud XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<Invokation>
+<Parameter ident = "parametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<WildMethod ident = "setHeader" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Construction de l&apos;amorce de requête (entête SOAP)">
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL du WSDL connexion" />
+<Parameter ident = "methodName" type = "String" description = "Nom de la méthode SOAP appelée" />
+<Parameter ident = "endPoint" type = "String" default = "null" description = "EndPoint si différent de celui spécifié dans le WSDL" />
+<Parameter ident = "nameSpace" type = "String" default = "null" description = "schéma namespace si différent de celui spécifié dans le WSDL" />
+<Parameter ident = "xmlParameters" type = "Node" description = "Paramètres sous forme XML" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL du WSDL connexion" />
+<Parameter ident = "methodName" type = "String" description = "Nom de la méthode SOAP appelée" />
+<Parameter ident = "endPoint" type = "String" default = "null" description = "EndPoint si différent de celui spécifié dans le WSDL" />
+<Parameter ident = "nameSpace" type = "String" default = "null" description = "schéma namespace si différent de celui spécifié dans le WSDL" />
+<Parameter ident = "xmlParametersFile" type = "String" description = "Adresse du fichier contenant les valeurs de paramètres" />
+</Invokation>
+<Invokation>
+<Parameter ident = "urlConnexion" type = "String" description = "URL du WSDL connexion" />
+<Parameter ident = "methodName" type = "String" description = "Nom de la méthode SOAP appelée" />
+<Parameter ident = "endPoint" type = "String" default = "null" description = "EndPoint si différent de celui spécifié dans le WSDL" />
+<Parameter ident = "nameSpace" type = "String" default = "null" description = "schéma namespace si différent de celui spécifié dans le WSDL" />
+<Parameter ident = "xmlParametersMap" type = "Map&lt;String,Object&gt;" description = "Paramètres sous forme de Map" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification de la structure de passage de variables (SOAP, Map ou XML)"/>
+<Step ident = "2" weight = "10" description = "Parse de la structure"/>
+<Step ident = "3" weight = "10" description = "Composition du node"/>
+</WildMethod>
+<WildMethod ident = "getDatas" author ="alexandre.liccardi@onema.fr" update ="Thu Sep 01 00:00:00 CEST 2016" description = "Récupération des données pour enregistrement dans un fichier (capture de flux)">
+<Step ident = "1" weight = "10" description = "Création des flux entrants et sortants"/>
+<Step ident = "2" weight = "10" description = "Capture du flux"/>
+<Step ident = "3" weight = "10" description = "Vérification des flux et clôture"/>
+<Return><Parameter ident = "getDatas_ret" type = "String" description = "Adresse du fichier d&apos;export (String)"/></Return>
+</WildMethod>
+</WildObject>

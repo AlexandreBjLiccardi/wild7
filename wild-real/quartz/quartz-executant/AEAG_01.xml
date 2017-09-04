@@ -1,0 +1,17 @@
+<test>
+<service>
+<parameter id="outputFormat" position="outputFormat" type="parameter"><value>text/xml</value></parameter>
+<parameter id="domain" position="domain" type="parameter"><value>3.1</value></parameter>
+<parameter id="endPoint" type="request"><value>http://adour-garonne.eaufrance.fr/services/Monitoring/2/SMonitoring.php</value></parameter>
+<parameter id="url" type="request"><value>http://adour-garonne.eaufrance.fr/services/Monitoring/2/Monitoring.wsdl</value></parameter>
+<parameter id="timeOut" type="request"><name>Durée de time out en ms</name><value>100</value></parameter>
+<parameter id="typeTest" type="behavior"><value>complet</value></parameter>
+<parameter id="allAtOnce" type="behavior"><value>true</value></parameter>
+<parameter id="saveAsXml" type="behavior"><value>true</value></parameter>
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildAeService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>1200</value></parameter>
+<parameter id="frequency" type="jobConfiguration"><value>3600</value></parameter>
+</configuration>
+</test>

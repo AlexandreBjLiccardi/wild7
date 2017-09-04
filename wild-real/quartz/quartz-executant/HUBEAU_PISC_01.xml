@@ -1,0 +1,14 @@
+<test>
+<service>
+<parameter id="url" type="request"><name>Adresse HTTP du service (submit du formulaire)</name><value>http://api.hubeau.fr/v0/etat_piscicole/poissons</value></parameter>
+<parameter id="query" type="request"><name>Nom de l'opération demandée au service distant</name><value>GET</value></parameter>
+<parameter id="code_station" type="parameter"><name>Code de la station</name><value>06250157</value></parameter>
+<parameter id="code_espece_poisson" type="parameter"><name>Code de l'espèce piscicole</name><value>VAI</value></parameter>
+<parameter id="format" type="parameter"><name>Format informatique de récupération</name><value>json</value></parameter>
+</service>
+<configuration>
+<parameter id="javaClass" type="jobConfiguration"><value>WildRestService</value></parameter>
+<parameter id="maxDuration" type="jobConfiguration"><value>600</value></parameter>
+<parameter id="frequency" type="jobConfiguration"><value>3600</value></parameter>
+</configuration>
+</test>

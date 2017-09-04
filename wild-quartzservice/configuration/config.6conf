@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+<!--
+	Language de paramétrage WILD :
+	*** FONCTIONS conf_translate() dans fr.onema.dice.common.XmlParser ***
+{A}								Variable de remplacement spécifique, pourcentage d'avancement par exemple
+#6D#ScenarioName#6D#			Nom de classe du scénario
+#6D#ScenarioId#6D#				Identifiant unique du scénario
+#6D#UserId#6D#					Identifiant de l'utilisateur
+#6D#UserName#6D#				Nom de l'utilisateur
+#6D#UserForname#6D#				Prénom de l'utilisateur
+#6D#UserFullname#6D#			Prénom et nom de l'utilisateur
+#6D#UserMail#6D#				Mail de l'utilisateur
+#6D#ExecutionId#6D#				Identifant unique de l'instance d'exécution
+#6D#JavaServiceId#6D#			Identifant unique du service JAVA
+#6D#DateBegin#6D#				Date de lancement du job
+#6D#DatePost#6D#				Date de soumission du job
+#6D#DateEnd#6D#					Date de fin d'exécution du job
+
+-->
+<FamilyParameter allowLevel="6">Mails et templates
+	<Parameter ident ="mail_from" description ="Adresse [FROM :] pour l'envoi de mails" type="String" allowLevel = "6">
+		rapportage.dce@onema.fr
+	</Parameter>
+	<Parameter ident ="mail_user" description ="Identifiant SMTP pour l'envoi de mails" type="String" allowLevel = "6">
+		rapportage.dce@onema.fr
+	</Parameter>
+	<Parameter ident ="mail_pwd" description ="Mot de passe SMTP pour l'envoi de mails" type="String" allowLevel = "6">
+		lololol
+	</Parameter>
+	<Parameter ident ="mail_auth" description ="Connexion SMTP à prendre en compte pour l'envoi de mails" type="Boolean" allowLevel = "6">
+		true
+	</Parameter>
+	<Parameter ident ="mail_ttls" description ="Sécurité TTLS à prendre en compte pour l'envoi de mails" type="Boolean" allowLevel = "6">
+		false
+	</Parameter>
+	<Parameter ident ="mail_ssl" description ="Sécurité SSL à prendre en compte pour l'envoi de mails" type="Boolean" allowLevel = "6">
+		true
+	</Parameter>
+	<Parameter ident ="mail_host" description ="Hôte SMTP pour l'envoi de mails" type="String" allowLevel = "6">
+		mails-ng.optimails.com
+	</Parameter>
+	<Parameter ident ="mail_port" description ="Port SMTP pour l'envoi de mails" type="Integer" allowLevel = "6">
+		465
+	</Parameter>
+	<Parameter ident ="mail_object_layout_forScenario_success" description ="Squelette du message, envoi de mail (succès)" type="String" interface="textarea" allowLevel = "6">
+Référence d'exécution : #6D#ExecutionId#6D#
+		
+#6D#UserFullname#6D#, 
+		
+Votre scénario #6D#ScenarioName#6D# posté au #6D#DatePost#6D# s'est terminé au #6D#DateEnd#6D# avec succès.
+
+L'accès au rapport d'exécution se fait à l'adresse :
+https://outils-dcie.eaufrance.fr/?report=#6D#ExecutionId#6D#
+http://localhost/dice2/?report=#6D#ExecutionId#6D#
+Cet accès nécessite une identification.
+
+L'équipe Rapportages DCE ONEMA
+	</Parameter>
+	<Parameter ident ="mail_object_layout_forScenario_failure" description ="Squelette du message, envoi de mail (échec)" type="String" interface="textarea"  allowLevel = "6">
+Référence d'exécution : #6D#ExecutionId#6D#
+		
+#6D#UserFullname#6D#, 
+		
+Votre scénario #6D#ScenarioName#6D# posté au #6D#DatePost#6D# s'est terminé au {A} avec des erreurs.
+Vous pouvez contacter le support pour en savoir plus.
+		
+L'équipe Rapportages DCE ONEMA
+	</Parameter>
+	<Parameter ident ="mail_object_layout_forSubject_success" description ="Squelette du sujet, envoi de mail (succès)" type="String" allowLevel = "6">
+		[Guichet Rapportages] Votre scénario #6D#ScenarioName#6D# - Succès d'exécution.
+	</Parameter>
+	<Parameter ident ="mail_object_layout_forSubject_failure" description ="Squelette du sujet, envoi de mail (échec)" type="String" allowLevel = "6">
+		[Guichet Rapportages] Votre scénario #6D#ScenarioName#6D# - Echec d'exécution.
+	</Parameter>
+	
+	<Parameter ident ="mail_msg_layout_forScenario_success" description ="Squelette du sujet, envoi de mail" type="String" allowLevel = "6">
+		
+	</Parameter>
+	<Parameter ident ="mail_msg_layout_forScenario_failure" description ="Squelette du sujet, envoi de mail" type="String" allowLevel = "6">
+		
+	</Parameter>
+	<Parameter ident ="mail_object_layout_forScenario_failure_errorHeader" description ="En-tête de description des erreurs" type="String" interface="textarea"  allowLevel = "6">
+------
+Erreurs d'exécution
+------
+	</Parameter>
+	<Parameter ident ="mail_object_layout_forScenario_failure_instanciation" description ="Message lorsque le scénario n'a pas pas être instancié" type="String" interface="textarea"  allowLevel = "6">
+Le scénario "{A}" n'a pas pu être instancié (non retrouvé dans la liste des modèles WILD disponibles).
+	</Parameter>
+</FamilyParameter>
+
+
+<FamilyParameter allowLevel="6">Messages utilisateurs (langage, verbosité)
+	<Parameter ident ="common_verbose" description ="Affiche les erreurs dans la console" type="Boolean" allowLevel = "6">
+		true
+	</Parameter>
+	<Parameter ident ="log_verbose_showParameters" description ="Les paramètres ont loggés en tant que trace pour chaque exécution" type="Boolean" allowLevel = "6">
+		false
+	</Parameter>
+	<Parameter ident ="log_verbose_showSteps" description ="A chaque pas de temps de renseignement {system_delay}, on log le message envoyé récapitulatif des étapes en cours. " type="Boolean" allowLevel = "6">
+		false
+	</Parameter>
+	<Parameter ident ="log_verbose_showBricks" description ="Renseigne dans le log la construction des objets et le lancement des méthodes" type="Boolean" allowLevel = "6">
+		false
+	</Parameter>
+	<Parameter ident ="common_language" description ="Langage courant" type="String" allowLevel = "6">
+		FR
+	</Parameter>
+	<Parameter ident ="alreadyrunning_message" description ="Message pour annulation du lancement du service, si un service tourne déjà." type="String" allowLevel = "6">
+		Un service tourne déjà en arrière plan. Lancement annulé.
+	</Parameter>
+	<Parameter ident ="wild_initialization_msg" description ="Message d'initialisation des DiceRunnable (avant le chargement de la première étape)" type="String" allowLevel = "6">
+		Initialisation de l'élément
+	</Parameter>
+	<Parameter ident ="wild_finalized_msg" description ="Message d'initialisation des DiceRunnable (avant le chargement de la première étape)" type="String" allowLevel = "6">
+		Exécution terminée
+	</Parameter>
+		<Parameter ident ="scenario_dice_javamsg" description ="Message affiché lors du lancement d'un scénario" type="String" allowLevel = "6">
+		Lancement du scénario : {S}.
+	</Parameter>
+	<Parameter ident ="execution_dice_javamsg" description ="Message affiché lors du lancement d'une exécution" type="String" allowLevel = "6">
+		Nouvelle exécution : {E}.
+	</Parameter>
+	<Parameter ident ="scenario_dice_javasuccessmsg" description ="Message affiché lors du traitement d'un scénario" type="String" allowLevel = "6">
+		Fin d'exécution du scénario : {S}.
+	</Parameter>
+	<Parameter ident ="status104_javaservicemsg" description ="Message pour l'opération sur service JAVA 104 (arrêt différé)" type="String" allowLevel = "6">
+		Message pour l'opération sur service JAVA 104 (arrêt différé)
+	</Parameter>
+	<Parameter ident ="status105_javaservicemsg" description ="Message pour l'opération sur service JAVA 105 (arrêt forcé)" type="String" allowLevel = "6">
+		Message pour l'opération sur service JAVA 105 (arrêt forcé)
+	</Parameter>
+	<Parameter ident ="status106_javaservicemsg" description ="Message pour l'opération sur service JAVA 106 (flush model)" type="String" allowLevel = "6">
+		Message pour l'opération sur service JAVA 106 (flush model)
+	</Parameter>
+	<Parameter ident ="date_javaformat" description ="Format de date type dd/MM/YYYY hh:mm:ssss" type="String" allowLevel = "6">
+		dd/MM/YYYY hh:mm:ssss
+	</Parameter>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Système de fichiers
+	<Parameter ident ="jar_path" description ="chemin vers le répertoire contenant les jar des modèles applicatifs" type="String" allowLevel = "6">
+		wild/wild
+	</Parameter>
+	<Parameter ident ="wild_path" description ="Chemin vers les wrappers JAVA" type="String" allowLevel = "6">
+		wild/wild
+	</Parameter>
+	<Parameter ident ="execution_path" description ="Chemin vers les dossiers d'exécution - {U} pour idUser, {E} pour idExecution" type="String" allowLevel = "6">
+		wild/execution/#6D#UserId#6D#/#6D#ExecutionId#6D#
+	</Parameter>
+	<Parameter ident ="execution_temp_path" description ="Chemin vers les dossiers d'exécution, fichiers temporaires - {U} pour idUser, {E} pour idExecution" type="String" allowLevel = "6">
+		wild/execution/#6D#UserId#6D#/TEMP_#6D#ExecutionId#6D#
+	</Parameter>
+	<Parameter ident ="execution_php_path" description ="Chemin vers les dossiers d'exécution - {U} pour idUser, {E} pour idExecution" type="String" allowLevel = "6">
+		wild/php/#6D#UserId#6D#/#6D#ExecutionId#6D#
+	</Parameter>
+	<Parameter ident ="archive_path" description ="Chemin vers les dossiers d'historisation" type="String" allowLevel = "6">
+		wild/files/users/#6D#UserId#6D#/archives
+	</Parameter>
+	<Parameter ident ="user_path_files" description ="Chemin vers les dossiers d'historisation pour l'utilisateur" type="String" allowLevel = "6">
+		wild/files/users/#6D#UserId#6D#/case
+	</Parameter>
+	<Parameter ident ="public_path_files" description ="Chemin vers les dossiers d'historisation public" type="String" allowLevel = "6">
+		wild/files/common/series
+	</Parameter>
+	<Parameter ident ="references_path_files" description ="Chemin vers les dossiers d'historisation des referentiels" type="String" allowLevel = "6">
+		wild/files/common/references
+	</Parameter>
+	<Parameter ident ="metadatas_path_files" description ="Chemin vers les dossiers d'historisation des métadonnées pour l'utilisateur" type="String" allowLevel = "6">
+		wild/files/users/#6D#UserId#6D#/metadatas
+	</Parameter>
+	<Parameter ident ="published_path_files" description ="Chemin vers les dossiers temporaires d'URL publics" type="String" allowLevel = "6">
+		public_urls
+	</Parameter>
+	<Parameter ident ="public_url_files" description ="Adresse URL vers les dossiers temporaires d'URL publics, correspond au HTTP de {public_path_files}" type="String" allowLevel = "6">
+		http://ns3006763.ip-151-80-42.eu/loki
+	</Parameter>
+	<Parameter ident ="systemLogs_path" description ="Chemin vers les logs systèmes" type="String" allowLevel = "6">
+		systemLogs
+	</Parameter>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Performances
+
+	<Parameter ident ="system_max_clock" description ="Fréquence maximale des coeurs du CPU, en MHz" type="Integer" allowLevel = "6">
+		1500
+	</Parameter>
+	<Parameter ident ="system_max_RAM" description ="RAM système disponible (0 : gérée par le système), en Mo" type="Long" allowLevel = "6">
+		2048
+	</Parameter>
+	<Parameter ident ="system_min_clock" description ="Occupation de base du système, en MHz" type="Long" allowLevel = "6">
+		1500
+	</Parameter>
+	<Parameter ident ="system_min_RAM" description ="RAM nécessaire au lancement hors traitement de scénarios, en Mo" type="Long" allowLevel = "6">
+		256
+	</Parameter>
+	<Parameter ident ="standard_scenario_minRAM" description ="Mémoire vive minimale standard pour le traitement de scénarios, en Mo" type="Integer" allowLevel = "6">
+		8
+	</Parameter>
+	<Parameter ident ="standard_scenario_minROM" description ="Espace disque minimal standard pour le traitement de scénarios, en Mo" type="Integer" allowLevel = "6">
+		32
+	</Parameter>
+	<Parameter ident ="standard_scenario_minCPU" description ="Ressource CPU minimale standard pour le traitement de scénarios, en MHz" type="Integer" allowLevel = "6">
+		120
+	</Parameter>
+	<Parameter ident ="max_estimated_minRAM" description ="Mémoire vive maximale estimée, disponible, pour le traitement de scénarios, en Mo" type="Integer" allowLevel = "6">
+		1024
+	</Parameter>
+	<Parameter ident ="max_estimated_minROM" description ="Espace disque maximale estimé, disponible, pour le traitement de scénarios, en Mo" type="Integer" allowLevel = "6">
+		5000
+	</Parameter>
+	<Parameter ident ="max_estimated_minCPU" description ="Ressource CPU maximale estimée, disponible, pour le traitement de scénarios, en MHz" type="Integer" allowLevel = "6">
+		4000
+	</Parameter>
+	<Parameter ident ="system_allow_parallelcomponents" description ="Autorise l'orchestreur à lancer plusieurs thread de composants en simultané" type="Boolean" allowLevel = "6">
+		false
+	</Parameter>
+	<Parameter ident ="system_delay" description ="Temps d'attente en fin de boucle (actualisation du pont java), en ms" type="Integer" allowLevel = "6">
+		1000
+	</Parameter>
+	<Parameter ident ="system_cleaner_delay" description ="Période d'exécution des scripts de nettoyage de la base de données, en s" type="Integer" allowLevel = "6">
+		10
+	</Parameter>
+	<Parameter ident ="system_jloop_delay" description ="Temps d'attente générique pour les boucles java, en ms" type="Integer" allowLevel = "6">
+		500
+	</Parameter>
+	<Parameter ident ="system_record_delay" description ="Délais entre deux logs ressources dans la base de données, en s" type="Integer" allowLevel = "6">
+		1
+	</Parameter>
+	<Parameter ident ="system_gc_delay" description ="Délais entre deux garbage collectors, en s" type="Integer" allowLevel = "6">
+		150
+	</Parameter>
+	<Parameter ident ="system_auto_gc" description ="Exécute un garbage collector à la fin de chaque scénario" type="Boolean" allowLevel = "6">
+		true
+	</Parameter>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Connexion à la base de données	
+	<Parameter ident ="db_port" description ="Port du service Postgresql" type="Integer" allowLevel = "6">
+		5432
+	</Parameter>
+	<Parameter ident ="db_host" description ="Hôte du service Postgresql" type="String" allowLevel = "6">
+		localhost
+	</Parameter>
+	<Parameter ident ="db_dbName" description ="Nom du service Postgresql (nom de la base de donnnées)" type="String" allowLevel = "6">
+		wild
+	</Parameter>
+	<Parameter ident ="db_user" description ="Utilisateur du service Postgresql" type="String" allowLevel = "6">
+		postgres
+	</Parameter>
+	<Parameter ident ="db_passWord" description ="Mot de passe du service Postgresql" type="String" allowLevel = "6">
+		dcieonema
+	</Parameter>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Paramètres des listes d'attente
+	<Parameter ident ="system_maxTasksPerUser" description ="Nombre maximal de tâches simultanées autorisées par utilisateur" type="Integer" allowLevel = "6">
+		5
+	</Parameter>
+	<Parameter ident ="system_maxTasksPerRow" description ="Nombre maximal de tâches simultanées autorisées par seconde" type="Integer" allowLevel = "6">
+		1
+	</Parameter>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Options de compression / décompression	
+	<Parameter ident ="formats_filecompress" description ="Formats de compression, séparés par ';'" type="String" allowLevel = "6">
+		application/x-zip-compressed;ext:7z
+	</Parameter>
+	<Parameter ident ="terminated_dice_javamsg" description ="Message affiché à la fin de l'exécution" type="String" allowLevel = "6">
+		Fin d'exécution du scénario DICE. Edition et compression des résultats.
+	</Parameter>
+	<Parameter ident ="uncompress_dice_javamsg" description ="Message affiché lors de la décompression des fichiers à traiter" type="String" allowLevel = "6">
+		Décompression des fichiers : {A} %.
+	</Parameter>
+	<Parameter ident ="compress_dice_javamsg" description ="Message affiché lors de la compression des résultats de traitement" type="String" allowLevel = "6">
+		Compression des résultats : {A} %.
+	</Parameter>
+	<Parameter ident ="uncompress_dice_javasuccessmsg" description ="Message affiché lors du succès de la décompression des fichiers à traiter" type="String" allowLevel = "6">
+		Décompression des fichiers réussie.
+	</Parameter>
+	<Parameter ident ="compress_dice_javasuccessmsg" description ="Message affiché lors du succès de la compression des résultats de traitement" type="String" allowLevel = "6">
+		Compression des résultats réussie.
+	</Parameter>
+</FamilyParameter>
+
+
+<FamilyParameter allowLevel="6">Options PHP
+	<Parameter ident ="phpOut_delay_dispo" description ="Temps de conservation, en minutes, du répertoire de sortie PHP pour une exécution, après la fin de cette exécution. Ne doit pas être inférieur à {system_cleaner_jobs_delay}" type="Integer" allowLevel = "6">
+		1440
+	</Parameter>
+	<Parameter ident ="phpOut_delay_dispo_nopMax" description ="Nombre maximal d'archive nettoyé à chaque pas de temps {phpOut_delay_dispo}" type="Integer" allowLevel = "6">
+		120
+	</Parameter>
+	<Parameter ident ="system_cleaner_jobs_delay" description ="Pas de temps pour les nettoyages système, en minutes" type="Integer" allowLevel = "6">
+		60
+	</Parameter>
+	<Parameter ident ="system_cleaner_stepUpdate_delay" description ="Pas de temps pour le ping d'un scenario, en secondes. Correspond à au délais d'actualisation des informations (dont l'étapes)." type="Integer" allowLevel = "6">
+		1
+	</Parameter>
+	<Parameter ident ="system_cleaner_pgConnect_delay" description ="Pas de temps pour le rafraichissement de la connexion à la base de données PG (réinitialisation de la connexion), en millisecondes. Correspond à au délais d'actualisation des informations (dont l'étapes)." type="Integer" allowLevel = "8">
+		0
+	</Parameter>
+	<Parameter ident ="verbose_printStackTraceErrors" description ="Les messages d'erreurs JAVA sont affichés dans la console" type="Boolean" allowLevel = "8">
+		false
+	</Parameter>
+	<Parameter ident ="phpOut_delay_fill" description ="Temps de conservation des fichiers livrés depuis l'interface, avant envoi de l'exécution. Si le délais imparti est supprimé, tout est supprimé (correspond au temps de remplissage du formaulaire). En minutes." type="Integer" allowLevel = "6">
+		60
+	</Parameter>
+</FamilyParameter>	
+
+<FamilyParameter allowLevel="6">Erreurs fatales
+	<Exception ident = "ServiceLoopFailure" criticity="FATAL">
+		Interruption de la boucle de service DICE.
+	</Exception>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Erreurs critiques
+
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Erreurs communes
+<Exception ident = "NullPointerException" criticity="ERROR" description = "Elément manquant.">
+		Un élément manque sur le système d'exécution.
+	</Exception>
+	<Exception ident = "WildWrapperError" criticity="ERROR" description = "Erreur dans le code XML d'un fichier WILD.">
+		Erreur dans le code XML d'un fichier WILD.
+	</Exception>
+	<Exception ident = "WildScenarioError" criticity="ERROR" description = "Des erreurs WILDS empêchent l'instanciation d'un scénario.">
+		Erreur dans le code XML d'un fichier WILD.
+	</Exception>
+	<Exception ident = "FileNotFoundException" criticity="ERROR" description = "Fichier manquant dans le renseignement du scénario">
+		Erreur dans le code XML d'un fichier WILD.
+	</Exception>
+	<Exception ident = "SourceParserException" criticity="ERROR" description = "Erreur dans la construction des sources fournies au scénario">
+		Erreur dans le code XML d'un fichier WILD.
+	</Exception>
+	<Exception ident = "NotAvailableException" criticity="ERROR" description = "Erreur non disponible">
+		Erreur non disponible
+	</Exception>
+	<Exception ident = "IOException" criticity="ERROR">
+		Erreur lors de la lecture ou de l'écriture d'un fichier lors de l'exécution de la méthode - CONFIG6D
+	</Exception>
+	<Exception ident = "FlushFailure" criticity="ERROR">
+		Erreur lors de la création de la liste de modèles.
+	</Exception>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Traces
+	<Exception ident = "ProductAvailabilityFailure" criticity="INFO" description = "Message affiché lors de l'absence d'un fichier à produire, en fin d'exécution.">
+		Le fichier {A}	n'a pas été trouvé sur le serveur d'exécution.
+	</Exception>
+</FamilyParameter>
+
+<FamilyParameter allowLevel="6">Gestion des scénarios
+	<Message ident = "UserMessage" criticity="TRACE">
+		Message de l'utilisateur
+	</Message>
+	<Message ident = "NotAvailableMessage" criticity="TRACE">
+		Message non disponible
+	</Message>
+	<Message ident = "NewScenarioLaunched" criticity="TRACE">
+		Nouveau scénario lancé
+	</Message>
+	<Message ident = "NewScenarioBuild" criticity="TRACE">
+		Construction d'un nouveau scénario (instanciation des modèles, création des répertoires, calcul des ressources)
+	</Message>
+	<Message ident = "ScenarioEnded" criticity="TRACE">
+		Scénario terminé
+	</Message>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Gestion service WILD	
+	<Message ident = "FlushAttempt" criticity="INFO">
+		Tentative de construction de la liste de modèles...
+	</Message>
+	<Message ident = "FlushSuccess" criticity="INFO">
+		... Modèles créés avec succès.
+	</Message>
+	<Message ident = "ServiceLaunch" criticity="INFO">
+		Nouveau service lancé
+	</Message>
+	<Message ident = "BuildWrapperAttempt" criticity="INFO">
+		Tentative de création de wrapper
+	</Message>
+	<Message ident = "BuildWrapperSuccess" criticity="INFO">
+		Wrapper créé avec succès
+	</Message>
+	<Message ident = "BuildModelAttempt" criticity="INFO">
+		Tentative de création de modèle
+	</Message>
+	<Message ident = "BuildModelSuccess" criticity="INFO">
+		Modèle créé avec succès
+	</Message>
+	<Message ident = "BuildBrickSuccess" criticity="INFO">
+		Brique créée avec succès
+	</Message>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Exécution service WILD	
+	<Message ident = "DiceObjectBegin" criticity="TRACE">
+	Création de l'objet #6D#ObjectName#6D# (instance #6D#ObjectId#6D#).
+	</Message>
+	<Message ident = "DiceObjectEnd" criticity="TRACE">
+	Clôture de l'objet #6D#ObjectName#6D# (instance #6D#ObjectId#6D#).
+	</Message>
+	<Message ident = "DiceMethodBegin" criticity="TRACE">
+	Lancement de la méthode #6D#ObjectName#6D#.#6D#MethodName#6D# (instance #6D#MethodId#6D#).
+	</Message>
+	<Message ident = "DiceMethodEnd" criticity="TRACE">
+	Fin d'exécution de la méthode #6D#ObjectName#6D#.#6D#MethodName#6D# (instance #6D#MethodId#6D#).
+	</Message>
+</FamilyParameter>
+<FamilyParameter allowLevel="6">Maintenance
+	<Message ident = "CleanerActivity" criticity="TRACE">
+	Nettoyage de la base de données de suivi des exécution et des répertoires d'input / output.
+	</Message>
+	<Message ident = "GCActivity" criticity="TRACE">
+	Exécution du garbage collector pour libération de ressources JAVA.
+	</Message>
+</FamilyParameter>
+</Configuration>

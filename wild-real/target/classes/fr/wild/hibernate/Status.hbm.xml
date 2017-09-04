@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.Status" table="status">
+        <id name="idStatus" type="short">
+            <column name="id_status" />
+            <generator class="assigned" />
+        </id>
+        <property name="fullName" type="string">
+            <column name="full_name" length="55" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <set name="executionChainsaws" table="execution_chainsaw" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_status" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionChainsaw" />
+        </set>
+        <set name="javaServices" table="java_service" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_status" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.JavaService" />
+        </set>
+        <set name="executionLists" table="execution_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_status" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionList" />
+        </set>
+        <set name="executionArchives" table="execution_archive" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_status" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionArchive" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GWMET xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wfd="http://dd.eionet.europa.eu/schemas/WFD2016/wfdcommon" xmlns="http://dd.eionet.europa.eu/schemas/WFD2016" xsi:schemaLocation="http://dd.eionet.europa.eu/schemas/WFD2016 http://dd.eionet.europa.eu/schemas/WFD2016/GWMET_2016.xsd" fileName="GWMET_FR_20151215.xml" language="fre" creationDate="2015-12-15" creator="DEAL 972" email="p-speb.deal-martinique@developpement-durable.gouv.fr" description="	Methodologies characterisation groundwater bodies" generatedBy="Service landscapes, water and biodiversity
+Water and Aquatic Pole">
+	<countryCode>FR</countryCode>
+	<euRBDCode>FRJ</euRBDCode>
+	<GWMethodologies>
+		<gwCharacterisationReference>
+			<wfd:subject>Analysis of the impact of human activities on grondwater status</wfd:subject>
+			<wfd:documentName>Arrêté du 12 janvier 2010 relatif aux méthodes et aux critères à mettre en oeuvre pour délimiter et classer les masses d’eau et dresser l’état des lieux prévu à l’article R. 212-3 du code de l’environnement</wfd:documentName>
+			<wfd:bookmark>Art10_p2-to-3</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_Arrete-12 janvier 2010_Methodes_et_criteres.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Initial delimitation of groundwater bodies in 2003</wfd:subject>
+			<wfd:documentName>MISE EN OEUVRE DE LA DCE CARACTERISATION INITIALE DES MASSES D’EAU SOUTERRAINE guide méthodologique. Mai 2003</wfd:documentName>
+			<wfd:bookmark>whole document</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_Guide_CARACT_ME_2003.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Identification and delimitation of groundwater bodies</wfd:subject>
+			<wfd:documentName>Mise en œuvre de la DCE: identification et délimitation des masses d'eau souterraine au deuxième cycle</wfd:documentName>
+			<wfd:bookmark>section_5.3.3_p.28-to-29</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_guide_ME_2013_BRGM.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Identification and delimitation of groundwater bodies</wfd:subject>
+			<wfd:documentName>Mise en œuvre de la DCE: identification et délimitation des masses d'eau souterraine au deuxième cycle</wfd:documentName>
+			<wfd:bookmark>section_5.2_p.25-to-27</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_guide_ME_2013_BRGM.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Groundwater pressures</wfd:subject>
+			<wfd:documentName>Recueil des méthodes de caractérisation des pressions. Partie III : Dispositifs de caractérisation des pressions sur les eaux souterraines</wfd:documentName>
+			<wfd:bookmark>section2.5.6_p13-to-14</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_Recueil P_EauxSouterraines_16022012.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Identification and delimitation of groundwater bodies</wfd:subject>
+			<wfd:documentName>Mise en œuvre de la DCE: identification et délimitation des masses d'eau souterraine au deuxième cycle</wfd:documentName>
+			<wfd:bookmark>whole document</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_guide_ME_2013_BRGM.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Identification and delimitation of groundwater bodies</wfd:subject>
+			<wfd:documentName>Mise en œuvre de la DCE: identification et délimitation des masses d'eau souterraine. Guide méthodologique. Janvier 2003</wfd:documentName>
+			<wfd:bookmark>whole document</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_guide_ME_2013_BRGM.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Identification and delimitation of groundwater bodies</wfd:subject>
+			<wfd:documentName>Mise en œuvre de la DCE: identification et délimitation des masses d'eau souterraine au deuxième cycle</wfd:documentName>
+			<wfd:bookmark>p5to7</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_guide_ME_2013_BRGM.pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<gwCharacterisationReference>
+			<wfd:subject>Identification and delimitation of groundwater bodies</wfd:subject>
+			<wfd:documentName>Mise en œuvre de la DCE: identification et délimitation des masses d'eau souterraine au deuxième cycle</wfd:documentName>
+			<wfd:bookmark>whole document</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_Fiche_ME .pdf</wfd:hyperlink>
+		</gwCharacterisationReference>
+		<diminutionDamage>Not applicable</diminutionDamage>
+		<methodCriterionExtentExceedance>Method 2: Proportion (%) of the total area of the groundwater body represented by monitoring sites exceeding a groundwater quality standard or threshold value compared to the total area of the whole groundwater body.</methodCriterionExtentExceedance>
+		<proportionExceedanceAllowed>20</proportionExceedanceAllowed>
+		<impactsGWAbstractionBalance>Yes</impactsGWAbstractionBalance>
+		<impactsGWAbstractionSWObjective>Yes</impactsGWAbstractionSWObjective>
+		<impactsGWAbstractionSWDiminutionStatus>Yes</impactsGWAbstractionSWDiminutionStatus>
+		<impactsGWAbstractionDamageGWDE>Yes</impactsGWAbstractionDamageGWDE>
+		<impactsGWAbstractionSalineIntrusion>Yes</impactsGWAbstractionSalineIntrusion>
+		<availableGroundwaterResource>No</availableGroundwaterResource>
+		<needsTerrestrialEcosystems>No</needsTerrestrialEcosystems>
+		<balanceRechargeAbstraction>Method 1: A comparison of annual average groundwater abstraction against 'available groundwater resource' has been reported to be calculated for every groundwater body</balanceRechargeAbstraction>
+		<trendAssessmentPerformed>Yes</trendAssessmentPerformed>
+		<trendAssessmentMethodology>Yes</trendAssessmentMethodology>
+		<timeSeries>1996--2011</timeSeries>
+		<statisticalElements>Statistical significance</statisticalElements>
+		<additionalTrendAssessment>No</additionalTrendAssessment>
+		<startingPointTrendReversal>Some or all starting points for trend reversal start at a value that is not 75 % of the groundwater quality standards and threshold values.</startingPointTrendReversal>
+		<percentageStartingPoint>75</percentageStartingPoint>
+		<trendReversalMethodology>No</trendReversalMethodology>
+		<thresholdValueElementProtectionEcosystem>No</thresholdValueElementProtectionEcosystem>
+		<thresholdValueElementProtectionGWDE>No</thresholdValueElementProtectionGWDE>
+		<thresholdValueElementProtectionUses>Yes</thresholdValueElementProtectionUses>
+		<thresholdValueElementSalineIntrusion>No</thresholdValueElementSalineIntrusion>
+		<thresholdValuesBackgroundLevels>Background levels have been considered in the status assessment but not in the threshold value establishment</thresholdValuesBackgroundLevels>
+		<transboundaryGWBPresent>No</transboundaryGWBPresent>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Groundwater chemical status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>AnnexeIII_p30-to-34</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Groundwater chemical status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>AnnexeIII_p27</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Significant and sustained upward trends in pollutants in groundwater</wfd:subject>
+			<wfd:documentName>Identification et inversion des tendances significatives et durables de dégradation de l'état chimique des eaux souterraines dans les prochains SDAGE</wfd:documentName>
+			<wfd:bookmark>p3</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_Note_inversion_des_tendances_ESO.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Significant and sustained upward trends in pollutants in groundwater</wfd:subject>
+			<wfd:documentName>Identification et inversion des tendances significatives et durables de dégradation de l'état chimique des eaux souterraines dans les prochains SDAGE</wfd:documentName>
+			<wfd:bookmark>p3-to-4</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_Note_inversion_des_tendances_ESO.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Significant and sustained upward trends in pollutants in groundwater</wfd:subject>
+			<wfd:documentName>Arrêté du 17 décembre 2008 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>Art9_p3</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_joe_arrete_17_12_2008.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Groundwater chemical status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>AnnexeIII_p33-to-35</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesChemicalClassificationReference>
+			<wfd:subject>Groundwater chemical status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>AnnexeIII_p33-to-35</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesChemicalClassificationReference>
+		<gwMethodologiesQuantitativeClassificationReference>
+			<wfd:subject>Groundwater pressures</wfd:subject>
+			<wfd:documentName>Recueil des méthodes de caractérisation des pressions. Partie III : Dispositifs de caractérisation des pressions sur les eaux souterraines</wfd:documentName>
+			<wfd:bookmark>section2.5.4-to-2.5.6_p12-to-14</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_Recueil P_EauxSouterraines_16022012.pdf</wfd:hyperlink>
+		</gwMethodologiesQuantitativeClassificationReference>
+		<gwMethodologiesQuantitativeClassificationReference>
+			<wfd:subject>Groundwater quantitative status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>Annexe5_section3.2_p96-to-100</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesQuantitativeClassificationReference>
+		<gwMethodologiesQuantitativeClassificationReference>
+			<wfd:subject>Groundwater quantitative status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>Annexe5_section3.4_p102-to-104</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesQuantitativeClassificationReference>
+		<gwMethodologiesQuantitativeClassificationReference>
+			<wfd:subject>Groundwater quantitative status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>Annexe5_section3.2_p96-to-100</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesQuantitativeClassificationReference>
+		<gwMethodologiesTransboundaryReference>
+			<wfd:subject>Groundwater chemical status assessment</wfd:subject>
+			<wfd:documentName>Circulaire du 23/10/2012 établissant les critères d’évaluation et les modalités de détermination de l’état des eaux souterraines et des tendances significatives et durables de dégradation de l’état chimique des eaux souterraines</wfd:documentName>
+			<wfd:bookmark>AnnexeIII_section1.1.4_p24</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_circulaire_23_10_2012.pdf</wfd:hyperlink>
+		</gwMethodologiesTransboundaryReference>
+	</GWMethodologies>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_100-41-4 - Ethylbenzene</pollutantIndicatorCode>
+		<thresholdValue>300</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_100-42-5 - Styrene</pollutantIndicatorCode>
+		<thresholdValue>20</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_10061-01-5 - c-1,3-dichloropropene</pollutantIndicatorCode>
+		<thresholdValue>20</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_10061-02-6 - t-1,3-dichloropropene</pollutantIndicatorCode>
+		<thresholdValue>20</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_106-46-7 - 1,4-dichlorobenzene</pollutantIndicatorCode>
+		<thresholdValue>0,3</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_106-93-4 - 1,2-dibromoethane</pollutantIndicatorCode>
+		<thresholdValue>0,4</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_107-06-2 - 1,2-Dichloroethane</pollutantIndicatorCode>
+		<thresholdValue>3</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_108-88-3 - Toluene</pollutantIndicatorCode>
+		<thresholdValue>0,7</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_124-48-1 - Dibromochlorometane</pollutantIndicatorCode>
+		<thresholdValue>100</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_127-18-4 - Tetrachloroethylene</pollutantIndicatorCode>
+		<thresholdValue>10</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_1330-20-7 - Xylene</pollutantIndicatorCode>
+		<thresholdValue>0,5</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_1333-82-0 - Chromium VI</pollutantIndicatorCode>
+		<thresholdValue>50</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_139-13-9 - NTA</pollutantIndicatorCode>
+		<thresholdValue>200</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_14797-55-8 - Nitrate</pollutantIndicatorCode>
+		<thresholdValue>50</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_15541-45-4 - Bromate</pollutantIndicatorCode>
+		<thresholdValue>10</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_16887-00-6 - Chloride</pollutantIndicatorCode>
+		<thresholdValue>250</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_16984-48-8 - Fluoride</pollutantIndicatorCode>
+		<thresholdValue>1,5</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_18785-72-3 - Sulphate</pollutantIndicatorCode>
+		<thresholdValue>250</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_309-00-2 - Aldrin</pollutantIndicatorCode>
+		<thresholdValue>0,03</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_50-00-0 - Formaldehyde</pollutantIndicatorCode>
+		<thresholdValue>900</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_50-32-8 - Benzo(a)pyrene</pollutantIndicatorCode>
+		<thresholdValue>0,01</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_540-59-0 - 1,2-dichloroethene</pollutantIndicatorCode>
+		<thresholdValue>50</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_56-23-5 - Carbon tetrachloride</pollutantIndicatorCode>
+		<thresholdValue>4</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_60-00-4 - EDTA</pollutantIndicatorCode>
+		<thresholdValue>600</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_60-57-1 - Dieldrin</pollutantIndicatorCode>
+		<thresholdValue>0,03</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_608-93-5 - Pentachlorobenzene</pollutantIndicatorCode>
+		<thresholdValue>0,1</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_67-66-3 - Trichloromethane</pollutantIndicatorCode>
+		<thresholdValue>0,1</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_71-43-2 - Benzene</pollutantIndicatorCode>
+		<thresholdValue>1</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7429-90-5 - Aluminium and its compounds</pollutantIndicatorCode>
+		<thresholdValue>200</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7439-89-6 - Iron and its compounds</pollutantIndicatorCode>
+		<thresholdValue>200</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7439-92-1 - Lead and its compounds</pollutantIndicatorCode>
+		<thresholdValue>10</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7439-96-5 - Manganese and its compounds</pollutantIndicatorCode>
+		<thresholdValue>50</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7439-97-6 - Mercury and its compounds</pollutantIndicatorCode>
+		<thresholdValue>1</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7439-98-7 - Molybdenum and its compounds</pollutantIndicatorCode>
+		<thresholdValue>70</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-02-0 - Nickel and its compounds</pollutantIndicatorCode>
+		<thresholdValue>20</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-23-5 - Sodium</pollutantIndicatorCode>
+		<thresholdValue>200</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-36-0 - Antimony</pollutantIndicatorCode>
+		<thresholdValue>5</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-38-2 - Arsenic and its compounds</pollutantIndicatorCode>
+		<thresholdValue>10</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-39-3 - Barium</pollutantIndicatorCode>
+		<thresholdValue>700</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-42-8 - Boron</pollutantIndicatorCode>
+		<thresholdValue>1000</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-43-9 - Cadmium and its compounds</pollutantIndicatorCode>
+		<thresholdValue>5</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-47-3 - Chromium and its compounds</pollutantIndicatorCode>
+		<thresholdValue>50</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-50-8 - Copper and its compounds</pollutantIndicatorCode>
+		<thresholdValue>2000</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-61-1 - Uranium</pollutantIndicatorCode>
+		<thresholdValue>15</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7440-66-6 - Zinc and its compounds</pollutantIndicatorCode>
+		<thresholdValue>5000</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_75-01-4 - Chloroethene (vinylchloride)</pollutantIndicatorCode>
+		<thresholdValue>0,5</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_75-25-2 - Bromoform</pollutantIndicatorCode>
+		<thresholdValue>100</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_76-44-8 - Heptachlor</pollutantIndicatorCode>
+		<thresholdValue>0,03</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_7782-49-2 - Selenium and its compounds</pollutantIndicatorCode>
+		<thresholdValue>10</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_78-87-5 - 1,2-dichloropropane</pollutantIndicatorCode>
+		<thresholdValue>40</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_79-01-6 - Trichloroethylene</pollutantIndicatorCode>
+		<thresholdValue>10</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_87-68-3 - Hexachlorobutadiene</pollutantIndicatorCode>
+		<thresholdValue>0,6</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_87-86-5 - Pentachlorophenol</pollutantIndicatorCode>
+		<thresholdValue>9</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_88-06-2 - 2,4,6-trichlorophenol</pollutantIndicatorCode>
+		<thresholdValue>200</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_95-50-1 - 1,2-dichlorobenzene</pollutantIndicatorCode>
+		<thresholdValue>1</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>CAS_96-12-8 - 1,2-dibromo-3-chloropropane</pollutantIndicatorCode>
+		<thresholdValue>1</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_31-02-7 - Total suspended solids</pollutantIndicatorCode>
+		<thresholdValue>25</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_3121-01-5 - Water temperature</pollutantIndicatorCode>
+		<thresholdValue>25</thresholdValue>
+		<thresholdValueUnit>Cel</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_3142-01-6 - Electrical conductivity</pollutantIndicatorCode>
+		<thresholdValue>1000</thresholdValue>
+		<thresholdValueUnit>uS/cm</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_3142-01-6 - Electrical conductivity</pollutantIndicatorCode>
+		<thresholdValue>1100</thresholdValue>
+		<thresholdValueUnit>uS/cm</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_3152-01-0 - pH</pollutantIndicatorCode>
+		<thresholdValue>9</thresholdValue>
+		<thresholdValueUnit>[pH]</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_33-23-8 - Petroleum hydrocarbons</pollutantIndicatorCode>
+		<thresholdValue>1</thresholdValue>
+		<thresholdValueUnit>mg/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_33-43-2 - Total trihalomethanes</pollutantIndicatorCode>
+		<thresholdValue>100</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<ThresholdValue>
+		<pollutantIndicatorCode>EEA_34-01-5 - Pesticides (Active substances in pesticides, including their relevant metabolites, degradation and reaction products)</pollutantIndicatorCode>
+		<thresholdValue>0,1</thresholdValue>
+		<thresholdValueUnit>ug/L</thresholdValueUnit>
+		<thresholdValueScale>NAT - National scale</thresholdValueScale>
+		<startingPointTrendReversal>75</startingPointTrendReversal>
+	</ThresholdValue>
+	<GWPressures>
+		<gwPressuresNotAssessed>1.7 - Point - Mine waters</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>2.3 - Diffuse - Forestry</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>2.8 - Diffuse - Mining</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>2.9 - Diffuse - Aquaculture</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>3.4 - Abstraction or flow diversion - Cooling water</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>3.5 - Abstraction or flow diversion - Hydropower</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>3.6 - Abstraction or flow diversion - Fish farms</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>3.7 - Abstraction or flow diversion - Other</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.1.3 - Physical alteration of channel/bed/riparian area/shore - Navigation</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.1.4 - Physical alteration of channel/bed/riparian area/shore - Other</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.1.5 - Physical alteration of channel/bed/riparian area/shore - Unknown or obsolete</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.2.1 - Dams, barriers and locks - Hydropower</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.2.4 - Dams, barriers and locks - Irrigation</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.2.5 - Dams, barriers and locks - Recreation</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.2.7 - Dams, barriers and locks - Navigation</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.2.9 - Dams, barriers and locks - Unknown or obsolete</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.3.2 - Hydrological alteration - Transport</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.3.3 - Hydrological alteration - Hydropower</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>4.3.5 - Hydrological alteration - Aquaculture</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>5.2 - Exploitation or removal of animals or plants</gwPressuresNotAssessed>
+		<gwPressuresNotAssessed>5.3 - Litter or fly tipping</gwPressuresNotAssessed>
+		<gwSignificantPressurePointSourceTools>Expert Judgement</gwSignificantPressurePointSourceTools>
+		<gwSignificantPressureDiffuseSourceTools>Expert Judgement</gwSignificantPressureDiffuseSourceTools>
+		<gwSignificantPressureWaterAbstractionTools>Expert Judgement</gwSignificantPressureWaterAbstractionTools>
+		<gwSignificantPressureArtificialRecharge>Not Assessed</gwSignificantPressureArtificialRecharge>
+		<gwSignificantPressureOtherSourceTools>Not Assessed</gwSignificantPressureOtherSourceTools>
+		<gwSignificanceDefinition>No</gwSignificanceDefinition>
+		<gwSignificanceLinkFailure>Yes</gwSignificanceLinkFailure>
+		<gwPressuresReference>
+			<wfd:subject>GWPressures</wfd:subject>
+			<wfd:documentName>Etat des lieux 972_2012</wfd:documentName>
+			<wfd:bookmark>chapitre2_p62-to-79</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRJ_Etat des lieux 2012</wfd:hyperlink>
+		</gwPressuresReference>
+	</GWPressures>
+	<GWExemptions>
+		<gwExemption44Impact>CHEM - Chemical pollution</gwExemption44Impact>
+		<gwExemption44Driver>Agriculture</gwExemption44Driver>
+		<gwExemption45Impact>CHEM - Chemical pollution</gwExemption45Impact>
+		<gwExemption45Driver>Agriculture</gwExemption45Driver>
+		<gwDisproportionateCost>No</gwDisproportionateCost>
+		<gwTechnicalInfeasibility>No technical solution is available</gwTechnicalInfeasibility>
+		<gwTechnicalInfeasibility>It takes longer to fix the problem than there is time available</gwTechnicalInfeasibility>
+		<gwNaturalConditions>Natural condition has not been used as a reason for exemption for groundwater bodies</gwNaturalConditions>
+		<gwExemption46>Article 4(6) has not been applied</gwExemption46>
+		<gwExemption47>Article 4(7) has not been applied</gwExemption47>
+		<gwExemptionsTransboundary>Not applicable</gwExemptionsTransboundary>
+		<gwExemptionsReference>
+			<wfd:subject>Groundwater  Exemptions</wfd:subject>
+			<wfd:documentName>SDAGE972 _ 2016_2021</wfd:documentName>
+			<wfd:bookmark>section3.5-p151-to-153</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRJ_SDAGE2016_2021.pdf</wfd:hyperlink>
+		</gwExemptionsReference>
+		<gwExemptionsReference>
+			<wfd:subject>Groundwater pressures</wfd:subject>
+			<wfd:documentName>Recueil des méthodes de caractérisation des pressions. Partie III : Dispositifs de caractérisation des pressions sur les eaux souterraines</wfd:documentName>
+			<wfd:bookmark>whole document</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_Recueil P_EauxSouterraines_16022012.pdf</wfd:hyperlink>
+		</gwExemptionsReference>
+		<gwExemptionsReference>
+			<wfd:subject>Groundwater pressures</wfd:subject>
+			<wfd:documentName>Recueil des méthodes de caractérisation des pressions. Partie IV : Dispositifs de caractérisation des pressions communs aux eaux de surface et aux eaux souterraines</wfd:documentName>
+			<wfd:bookmark>whole document</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRN_GWB_Recueil P_EauxSouterraines_16022012.pdf</wfd:hyperlink>
+		</gwExemptionsReference>
+		<gwExemptionsReference>
+			<wfd:subject>Groundwater  Exemptions</wfd:subject>
+			<wfd:documentName>Etat des lieux 2012</wfd:documentName>
+			<wfd:bookmark>p31-to-33</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRJ_Etat des lieux 2012</wfd:hyperlink>
+		</gwExemptionsReference>
+		<driversGWExemptionsReference>
+			<wfd:subject>GWExemptions_drivers</wfd:subject>
+			<wfd:documentName>SDAGE972 _ 2016_2021</wfd:documentName>
+			<wfd:bookmark>section3.5-p151</wfd:bookmark>
+			<wfd:hyperlink>http://www.rapportage.eaufrance.fr/dce/2016/documents/FRJ_SDAGE2016_2021.pdf</wfd:hyperlink>
+		</driversGWExemptionsReference>
+	</GWExemptions>
+</GWMET>

@@ -1,0 +1,68 @@
+<WildObject ident = "real.WildXsdFile" author = "alexandre.liccardi@onema.fr" inherits = "WildMarkUpFile">
+Fichier de validation de schéma XSD
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+</Invokation>
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "nameSpaces" type = "HashMap&lt;String,String&gt;" description = "Liste d&apos;URL d&apos;espaces de nommage" />
+<Parameter ident = "versionXml" type = "String" description = "Code de version Xml" />
+</Invokation>
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "defaultNameSpace" type = "String" description = "URL d&apos;un espace de nommage" />
+<Parameter ident = "versionXml" type = "String" description = "Code de version Xml" />
+</Invokation>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Méthode de conversion standard du contenu vers un jeu de données (ou une collection).">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "100" description = "Parcours du jeu de données avec résolution des cas spéciaux (+++)"/>
+<Step ident = "3" weight = "10" description = "Conversion en WildDataSet"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "commit" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 18 00:00:00 CEST 2016" description = "Enregistrement des modifications du WildDataSet vers le WildFile.">
+<Step ident = "1" weight = "50" description = "Cast du WildDataSet et des métadonnées (++)"/>
+<Step ident = "2" weight = "20" description = "Génération des propriétés et contextes (+)"/>
+<Step ident = "3" weight = "10" description = "Création des flux"/>
+<Step ident = "4" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "5" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "fillWith" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Remplace le contenu du fichier ou de la collection par le cast d&apos;un nouveau jeu de données.">
+<Invokation>
+<Parameter ident = "dataSet" type = "WildDataSet" description = "Nouveau jeu de données à commit" />
+</Invokation>
+<Step ident = "1" weight = "50" description = "Cast du WildDataSet (++)"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "4" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "5" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "fillWith_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "validate" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 18 00:00:00 CEST 2016" description = "Valide un fichier markUp selon la définition de schéma, alimente la variable globale DVP_resultFromProcess.">
+<Invokation>
+<Parameter ident = "forProcess" type = "WildMarkUpFile" description = "Fichier à valider" />
+</Invokation>
+<Invokation>
+<Parameter ident = "forProcessFilePath" type = "String" description = "Chemin du fichier à valider" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "100" description = "Application de la validation (+++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "validate_output1" type = "Boolean" description = "Au moins une erreur est rencontrée (Boolean)"/>
+<Output ident = "validate_output2" type = "Map&lt;String,Object&gt;" description = "Liste des erreurs rencontrées (Map&lt;String,Object&gt;)"/>
+</WildMethod>
+<WildMethod ident = "dumpErrors" author ="alexandre.liccardi@onema.fr" update ="Mon Apr 18 00:00:00 CEST 2016" description = "Copie les erreurs génrées par le test de structure vers un fichier plat">
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Contrôle de l&apos;objet"/>
+<Step ident = "2" weight = "100" description = "Remplissage du fichier (+++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "dumpErrors_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+</WildObject>

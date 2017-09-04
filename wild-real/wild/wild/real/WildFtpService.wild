@@ -1,0 +1,11 @@
+<WildObject ident = "real.WildFtpService" author = "alexandre.liccardi@onema.fr" inherits = "WildService">
+Client d&apos;un service protocole FTP
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "clientId" type = "String" description = "Identifiant de l&apos;utilisateur" />
+<Parameter ident = "clientPwd" type = "String" description = "Mot de passe de l&apos;utilisateur" />
+<Parameter ident = "hostName" type = "String" description = "Nom de l&apos;hôte" />
+<Parameter ident = "hostIp" type = "String" description = "IP de l&apos;hôte" />
+</Invokation>
+</WildObject>

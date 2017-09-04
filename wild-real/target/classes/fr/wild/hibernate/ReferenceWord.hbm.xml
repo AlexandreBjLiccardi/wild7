@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 nov. 2015 11:38:06 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.ReferenceWord" table="reference_word">
+        <id name="idReferenceWord" type="string">
+            <column name="id_reference_word" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="referenceConcept" class="fr.wild.hibernate.ReferenceConcept" fetch="select">
+            <column name="id_reference_theme" />
+        </many-to-one>
+        <property name="fullName" type="string">
+            <column name="full_name" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+    </class>
+</hibernate-mapping>

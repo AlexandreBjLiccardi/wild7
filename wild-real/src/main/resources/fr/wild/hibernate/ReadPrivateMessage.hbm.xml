@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.ReadPrivateMessage" table="read_private_message">
+        <composite-id name="id" class="fr.wild.hibernate.ReadPrivateMessageId">
+            <key-property name="idMessage" type="string">
+                <column name="id_message" length="125" />
+            </key-property>
+            <key-property name="idUserTarget" type="string">
+                <column name="id_user_target" length="125" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="privateMessage" class="fr.wild.hibernate.PrivateMessage" update="false" insert="false" fetch="select">
+            <column name="id_message" length="125" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="fr.wild.hibernate.User" update="false" insert="false" fetch="select">
+            <column name="id_user_target" length="125" not-null="true" />
+        </many-to-one>
+        <property name="dateRead" type="timestamp">
+            <column name="date_read" length="35" />
+        </property>
+        <property name="contents" type="string">
+            <column name="contents" />
+        </property>
+    </class>
+</hibernate-mapping>

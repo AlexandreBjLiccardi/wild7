@@ -1,0 +1,70 @@
+<WildObject ident = "real.WildQuartzJobList " author = "alexandre.liccardi@onema.fr" inherits = "WildClass">
+Liste de jobs Quartz à exécuter
+<Dependency value = "java.util.Map" description = "" />
+<Field ident = "jobsMap" type = "Map&lt;String,WildQuartzJob&gt;" description = "Liste des jobs, indexés par leur identifiant unique" />
+<Invokation>
+<Parameter ident = "parametersXmlFile" type = "String" description = "Paramètres sous forme de fichier XML dont on donne le lien" />
+</Invokation>
+<WildMethod ident = "addJob" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Ajout d&apos;un job  la liste d&apos;exécution">
+<Invokation>
+<Parameter ident = "xmlPath" type = "String" description = "chemin vers le fichier XML décrivant les paramètres" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Lecture et préparation des paramètres"/>
+<Step ident = "2" weight = "10" description = "Vérification des prérequis"/>
+<Step ident = "3" weight = "10" description = "Composition de la chaîne intermédiaire XML"/>
+<Step ident = "4" weight = "10" description = "Construction du nouveau job"/>
+<Step ident = "5" weight = "10" description = "Paramétrage du nouveau job"/>
+<Return><Parameter ident = "addJob_ret" type = "String" description = "Identifiant unique du job construit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "deleteJob" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Suppresion d&apos;un job de la liste d&apos;exécution">
+<Invokation>
+<Parameter ident = "jobId" type = "String" description = "Identifiant unique du job" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification du job et transmission des variables"/>
+<Return><Parameter ident = "deleteJob_ret" type = "Boolean" description = "Succès de l&apos;opération (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "infoJob" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Récupération des infos sur un job">
+<Invokation>
+<Parameter ident = "jobId" type = "String" description = "Identifiant unique du job" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification du job et transmission des variables"/>
+<Return><Parameter ident = "infoJob_ret" type = "Map&lt;String,Object&gt;" description = "Informations sur le job (Map&lt;String,Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "getListInfos" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Récupération des infos sur tous les jobs">
+<Step ident = "1" weight = "10" description = "Identification du job et transmission des variables"/>
+<Return><Parameter ident = "getListInfos_ret" type = "Map&lt;String,Map&lt;String,Object&gt;&gt;" description = "Informations sur les jobs (Map&lt;String,Map&lt;String,Object&gt;&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "setMaxDuration" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Définition d&apos;une durée maximale d&apos;exécution, pour un job">
+<Invokation>
+<Parameter ident = "jobId" type = "String" description = "Identifiant unique du job" />
+<Parameter ident = "newMaxDuration" type = "Integer" description = "Nouvelle durée maximale en secondes" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification du job"/>
+<Step ident = "2" weight = "10" description = "Affectation de la variable"/>
+<Step ident = "3" weight = "10" description = "Retour de la variable"/>
+<Return><Parameter ident = "setMaxDuration_ret" type = "Integer" description = "Précédente durée maximale en secondes (Integer)"/></Return>
+</WildMethod>
+<WildMethod ident = "setFrequency" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Définition de la fréquence d&apos;exécution du job, si null exécution immédiate et one shot.">
+<Invokation>
+<Parameter ident = "jobId" type = "String" description = "Identifiant unique du job" />
+<Parameter ident = "newLength" type = "Integer" description = "Nouvelle période en secondes" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification du job"/>
+<Step ident = "2" weight = "10" description = "Affectation de la variable"/>
+<Step ident = "3" weight = "10" description = "Retour de la variable"/>
+<Return><Parameter ident = "setFrequency_ret" type = "Integer" description = "Précédente période en secondes (Integer)"/></Return>
+</WildMethod>
+<WildMethod ident = "isDone" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Pour un job : à true, la dernière exécution du job s&apos;est réalisée avec succès, à false, la dernière exécution est un échec, vide, aucune exécution a eu lieu pour le job.">
+<Invokation>
+<Parameter ident = "jobId" type = "String" description = "Identifiant unique du job" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Identification du job et transmission des variables"/>
+<Return><Parameter ident = "isDone_ret" type = "Boolean" description = "Succès de l&apos;exécution du job (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "printList" author ="alexandre.liccardi@onema.fr" update ="Fri Sep 09 00:00:00 CEST 2016" description = "Impression d&apos;un rapport XML contenant la descritpion des job schédulés">
+<Step ident = "1" weight = "10" description = "Amorce du rapport"/>
+<Step ident = "2" weight = "10" description = "Récupération et écriture du rapport job par job"/>
+<Step ident = "3" weight = "10" description = "Ecriture sur disque du rapport"/>
+<Return><Parameter ident = "printList_ret" type = "String" description = "Chemin vers le fichier écrit (String)"/></Return>
+</WildMethod>
+</WildObject>

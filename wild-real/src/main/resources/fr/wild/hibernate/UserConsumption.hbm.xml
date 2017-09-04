@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.UserConsumption" table="user_consumption">
+        <composite-id name="id" class="fr.wild.hibernate.UserConsumptionId">
+            <key-property name="idUser" type="string">
+                <column name="id_user" length="125" />
+            </key-property>
+            <key-property name="ctExecution" type="java.lang.Long">
+                <column name="ct_execution" />
+            </key-property>
+            <key-property name="minDatePost" type="timestamp">
+                <column name="min_date_post" length="35" />
+            </key-property>
+            <key-property name="maxDatePost" type="timestamp">
+                <column name="max_date_post" length="35" />
+            </key-property>
+            <key-property name="longestWait" type="serializable">
+                <column name="longest_wait" />
+            </key-property>
+            <key-property name="longestExectime" type="serializable">
+                <column name="longest_exectime" />
+            </key-property>
+            <key-property name="maxAllocatedRom" type="java.lang.Long">
+                <column name="max_allocated_rom" />
+            </key-property>
+            <key-property name="maxAllocatedRam" type="java.lang.Long">
+                <column name="max_allocated_ram" />
+            </key-property>
+            <key-property name="maxAllocatedCpu" type="java.lang.Long">
+                <column name="max_allocated_cpu" />
+            </key-property>
+            <key-property name="estimatedRom" type="java.lang.Long">
+                <column name="estimated_rom" />
+            </key-property>
+            <key-property name="estimatedRam" type="java.lang.Long">
+                <column name="estimated_ram" />
+            </key-property>
+            <key-property name="estimatedCpu" type="java.lang.Long">
+                <column name="estimated_cpu" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

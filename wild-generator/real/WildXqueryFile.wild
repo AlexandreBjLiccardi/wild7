@@ -1,0 +1,43 @@
+<WildObject ident = "real.WildXqueryFile" author = "alexandre.liccardi@onema.fr" inherits = "WildScriptFile">
+Script xQuery
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "commenter" type = "String" default = "##" description = "Caractère(s) de commentaire" />
+<Parameter ident = "commenterBegin" type = "String" default = "#" description = "Caractère(s) de commentaire multi-ligne, début" />
+<Parameter ident = "commenterEnd" type = "String" default = "#" description = "Caractère(s) de commentaire multi-ligne, fin" />
+<Parameter ident = "commandEnd" type = "String" default = ";" description = "Caractère(s) de fin de commande" />
+</Invokation>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Méthode de conversion standard du contenu vers un jeu de données (ou une collection).">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "100" description = "Parcours du jeu de données avec résolution des cas spéciaux (+++)"/>
+<Step ident = "3" weight = "10" description = "Conversion en WildDataSet"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "commit" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Enregistrement des modifications du WildDataSet vers le WildFile.">
+<Step ident = "1" weight = "50" description = "Cast du WildDataSet et des métadonnées (++)"/>
+<Step ident = "2" weight = "20" description = "Génération des propriétés et contextes (+)"/>
+<Step ident = "3" weight = "10" description = "Création des flux"/>
+<Step ident = "4" weight = "20" description = "Vidage du fichier (+)"/>
+<Step ident = "5" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "6" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "process" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Exécution du code sur un WildFile ou une série de WildFiles">
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "listToProcess" type = "HashMap&lt;String, String&gt;" description = "Liste des chemins de fichiers à processer" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileOutput" type = "String" description = "Fichier de sortie" />
+<Parameter ident = "toProcess" type = "WildMarkUpFile" description = "Fichier à processer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Préparation du fichier xQuery"/>
+<Step ident = "2" weight = "100" description = "Transformation du (des) fichier(s) XML (+++)"/>
+<Step ident = "3" weight = "50" description = "Enregistrement des résultats (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "process_output1" type = "HashMap&lt;String, Object&gt;" description = "Liste des erreurs rencontrées (HashMap&lt;String, Object&gt;)"/>
+<Return><Parameter ident = "process_ret" type = "String" description = "Nom du fichier de sortie (String)"/></Return>
+</WildMethod>
+</WildObject>

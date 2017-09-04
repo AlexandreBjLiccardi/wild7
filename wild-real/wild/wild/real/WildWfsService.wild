@@ -1,0 +1,11 @@
+<WildObject ident = "real.WildWfsService" author = "alexandre.liccardi@onema.fr" inherits = "WildWebService">
+Client d&apos;un service protocole WFS
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Invokation>
+<Parameter ident = "clientId" type = "String" default = "null" description = "Identifiant de l&apos;utilisateur" />
+<Parameter ident = "clientPwd" type = "String" default = "null" description = "Mot de passe de l&apos;utilisateur" />
+<Parameter ident = "hostName" type = "String" description = "Nom de l&apos;hôte" />
+<Parameter ident = "hostIp" type = "String" description = "IP de l&apos;hôte" />
+</Invokation>
+</WildObject>

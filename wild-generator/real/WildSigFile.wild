@@ -1,0 +1,171 @@
+<WildObject ident = "real.WildSigFile" author = "alexandre.liccardi@onema.fr" inherits = "WildFile" MinCPU = "100" MinRAM = "32" MinROM = "256">
+Fichier contenant des données géographiques / géométriques et possiblement ses attributs
+<Dependency value = "java.io.File" description = "" />
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.util.List" description = "" />
+<Field ident = "crsAsWkt" type = "String" description = "Référentiel de projection de coordonnées, en WKT" />
+<Field ident = "repWork" type = "String" description = "Chemin relatif de l&apos;ensemble des fichiers de travail" />
+<Field ident = "subWork" type = "String" description = "Nom SHP commun à l&apos;ensemble des fichiers de travail" />
+<Field ident = "geometryList" type = "HashMap&lt;Integer, Geometry&gt;" description = "Liste de tous les objets contenus" />
+<Field ident = "attributeList" type = "HashMap&lt;Integer, HashMap&lt;String, Object&gt;&gt;" description = "Carte des attributs des objets contenus dans le shape" />
+<Field ident = "typeList" type = "HashMap&lt;String, String&gt;" description = "Carte des attributs des objets contenus dans le shape" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "srid" type = "Integer" default = "4326" description = "Système de référence géographique" />
+</Invokation>
+<WildMethod ident = "checkAttribute_fullness" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Test de complétude (tous les éléments du référentiel ont au moins un objet géographique)">
+<Invokation>
+<Parameter ident = "attributeToCheck" type = "String" description = "Nom de l&apos;attribut à vérifier" />
+<Parameter ident = "listOfReferences" type = "List&lt;Object&gt;" description = "Eléments à comparer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Construction des objets"/>
+<Step ident = "2" weight = "10" description = "Comparaison des listes"/>
+<Step ident = "3" weight = "10" description = "Compilation des résultats"/>
+<Output ident = "checkAttribute_fullness_output1" type = "List&lt;String&gt;" description = "Liste des erreurs rencontrées (List&lt;String&gt;)"/>
+<Output ident = "checkAttribute_fullness_output2" type = "Boolean" description = "Il existe des éléments à retenir (Boolean)"/>
+<Output ident = "checkAttribute_fullness_output3" type = "String" description = "Chemin d&apos;un fichier de sortie contenant la liste des erreurs (String)"/>
+<Return><Parameter ident = "checkAttribute_fullness_ret" type = "String" description = "Chemin d&apos;un fichier de sortie contenant la liste des erreurs (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "checkAttribute_isWithin" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Test de cohérence (tous les objets géographiques sont représentés dans le référentiel)">
+<Invokation>
+<Parameter ident = "attributeToCheck" type = "String" description = "Nom de l&apos;attribut à vérifier" />
+<Parameter ident = "listOfReferences" type = "List&lt;Object&gt;" description = "Eléments à comparer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Construction des objets"/>
+<Step ident = "2" weight = "10" description = "Comparaison des listes"/>
+<Step ident = "3" weight = "10" description = "Compilation des résultats"/>
+<Output ident = "checkAttribute_isWithin_output1" type = "List&lt;String&gt;" description = "Liste des erreurs rencontrées (List&lt;String&gt;)"/>
+<Output ident = "checkAttribute_isWithin_output2" type = "Boolean" description = "Il existe des éléments à retenir (Boolean)"/>
+<Output ident = "checkAttribute_isWithin_output3" type = "String" description = "Chemin d&apos;un fichier de sortie contenant la liste des erreurs (String)"/>
+<Return><Parameter ident = "checkAttribute_isWithin_ret" type = "String" description = "Chemin d&apos;un fichier de sortie contenant la liste des erreurs (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "checkCrsFromRef" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Vérification de la validité du système de projection">
+<Invokation>
+<Parameter ident = "crsToCheck" type = "String" description = "Définition du CRS de comparaison" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Opérateur de comparaison"/>
+<Output ident = "checkCrsFromRef_output1" type = "List&lt;String&gt;" description = "Liste des erreurs rencontrées (List&lt;String&gt;)"/>
+<Output ident = "checkCrsFromRef_output2" type = "Boolean" description = "Il existe des éléments à retenir (Boolean)"/>
+<Return><Parameter ident = "checkCrsFromRef_ret" type = "Boolean" description = "Il existe des erreurs (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "checkType" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Vérification de la validité du type d&apos;enregistrements">
+<Invokation>
+<Parameter ident = "typeToType" type = "String" description = "Nom du type de comparaison" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Opérateur de comparaison"/>
+<Output ident = "checkType_output1" type = "List&lt;String&gt;" description = "Liste des erreurs rencontrées (List&lt;String&gt;)"/>
+<Output ident = "checkType_output2" type = "Boolean" description = "Il existe des éléments à retenir (Boolean)"/>
+<Return><Parameter ident = "checkType_ret" type = "Boolean" description = "Il existe des erreurs (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "checkValidity" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Validation WKT des géométries transmises">
+<Step ident = "1" weight = "10" description = "Opérateur de comparaison"/>
+<Output ident = "checkValidity_output1" type = "List&lt;String&gt;" description = "Liste des erreurs rencontrées (List&lt;String&gt;)"/>
+<Output ident = "checkValidity_output2" type = "Boolean" description = "Il existe des éléments à retenir (Boolean)"/>
+<Return><Parameter ident = "checkValidity_ret" type = "Boolean" description = "Il existe des erreurs (Boolean)"/></Return>
+</WildMethod>
+<WildMethod ident = "compileMetadatas" author ="alexandre.liccardi@onema.fr" update ="Thu Mar 31 00:00:00 CEST 2016" description = "Récupère les métadonnées spécifiques à l&apos;IG (CRS, Type, attributs…)">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Output ident = "compileMetadatas_output1" type = "HashMap&lt;String, Object&gt;" description = "Map des métadonnées IG (HashMap&lt;String, Object&gt;)"/>
+</WildMethod>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Méthode de conversion standard du contenu vers un jeu de données (ou une collection).">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "100" description = "Parcours du jeu de données avec résolution des cas spéciaux (+++)"/>
+<Step ident = "3" weight = "10" description = "Conversion en WildDataSet"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+</WildMethod>
+<WildMethod ident = "changeCrs" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Méthode de transformation des géométries, pour le changmeent de SRID (&quot;reprojection&quot;)">
+<Invokation>
+<Parameter ident = "destSrid" type = "Integer" description = "SRID de destination" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Parcours des géométries avec éventuelle reprojection"/>
+</WildMethod>
+<WildMethod ident = "findCrs" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Méthode de détermination du CRS si non renseigné ; en cas d’absence de SRID le constructeur identifie s’il s’agit d’un système géographique ou projeté. Si géométrique, il tente le WGS84, si projeté, il tente le L93. En cas d’erreur, il mentionne un null pour la géométrie et passe à la géométrie suivante. Un output conforme WILD (récupérable par l’orchestra et auto-généré dans la structure de code fournie) renseigne sur la liste des erreurs rencontrées.">
+<Invokation>
+<Parameter ident = "knownSrid" type = "Integer" default = "null" description = "SRID transmis par le constructeur" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Test d&apos;existence de l&apos;argument d&apos;appel"/>
+<Step ident = "2" weight = "10" description = "Test si projeté ou géographique"/>
+<Step ident = "3" weight = "10" description = "Affectation en fonction"/>
+<Step ident = "4" weight = "10" description = "Compilation et sauvegarde des erreurs"/>
+<Output ident = "findCrs_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "findCrs_ret" type = "Integer" description = "SRID déterminé par algorithme (Integer)"/></Return>
+</WildMethod>
+<WildMethod ident = "exportShp" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Ecriture d&apos;un fichier depuis la colection de géométrie contenue par l&apos;objet">
+<Invokation>
+<Parameter ident = "outputFilePath" type = "String" description = "Chemin du fichier de sortie" />
+<Parameter ident = "destSrid" type = "Integer" default = "null" description = "SRID de destination" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Préparation des fichiers de flux"/>
+<Step ident = "2" weight = "10" description = "Parcours des géométries avec éventuelle reprojection"/>
+<Step ident = "3" weight = "10" description = "Fermeture des flux"/>
+<Step ident = "4" weight = "10" description = "Compilation et sauvegarde des erreurs"/>
+<Output ident = "exportShp_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "exportShp_ret" type = "String" description = "Chemin de fichier produit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "exportGeojson" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Ecriture d&apos;un fichier depuis la colection de géométrie contenue par l&apos;objet">
+<Invokation>
+<Parameter ident = "outputFilePath" type = "String" description = "Chemin du fichier de sortie" />
+<Parameter ident = "destSrid" type = "Integer" default = "null" description = "SRID de destination" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Préparation des fichiers de flux"/>
+<Step ident = "2" weight = "10" description = "Parcours des géométries avec éventuelle reprojection"/>
+<Step ident = "3" weight = "10" description = "Fermeture des flux"/>
+<Step ident = "4" weight = "10" description = "Compilation et sauvegarde des erreurs"/>
+<Output ident = "exportGeojson_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "exportGeojson_ret" type = "String" description = "Chemin de fichier produit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "exportMifmid" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Ecriture d&apos;un fichier depuis la colection de géométrie contenue par l&apos;objet">
+<Invokation>
+<Parameter ident = "outputFilePath" type = "String" description = "Chemin du fichier de sortie" />
+<Parameter ident = "destSrid" type = "Integer" default = "null" description = "SRID de destination" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Préparation des fichiers de flux"/>
+<Step ident = "2" weight = "10" description = "Parcours des géométries avec éventuelle reprojection"/>
+<Step ident = "3" weight = "10" description = "Fermeture des flux"/>
+<Step ident = "4" weight = "10" description = "Compilation et sauvegarde des erreurs"/>
+<Output ident = "exportMifmid_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "exportMifmid_ret" type = "String" description = "Chemin de fichier produit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "exportGml" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Ecriture d&apos;un fichier depuis la colection de géométrie contenue par l&apos;objet">
+<Invokation>
+<Parameter ident = "outputFilePath" type = "String" description = "Chemin du fichier de sortie" />
+<Parameter ident = "destSrid" type = "Integer" default = "null" description = "SRID de destination" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Préparation des fichiers de flux"/>
+<Step ident = "2" weight = "10" description = "Parcours des géométries avec éventuelle reprojection"/>
+<Step ident = "3" weight = "10" description = "Fermeture des flux"/>
+<Step ident = "4" weight = "10" description = "Compilation et sauvegarde des erreurs"/>
+<Output ident = "exportGml_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "exportGml_ret" type = "String" description = "Chemin de fichier produit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "exportKml" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Ecriture d&apos;un fichier depuis la colection de géométrie contenue par l&apos;objet">
+<Invokation>
+<Parameter ident = "outputFilePath" type = "String" description = "Chemin du fichier de sortie" />
+<Parameter ident = "destSrid" type = "Integer" default = "null" description = "SRID de destination" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Préparation des fichiers de flux"/>
+<Step ident = "2" weight = "10" description = "Parcours des géométries avec éventuelle reprojection"/>
+<Step ident = "3" weight = "10" description = "Fermeture des flux"/>
+<Step ident = "4" weight = "10" description = "Compilation et sauvegarde des erreurs"/>
+<Output ident = "exportKml_output1" type = "List&lt;Object[]&gt;" description = "Liste des erreurs (List&lt;Object[]&gt;)"/>
+<Return><Parameter ident = "exportKml_ret" type = "String" description = "Chemin de fichier produit (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "getWkt" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Récupération de variable (getter),en cas d’absence de numéro de collection à extraire l’intégralité de la collection est produite.">
+<Invokation>
+<Parameter ident = "numToGet" type = "Integer" default = "null" description = "numéro de collection de la géométrie et des attributs à récupérer" />
+<Parameter ident = "maxLength" type = "Integer" default = "1000" description = "Nombre maximal d&apos;enregistrements à récupérer (par défaut si idDébut == null alors longueurMaxListeRécupérée = 1000 // si idDébut != null alors longueurMaxListeRécupérée = 1)" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Récupération ou compilation de la variable"/>
+<Step ident = "2" weight = "10" description = "Résolution de la longueur max à récupérer"/>
+<Return><Parameter ident = "getWkt_ret" type = "String" description = "Géométrie sous forme de String WKT (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "getGeojson" author ="alexandre.liccardi@onema.fr" update ="Thu Dec 08 00:00:00 CET 2016" description = "Récupération de variable (getter), en cas d’absence de numéro de collection à extraire l’intégralité de la collection est produite.">
+<Invokation>
+<Parameter ident = "numToGet" type = "Integer" default = "null" description = "numéro de collection de la géométrie et des attributs à récupérer" />
+<Parameter ident = "maxLength" type = "Integer" default = "1000" description = "Nombre maximal d&apos;enregistrements à récupérer (par défaut si idDébut == null alors longueurMaxListeRécupérée = 1000 // si idDébut != null alors longueurMaxListeRécupérée = 1)" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Récupération ou compilation de la variable"/>
+<Step ident = "2" weight = "10" description = "Résolution de la longueur max à récupérer"/>
+<Return><Parameter ident = "getGeojson_ret" type = "String" description = "GeoJSON sous forme de String WKT (String)"/></Return>
+</WildMethod>
+</WildObject>

@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.User" table="user">
+        <id name="idUser" type="string">
+            <column name="id_user" length="125" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="adminLevel" class="fr.wild.hibernate.AdminLevel" fetch="select">
+            <column name="id_admin_level" not-null="true" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="user_name" not-null="true" />
+        </property>
+        <property name="userForname" type="string">
+            <column name="user_forname" not-null="true" />
+        </property>
+        <property name="userMail" type="string">
+            <column name="user_mail" not-null="true" />
+        </property>
+        <property name="activatedAccount" type="boolean">
+            <column name="activated_account" not-null="true" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="35" not-null="true" />
+        </property>
+        <property name="dateLastConnection" type="date">
+            <column name="date_last_connection" length="13" />
+        </property>
+        <property name="dateFirstConnection" type="date">
+            <column name="date_first_connection" length="13" />
+        </property>
+        <property name="dateUpdateConnection" type="date">
+            <column name="date_update_connection" length="13" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="user_password" />
+        </property>
+        <property name="sandreServiceId" type="java.lang.Integer">
+            <column name="sandre_service_id" />
+        </property>
+        <set name="executionChainsaws" table="execution_chainsaw" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionChainsaw" />
+        </set>
+        <set name="riversForIdUserCreator" table="river" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_creator" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.River" />
+        </set>
+        <set name="drops" table="drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Drop" />
+        </set>
+        <set name="readPrivateMessages" table="read_private_message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_target" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ReadPrivateMessage" />
+        </set>
+        <set name="commentDrops" table="comment_drop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.CommentDrop" />
+        </set>
+        <set name="adminLevels" table="project_rights_management" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.wild.hibernate.AdminLevel">
+                <column name="id_admin_level" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="executionArchives" table="execution_archive" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionArchive" />
+        </set>
+        <set name="projectsForIdUserAdmin" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_admin" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Project" />
+        </set>
+        <set name="commentFiles" table="comment_file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.CommentFile" />
+        </set>
+        <set name="usersPreferences" table="users_preference" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.UsersPreference" />
+        </set>
+        <set name="adminLevels_1" table="river_rights_management" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.wild.hibernate.AdminLevel">
+                <column name="id_admin_level" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="privateMessages" table="private_message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_author" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.PrivateMessage" />
+        </set>
+        <set name="projectsForIdUserCreator" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_creator" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.Project" />
+        </set>
+        <set name="javaServices" table="java_service" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.JavaService" />
+        </set>
+        <set name="executionLists" table="execution_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.ExecutionList" />
+        </set>
+        <set name="riversForIdUserAdmin" table="river" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user_admin" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.River" />
+        </set>
+        <set name="userFiles" table="user_file" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_user" length="125" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.UserFile" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,367 @@
+<WildObject ident = "real.WildFile" author = "alexandre.liccardi@onema.fr" inherits = "WildClass" MinCPU = "100" MinRAM = "16" MinROM = "256" type = "abstract">
+Fichier générique
+<Dependency value = "static fr.wild.common.IoFileSystem.*" description = "" />
+<Dependency value = "java.io.File" description = "" />
+<Dependency value = "java.io.FileInputStream" description = "" />
+<Dependency value = "java.util.HashMap" description = "" />
+<Dependency value = "java.io.FileOutputStream" description = "" />
+<Dependency value = "java.io.IOException" description = "" />
+<Dependency value = "java.io.InputStream" description = "" />
+<Dependency value = "java.io.OutputStream" description = "" />
+<Dependency value = "java.io.BufferedInputStream" description = "" />
+<Dependency value = "java.net.URL" description = "" />
+<Dependency value = "java.net.URLConnection" description = "" />
+<Dependency value = "org.apache.commons.io.FilenameUtils" description = "" />
+<Exception ident = "IOException" criticity = "ERROR">Le chemin indiqué n&apos;est pas accessible.</Exception>
+<Field ident = "fileFile" type = "File" description = "Instance de fichier JAVA du fichier ou du dossier" />
+<Field ident = "filePath" type = "String" description = "Chemin absolu du fichier" />
+<Field ident = "fileSource" type = "String" description = "Chemin relatif du fichier ou URL (avant commit sur disque dur)" />
+<Field ident = "fileDescriptor" type = "HashMap&lt;String,Object&gt;" description = "Map de description du fichier ou des fichiers contenus par le dossier dossier" />
+<Field ident = "fileStream" type = "BufferedInputStream" description = "Flux de lecture du fichier (nul pour les répertoires)" />
+<Field ident = "dataSets" type = "HashMap&lt;String,WildDataSet&gt;" description = "Contenu du fichier, mappé et casté, sous forme d&apos;objets WildDataSet" />
+<Invokation>
+<Parameter ident = "pathToFile" type = "String" description = "Chemin vers le fichier" />
+<Parameter ident = "mimeEncoding" type = "String" default = "UTF-8" description = "Encodage du fichier" />
+<Parameter ident = "isFromZip" type = "Boolean" default = "false" description = "Le fichier est issu d&apos;un ZIP, il doit être dézippé" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileService_Describer" type = "HashMap&lt;String,Object&gt;" description = "Carte (Map) de description du service à contacter" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileWildWebService" type = "WildWebService" description = "WebService instancié, à connecter" />
+</Invokation>
+<WildMethod ident = "add" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Ajout d&apos;un enregistrement. (WildDataSet)">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "enrContents" type = "HashMap&lt;String,Object&gt;" description = "Nouvel enregistrement, sous forme de Map" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Cast du paramètre"/>
+<Step ident = "2" weight = "10" description = "Ajout du paramètre"/>
+</WildMethod>
+<WildMethod ident = "addColumn" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Ajoute une colonne, contenant une valeur précise">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "columnName" type = "String" description = "Nom de la colonne" />
+<Parameter ident = "colContents" type = "HashMap&lt;Integer,Object&gt;" description = "Contenu de la colonne" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Cast du WildDataSet (+)"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "50" description = "Ecriture du jeu de données (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "addColumn_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "addColumnJoinBy" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Ajoute une colonne, à partir d&apos;une matrice, avec jointure sur un nom de colonne donné">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "columnName" type = "String" description = "Nom de la colonne à ajouter" />
+<Parameter ident = "columnCompare_dataset" type = "String" description = "Nom de la colonne comparée, dataset" />
+<Parameter ident = "inputJoin" type = "HashMap&lt;Integer,Object&gt;" description = "Valeurs de comparaison" />
+<Parameter ident = "colContents" type = "HashMap&lt;Integer,Object&gt;" description = "Contenu de la colonne" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Cast du WildDataSet (+)"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "50" description = "Ecriture du jeu de données (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "addColumnJoinBy_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "addDataSet" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Ajoute à la liste des jeux de données, un nouveau jeu de données">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du nouveau jeu de données" />
+<Parameter ident = "dataSet" type = "WildDataSet" description = "Nouveau jeu de données à inclure" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Cast du paramètre"/>
+<Step ident = "2" weight = "10" description = "Ajout du paramètre"/>
+</WildMethod>
+<WildMethod ident = "castFile" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Méthode de conversion standard du contenu vers un jeu de données (ou une collection).
+Systématiquement surchargée.">
+<Step ident = "1" weight = "10" description = "A surcharger"/>
+</WildMethod>
+<WildMethod ident = "commit" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Enregistrement des modifications du WildDataSet vers le WildFile.
+Systématiquement surchargée.">
+<Step ident = "1" weight = "10" description = "A surcharger"/>
+</WildMethod>
+<WildMethod ident = "concatenate" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Concatène deux colonnes">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "col_1" type = "String" description = "Nom de colonne devant" />
+<Parameter ident = "col_2" type = "String" description = "Nom de colonne derrière" />
+<Parameter ident = "link" type = "String" description = "Opérateur de liaison" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "concatenate_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "concatenateFilterBy" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Concatène deux colonnes, si les valeurs correspondent au filtre">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "col_1" type = "String" description = "Nom de colonne devant" />
+<Parameter ident = "col_2" type = "String" description = "Nom de colonne derrière" />
+<Parameter ident = "link" type = "String" description = "Opérateur de liaison" />
+<Parameter ident = "colContents" type = "HashMap&lt;String,Object&gt;" description = "Motif à reconnaître pour affectation (filtre)" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec sélection et réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "concatenateFilterBy_output1" type = "Integer" description = "Position de la colonne rajoutée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "copy" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Copie le fichier d&apos;un répertoire vers un autre (nécessairement copie locale)">
+<Invokation>
+<Parameter ident = "pathToFile_OUT" type = "String" description = "Chemin vers le fichier de sortie" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "10" description = "Copie des fichiers"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "copy_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "dbChOwner" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Change le propriétaire d&apos;un fichier en base de données">
+<Invokation>
+<Parameter ident = "userId" type = "String" description = "Nouvel identifiant unique de l&apos;utilisateur" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "2" weight = "10" description = "Mise à jour de la base de données"/>
+<Output ident = "dbChOwner_output1" type = "String" description = "Identifiant unique du fichier (String)"/>
+</WildMethod>
+<WildMethod ident = "dbCommit" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Ajoute ou met à jour une ligne relative au fichier dans la base de données WilD">
+<Step ident = "1" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "2" weight = "10" description = "Mise à jour de la base de données"/>
+<Output ident = "dbCommit_output1" type = "String" description = "Identifiant unique du fichier (String)"/>
+</WildMethod>
+<WildMethod ident = "dbGetId" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupère l&apos;identifiant du fichier dans la base de données">
+<Step ident = "1" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "2" weight = "10" description = "Mise à jour de la base de données"/>
+<Output ident = "dbGetId_output1" type = "String" description = "Identifiant unique du fichier (String)"/>
+<Return><Parameter ident = "dbGetId_ret" type = "String" description = "Identifiant unique du fichier (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "dbUnvalidate" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Change le niveau de validation d&apos;un fichier à &apos;non validé&apos;">
+<Step ident = "1" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "2" weight = "10" description = "Mise à jour de la base de données"/>
+<Output ident = "dbUnvalidate_output1" type = "String" description = "Identifiant unique du fichier (String)"/>
+</WildMethod>
+<WildMethod ident = "dbValidate" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Change le niveau de validation d&apos;un fichier à &apos;validé&apos;">
+<Step ident = "1" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "2" weight = "10" description = "Mise à jour de la base de données"/>
+<Output ident = "dbValidate_output1" type = "String" description = "Identifiant unique du fichier (String)"/>
+</WildMethod>
+<WildMethod ident = "delete" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Suppression du fichier (physique)">
+<Step ident = "1" weight = "10" description = "Création de l&apos;objet JAVA"/>
+<Step ident = "2" weight = "10" description = "Suppression de l&apos;objet"/>
+<Step ident = "3" weight = "10" description = "Contrôle des variables"/>
+<Output ident = "delete_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "download" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Création des sources (local, URL, FTP...) pour disposer d&apos;un fichier sur le système local">
+<Invokation>
+<Parameter ident = "fileName_OUT" type = "String" description = "Nom du fichier de sortie" />
+<Parameter ident = "urlInput" type = "WildWebService" description = "Service de téléchargement" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileName_OUT" type = "String" description = "Nom du fichier de sortie" />
+<Parameter ident = "ftpService" type = "WildFtpService" description = "Service de téléchargement" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Résolution des URL"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "10" description = "Copie des fichiers"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "download_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "drop" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Suppression d&apos;un enregistrement.(WildDataSet)">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "filter" type = "HashMap&lt;String,Object&gt;" description = "Motif à reconnaître pour suppression (filtre)" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Sélection de l&apos;enregistrement"/>
+<Step ident = "2" weight = "10" description = "Suppression de l&apos;entrée"/>
+</WildMethod>
+<WildMethod ident = "dropColumn" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Supprime une colonne">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "columnName" type = "String" description = "Nom de la colonne" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Cast du WildDataSet (+)"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "50" description = "Ecriture du jeu de données (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "dropColumn_output1" type = "Integer" description = "Position de la colonne supprimée (Integer)"/>
+</WildMethod>
+<WildMethod ident = "dropFilter" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Suppression des enregistrements répondant à une condition. (WildDataSet)">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "filter" type = "HashMap&lt;String,Object&gt;" description = "Motif à reconnaître pour suppression (filtre)" />
+</Invokation>
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "modeFilter" type = "String" description = "Mode d&apos;exécution, &quot;dropIfContains&quot;, &quot;dropIfNotContains&quot;" />
+<Parameter ident = "searchValue" type = "String" description = "Valeur cherchée" />
+<Parameter ident = "targetedColumns" type = "List&lt;String&gt;" description = "Colonnes dans lesquelles s&apos;effectue la recherche" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Sélection des enregistrements"/>
+<Step ident = "2" weight = "10" description = "Suppression des entrées"/>
+<Output ident = "dropFilter_output1" type = "Integer" description = "Nombre d&apos;enregistrements supprimés (Integer)"/>
+</WildMethod>
+<WildMethod ident = "fillWith" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Remplace le contenu du fichier ou de la collection par le cast d&apos;un nouveau jeu de données.
+Systématiquement surchargé.">
+<Invokation>
+<Parameter ident = "dataSet" type = "WildDataSet" description = "Nouveau jeu de données à commit" />
+</Invokation>
+<Invokation>
+<Parameter ident = "dataSets" type = "HashMap&lt;String,WildDataSet&gt;" description = "Nouvelle collection de jeux de données à commit" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "A surcharger"/>
+<Output ident = "fillWith_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "getDataSet" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupère un jeux de données chargé dans le fichier, résolu dans une Map">
+<Invokation>
+<Parameter ident = "dataSetNum" type = "Integer" description = "Numéro du dataset à récupérer" />
+</Invokation>
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" description = "Nom du dataset à récupérer" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Output ident = "getDataSet_output1" type = "WildDataSet" description = "Contenu du jeu de données (WildDataSet)"/>
+<Return><Parameter ident = "getDataSet_ret" type = "WildDataSet" description = "Contenu du jeu de données (WildDataSet)"/></Return>
+</WildMethod>
+<WildMethod ident = "getDataSets" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupère l&apos;ensemble des jeux de données chargés dans le fichier, résolus dans une Map">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Output ident = "getDataSets_output1" type = "HashMap&lt;String,WildDataSet&gt;" description = "Contenu des jeux de données (HashMap&lt;String,WildDataSet&gt;)"/>
+<Return><Parameter ident = "getDataSets_ret" type = "HashMap&lt;String,WildDataSet&gt;" description = "Contenu des jeux de données (HashMap&lt;String,WildDataSet&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "getDescribers" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupération des paramètres descripteurs du fichier considéré (taille, chemin, nom, extension...)">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getDescribers_ret" type = "HashMap&lt;String, Object&gt;" description = "Map des métadonnées (HashMap&lt;String, Object&gt;)"/></Return>
+</WildMethod>
+<WildMethod ident = "getFile" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupération de l&apos;objet &apos;File&apos; JAVA">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getFile_ret" type = "File" description = "Objet JAVA (File)"/></Return>
+</WildMethod>
+<WildMethod ident = "getMetadatas" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupération des métadonnées d&apos;un fichier">
+<Step ident = "1" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "2" weight = "10" description = "Lecture de la base de données"/>
+<Output ident = "getMetadatas_output1" type = "String" description = "Contenu textuel des métadonnées (String)"/>
+<Output ident = "getMetadatas_output2" type = "HashMap&lt;String, Object&gt;" description = "Map des métadonnées (HashMap&lt;String, Object&gt;)"/>
+<Return><Parameter ident = "getMetadatas_ret" type = "WildGmdFile" description = "Fichier de métadonnées récupéré (WildGmdFile)"/></Return>
+</WildMethod>
+<WildMethod ident = "getPath" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupération du chemin du fichier en local">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getPath_ret" type = "String" description = "Chemin physique du fichier (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "getSize" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupération de la taille du fichier en octets">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getSize_ret" type = "Integer" description = "Taille du fichier en octets (Integer)"/></Return>
+</WildMethod>
+<WildMethod ident = "getURL" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Récupération du lien URL vers le fichier">
+<Step ident = "1" weight = "10" description = "Récupération de la variable"/>
+<Return><Parameter ident = "getURL_ret" type = "String" description = "URL du fichier (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "move" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Copie le fichier d&apos;un répertoire vers un autre (nécessairement copie locale) ; supprime le fichier initial">
+<Invokation>
+<Parameter ident = "fileName_OUT" type = "String" description = "Nom du fichier de sortie" />
+<Parameter ident = "keepFile" type = "Boolean" default = "false" description = "Suppression du fichier initial" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "10" description = "Copie des fichiers"/>
+<Step ident = "3" weight = "10" description = "Suppression du fichier"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "move_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Return><Parameter ident = "move_ret" type = "String" description = "Chemin du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "publish" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Déplacement du fichier vers une position où l&apos;URL est publique (accessible sans identification)">
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "10" description = "Copie des fichiers"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "publish_output1" type = "String" description = "URL de sortie (String)"/>
+<Return><Parameter ident = "publish_ret" type = "String" description = "URL de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "replaceValue" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Remplace une valeur dans la totalité du fichier">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "formerValue" type = "Object" description = "Valeur à remplacer" />
+<Parameter ident = "newValue" type = "Object" description = "Valeur de remplacement" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "replaceValue_output1" type = "Integer" description = "Nombre de remplacements (Integer)"/>
+</WildMethod>
+<WildMethod ident = "replaceValueFilterBy" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Remplace une valeur dans l&apos;emprise indiquée">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "formerValue" type = "Object" description = "Valeur à remplacer" />
+<Parameter ident = "newValue" type = "Object" description = "Valeur de remplacement" />
+<Parameter ident = "enrContents" type = "HashMap&lt;String,Object&gt;" description = "Nouvel enregistrement, sous forme de Map" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "50" description = "Parcours du jeu de données avec sélection et réécriture (++)"/>
+<Step ident = "3" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "replaceValueFilterBy_output1" type = "Integer" description = "Nombre de remplacements (Integer)"/>
+</WildMethod>
+<WildMethod ident = "saveAsFlat" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Applatissement du fichier vers un CSV en sortie (WildFlatFile)">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à extraire" />
+<Parameter ident = "pathToFile_OUT" type = "String" description = "Chemin vers le fichier de sortie" />
+</Invokation>
+<Step ident = "1" weight = "20" description = "Cast du WildDataSet (+)"/>
+<Step ident = "2" weight = "10" description = "Création des flux"/>
+<Step ident = "3" weight = "50" description = "Ecriture du fichier (++)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "saveAsFlat_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "setEncoding" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Modifie l&apos;encodage du fichier">
+<Invokation>
+<Parameter ident = "mimeEncoding" type = "String" description = "Nouvel encodage" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Attribution de la variable"/>
+<Step ident = "2" weight = "10" description = "Mise à jour des variables"/>
+<Output ident = "setEncoding_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+</WildMethod>
+<WildMethod ident = "setMetadatas" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Association d&apos;un fichier GMD ou d&apos;une map à un fichier, pour renseignement de métadonnées">
+<Invokation>
+<Parameter ident = "contents_md" type = "String" description = "Contenu GMD à ajouter en tant que métadonnée" />
+</Invokation>
+<Invokation>
+<Parameter ident = "fileGmd_md" type = "WildGmdFile" description = "Fichier Gmd instancié WILD" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Composition de la séquence GMD"/>
+<Step ident = "2" weight = "10" description = "Récupération des identifiants base de données"/>
+<Step ident = "3" weight = "10" description = "Mise à jour de la base de données"/>
+</WildMethod>
+<WildMethod ident = "unpublish" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Suppression du fichier depuis la position où l&apos;URL est publique (accessible sans identification)">
+<Step ident = "1" weight = "10" description = "Création de l&apos;objet JAVA"/>
+<Step ident = "2" weight = "10" description = "Suppression de l&apos;objet"/>
+<Step ident = "3" weight = "10" description = "Contrôle des variables"/>
+<Output ident = "unpublish_output1" type = "String" description = "Chemin du fichier supprimé (String)"/>
+<Return><Parameter ident = "unpublish_ret" type = "String" description = "URL de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "unzip" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Décompression d&apos;un &apos;*.zip&apos; d&apos;un fichier ou d&apos;un répertoire">
+<Invokation>
+<Parameter ident = "fileName_OUT" type = "String" description = "Nom du fichier de sortie" />
+<Parameter ident = "keepFile" type = "Boolean" default = "false" description = "Suppression du fichier initial" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "10" description = "Création de l&apos;archive"/>
+<Step ident = "3" weight = "20" description = "Parcours des entrées et décodage de l&apos;archive (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "unzip_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Return><Parameter ident = "unzip_ret" type = "String" description = "Chemin du fichier de sortie (String)"/></Return>
+</WildMethod>
+<WildMethod ident = "updateFile" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Mise à jour d&apos;un enregistrement (WildDataSet)">
+<Invokation>
+<Parameter ident = "dataSetName" type = "String" default = "1" description = "Nom du dataset à affecter" />
+<Parameter ident = "filtre" type = "HashMap&lt;String,Object&gt;" description = "Motif à reconnaître pour affection (filtre)" />
+<Parameter ident = "newEnr" type = "HashMap&lt;String,Object&gt;" description = "Données à mettre à jour" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Sélection de l&apos;enregistrement"/>
+<Step ident = "2" weight = "10" description = "Mise à jour de l&apos;entrée"/>
+</WildMethod>
+<WildMethod ident = "zip" author ="alexandre.liccardi@onema.fr" update ="Fri Apr 22 00:00:00 CEST 2016" description = "Compression en &apos;*.zip&apos; d&apos;un fichier ou d&apos;un répertoire">
+<Invokation>
+<Parameter ident = "fileName_OUT" type = "String" description = "Nom du fichier de sortie" />
+<Parameter ident = "keepFile" type = "Boolean" default = "false" description = "Suppression du fichier initial" />
+</Invokation>
+<Step ident = "1" weight = "10" description = "Création des flux"/>
+<Step ident = "2" weight = "10" description = "Création de l&apos;archive"/>
+<Step ident = "3" weight = "20" description = "Parcours des entrées et encodage de l&apos;archive (+)"/>
+<Step ident = "4" weight = "10" description = "Contrôle des flux"/>
+<Output ident = "zip_output1" type = "String" description = "Chemin du fichier de sortie (String)"/>
+<Return><Parameter ident = "zip_ret" type = "String" description = "Chemin du fichier de sortie (String)"/></Return>
+</WildMethod>
+</WildObject>

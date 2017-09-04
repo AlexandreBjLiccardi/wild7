@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2015 15:14:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.wild.hibernate.Preference" table="preference">
+        <id name="idPreference" type="int">
+            <column name="id_preference" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="varType" class="fr.wild.hibernate.VarType" fetch="select">
+            <column name="id_var_type" />
+        </many-to-one>
+        <many-to-one name="adminLevel" class="fr.wild.hibernate.AdminLevel" fetch="select">
+            <column name="id_admin_level" />
+        </many-to-one>
+        <many-to-one name="preferencesGroup" class="fr.wild.hibernate.PreferencesGroup" fetch="select">
+            <column name="id_preferences_group" />
+        </many-to-one>
+        <property name="preferenceName" type="string">
+            <column name="preference_name" not-null="true" unique="true" />
+        </property>
+        <property name="preferenceDescription" type="string">
+            <column name="preference_description" />
+        </property>
+        <property name="defaultValue" type="string">
+            <column name="default_value" />
+        </property>
+        <property name="availablesValues" type="fr.wild.hibernate.SQLArrayType">
+            <column name="availables_values" />
+        </property>
+        <property name="activated" type="java.lang.Boolean">
+            <column name="activated" />
+        </property>
+        <set name="usersPreferences" table="users_preference" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_preference" not-null="true" />
+            </key>
+            <one-to-many class="fr.wild.hibernate.UsersPreference" />
+        </set>
+    </class>
+</hibernate-mapping>

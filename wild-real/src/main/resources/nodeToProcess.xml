@@ -1,0 +1,11 @@
+<WildObject ident = "real.WildCsvFile">Fichier à contrôler
+		<Invokation>
+			<Parameter ident = "xmlFilePath" useAs = "pathToFile"/>
+		</Invokation>
+		<WildMethod ident = "testStructure">
+			<Invokation>
+				<Parameter ident = "xsd_transformer" useAs = "xsd_transformer"/>
+				<Parameter ident = "testStructure_resultReceiver" useAs = "testStructure_resultReceiver"/>
+			</Invokation>
+		</WildMethod>
+</WildObject>
